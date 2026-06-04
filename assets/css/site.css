@@ -484,3 +484,69 @@ main { display: block; }
   font-size: var(--fs-meta);
   color: var(--text-secondary);
 }
+
+/* --- Built in Canada · AI for All ---------------------------------------- */
+.canada {
+  background:
+    radial-gradient(110% 90% at 50% 0%, var(--brand-50) 0%, rgba(244, 241, 254, 0) 62%),
+    var(--bg-start);
+}
+.canada__eyebrow { display: inline-flex; align-items: center; gap: 6px; }
+.canada__leaf { font-size: 1em; line-height: 1; filter: saturate(1.05); }
+.canada__quote {
+  max-width: 640px;
+  margin: var(--space-10) auto var(--space-12);
+  text-align: center;
+}
+.canada__quote blockquote {
+  font-size: clamp(1.3rem, 1.05rem + 1.1vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.canada__quote figcaption {
+  margin-top: var(--space-4);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  color: var(--brand-ink);
+}
+.canada__grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+}
+.canada__card { background: var(--surface); border: 1px solid var(--line); }
+.canada__k {
+  display: block;
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--brand-ink);
+  margin-bottom: var(--space-3);
+}
+.canada__note {
+  max-width: 680px;
+  margin: var(--space-10) auto 0;
+  text-align: center;
+  font-size: var(--fs-chip);
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+.canada__note a {
+  color: var(--brand-ink);
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.footer__canada {
+  margin-top: var(--space-4);
+  font-size: var(--fs-chip);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+@media (min-width: 860px) {
+  .canada__grid { grid-template-columns: repeat(3, 1fr); }
+}
