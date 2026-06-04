@@ -19,6 +19,7 @@
       "nav.privacy": "Privacy",
       "nav.how": "How it works",
       "nav.faq": "FAQ",
+      "nav.canada": "Canada",
       "nav.notify": "Notify me",
       "nav.menu": "Open menu",
 
@@ -260,6 +261,7 @@
       "nav.privacy": "隐私",
       "nav.how": "怎么用",
       "nav.faq": "常见问题",
+      "nav.canada": "加拿大",
       "nav.notify": "通知我",
       "nav.menu": "打开菜单",
 
