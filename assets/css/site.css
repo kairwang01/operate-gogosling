@@ -584,6 +584,24 @@ main { display: block; }
   font-weight: 600;
   color: var(--text-secondary);
 }
+.canada__grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface);
+}
+.canada__card {
+  background: var(--surface);
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--line);
+  padding: var(--space-6);
+  box-shadow: none;
+}
+.canada__card:last-child { border-bottom: 0; }
 @media (min-width: 860px) {
   .canada__grid { grid-template-columns: repeat(3, 1fr); }
   .canada__card { border-bottom: 0; border-inline-end: 1px solid var(--line); }
