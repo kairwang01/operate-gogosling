@@ -107,11 +107,48 @@
           '<p class="footer__disclaimer" data-i18n="foot.healthFull">Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition. Always consult a qualified clinician for medical decisions, and call your local emergency number in an emergency.</p>' +
           '<div class="footer__legal-row">' +
             '<span data-i18n="foot.copyright">© 2026 Go!Gosling. All rights reserved.</span>' +
+            '<button type="button" class="footer__cookie-btn" data-cookie-reopen data-i18n="foot.cookies">Cookie settings</button>' +
             '<span data-i18n="foot.madeWith">Designed for privacy. Built for iPhone.</span>' +
           '</div>' +
         '</div>' +
       '</div>' +
     '</footer>';
+
+  var COOKIE_BANNER = '' +
+    '<div class="cookie-banner" data-cookie-banner role="region" aria-labelledby="cookie-banner-title" hidden>' +
+      '<div class="cookie-banner__inner container">' +
+        '<div class="cookie-banner__copy">' +
+          '<p class="cookie-banner__title" id="cookie-banner-title" data-i18n="cookies.title">Cookies on this site</p>' +
+          '<p class="cookie-banner__desc" id="cookie-banner-desc" data-i18n-html="cookies.body">' +
+            'We use essential browser storage on <strong>gogosling.ca</strong> to remember your language and this notice. ' +
+            'We do not use advertising or cross-site tracking cookies. ' +
+            '<a href="privacy-policy.html#cookies">Privacy Policy</a>.' +
+          '</p>' +
+        '</div>' +
+        '<div class="cookie-banner__actions">' +
+          '<button type="button" class="btn btn--ghost" data-cookie-essential data-i18n="cookies.essential">Essential only</button>' +
+          '<button type="button" class="btn btn--primary" data-cookie-accept data-i18n="cookies.accept">Accept</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+
+  window.GOSLING_RENDER_COOKIE_BANNER = function (forceOpen) {
+    var existing = document.querySelector("[data-cookie-banner]");
+    if (existing) {
+      if (forceOpen) {
+        existing.removeAttribute("hidden");
+        existing.classList.add("is-open");
+        document.body.classList.add("has-cookie-banner");
+      }
+      return existing;
+    }
+    document.body.insertAdjacentHTML("beforeend", COOKIE_BANNER);
+    var banner = document.querySelector("[data-cookie-banner]");
+    if (banner && typeof document.dispatchEvent === "function") {
+      document.dispatchEvent(new CustomEvent("gosling:chrome-cookies"));
+    }
+    return banner;
+  };
 
   function inject(id, html) {
     var el = document.getElementById(id);
@@ -119,4 +156,5 @@
   }
   inject("site-header", HEADER);
   inject("site-footer", FOOTER);
+  window.GOSLING_RENDER_COOKIE_BANNER(false);
 })();

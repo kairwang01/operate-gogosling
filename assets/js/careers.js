@@ -19,7 +19,18 @@
       emptyBody: "We're always glad to meet thoughtful people. Tell us why you'd be a great fit at " ,
       open: "Open roles",
       apply: "Apply",
-      details: "Details",
+      applyAria: "Apply for this role",
+      details: "View role details",
+      noFile: "No file chosen",
+      chooseFile: "Choose file",
+      applyEyebrow: "Application",
+      sectionContact: "Contact",
+      sectionLinks: "Links (optional)",
+      sectionAbout: "About you",
+      messagePh: "What excites you about Go!Gosling?",
+      privacyPolicy: "Privacy Policy",
+      close: "Close",
+      inquiryBtn: "Email careers@gogosling.ca",
       responsibilities: "What you'll do",
       requirements: "What we're looking for",
       nice: "Nice to have",
@@ -54,7 +65,18 @@
       emptyBody: "我们始终乐于结识用心的人。欢迎来信告诉我们你为什么适合 ",
       open: "在招岗位",
       apply: "申请",
-      details: "详情",
+      applyAria: "申请该岗位",
+      details: "查看岗位详情",
+      noFile: "未选择文件",
+      chooseFile: "选择文件",
+      applyEyebrow: "职位申请",
+      sectionContact: "联系方式",
+      sectionLinks: "链接（选填）",
+      sectionAbout: "关于你",
+      messagePh: "是什么让你对 Go!Gosling 心动？",
+      privacyPolicy: "隐私政策",
+      close: "关闭",
+      inquiryBtn: "发送邮件至 careers@gogosling.ca",
       responsibilities: "你将负责",
       requirements: "我们期待",
       nice: "加分项",
@@ -89,7 +111,18 @@
       emptyBody: "Nous sommes toujours heureux de rencontrer des personnes réfléchies. Dites-nous pourquoi vous seriez un bon fit chez ",
       open: "Postes ouverts",
       apply: "Postuler",
-      details: "Détails",
+      applyAria: "Postuler pour ce poste",
+      details: "Voir les détails du poste",
+      noFile: "Aucun fichier",
+      chooseFile: "Choisir un fichier",
+      applyEyebrow: "Candidature",
+      sectionContact: "Coordonnées",
+      sectionLinks: "Liens (facultatif)",
+      sectionAbout: "À propos de vous",
+      messagePh: "Qu'est-ce qui vous attire chez Go!Gosling?",
+      privacyPolicy: "Politique de confidentialité",
+      close: "Fermer",
+      inquiryBtn: "Écrire à careers@gogosling.ca",
       responsibilities: "Ce que vous ferez",
       requirements: "Ce que nous recherchons",
       nice: "Atouts",
@@ -135,6 +168,14 @@
     var parts = [esc(j.location), t("type_" + j.employmentType), t("mode_" + j.workMode)].filter(Boolean);
     return parts.join(" · ");
   }
+  function jobTags(j) {
+    var tags = [];
+    if (j.team) tags.push('<span class="job-card__tag">' + esc(j.team) + "</span>");
+    if (j.employmentType) tags.push('<span class="job-card__tag">' + esc(t("type_" + j.employmentType)) + "</span>");
+    if (j.workMode) tags.push('<span class="job-card__tag job-card__tag--muted">' + esc(t("mode_" + j.workMode)) + "</span>");
+    return tags.length ? '<div class="job-card__tags">' + tags.join("") + "</div>" : "";
+  }
+  var APPLY_ICON = '<svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
   function list(items) {
     if (!items || !items.length) return "";
     return "<ul>" + items.map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul>";
@@ -145,23 +186,29 @@
     if (!wrap) return;
     if (!jobs.length) {
       wrap.innerHTML =
-        '<div class="jobs-empty"><h3>' + esc(t("emptyTitle")) + '</h3><p>' + esc(t("emptyBody")) +
-        '<a href="mailto:' + CAREERS_EMAIL + '">' + CAREERS_EMAIL + '</a>.</p></div>';
+        '<div class="jobs-empty">' +
+          '<h3>' + esc(t("emptyTitle")) + '</h3>' +
+          '<p>' + esc(t("emptyBody")) + '<a href="mailto:' + CAREERS_EMAIL + '">' + CAREERS_EMAIL + '</a>.</p>' +
+          '<a class="btn btn--primary btn--lg" href="mailto:' + CAREERS_EMAIL + '">' + esc(t("inquiryBtn")) + '</a>' +
+        '</div>';
       return;
     }
     wrap.innerHTML = jobs.map(function (j) {
       return '' +
         '<article class="job-card">' +
+          jobTags(j) +
           '<div class="job-card__head">' +
-            '<div>' +
+            '<div class="job-card__intro">' +
               '<h3 class="job-card__title">' + esc(j.title) + '</h3>' +
               '<p class="job-card__meta">' + jobMeta(j) + '</p>' +
             '</div>' +
-            '<button type="button" class="btn btn--primary job-card__apply" data-apply="' + esc(j.slug) + '">' + esc(t("apply")) + '</button>' +
+            '<button type="button" class="btn btn--primary job-card__apply" data-apply="' + esc(j.slug) + '" aria-label="' + esc(t("applyAria") + " — " + j.title) + '">' +
+              esc(t("apply")) + APPLY_ICON +
+            '</button>' +
           '</div>' +
           '<p class="job-card__summary">' + esc(j.summary) + '</p>' +
           '<details class="job-card__details">' +
-            '<summary>' + esc(t("details")) + '</summary>' +
+            '<summary><span>' + esc(t("details")) + '</span></summary>' +
             '<div class="job-card__body">' +
               (j.descriptionMd ? '<p>' + esc(j.descriptionMd) + '</p>' : "") +
               (j.responsibilities && j.responsibilities.length ? '<h4>' + esc(t("responsibilities")) + '</h4>' + list(j.responsibilities) : "") +
@@ -187,6 +234,12 @@
     dlg.querySelector('input[name="jobSlug"]').value = slug;
     var form = dlg.querySelector("form");
     form.hidden = false;
+    form.reset();
+    dlg.querySelector('input[name="jobSlug"]').value = slug;
+    var resumeName = dlg.querySelector("[data-resume-name]");
+    if (resumeName) resumeName.textContent = t("noFile");
+    var errBox = dlg.querySelector("[data-apply-error]");
+    if (errBox) errBox.hidden = true;
     var done = dlg.querySelector("[data-apply-done]");
     if (done) done.hidden = true;
     relabel(dlg);
@@ -211,6 +264,15 @@
     dlg.querySelectorAll("[data-apply-close]").forEach(function (b) {
       b.addEventListener("click", function () { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); });
     });
+    var resumeInput = dlg.querySelector("#resume-input");
+    var resumeName = dlg.querySelector("[data-resume-name]");
+    if (resumeInput && resumeName) {
+      resumeInput.addEventListener("change", function () {
+        var f = resumeInput.files && resumeInput.files[0];
+        resumeName.textContent = f ? f.name : t("noFile");
+        resumeName.classList.toggle("is-set", !!f);
+      });
+    }
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var fd = new FormData(form);
@@ -223,12 +285,18 @@
       if (API) {
         fd.set("consent", "true");
         var btn = form.querySelector('button[type="submit"]');
-        var label = btn.textContent; btn.disabled = true; btn.textContent = t("sending");
+        var labelEl = btn.querySelector("[data-c=\"submit\"]");
+        var label = labelEl ? labelEl.textContent : btn.textContent;
+        btn.disabled = true;
+        if (labelEl) labelEl.textContent = t("sending");
         fetch(API + "/api/careers/applications", { method: "POST", body: fd })
           .then(function (r) { if (!r.ok) throw new Error("bad"); return r.json(); })
           .then(function () { success(t("okTitle"), t("okBody")); })
           .catch(function () { err("errSend"); })
-          .then(function () { btn.disabled = false; btn.textContent = label; });
+          .then(function () {
+            btn.disabled = false;
+            if (labelEl) labelEl.textContent = label;
+          });
       } else {
         // No backend yet → graceful email fallback.
         var role = dlg.querySelector("[data-apply-role]").textContent;

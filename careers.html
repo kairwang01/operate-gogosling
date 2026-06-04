@@ -32,12 +32,24 @@
       </div>
     </section>
 
-    <section class="section section--inset">
+    <section class="section section--inset careers-roles">
       <div class="container">
-        <div class="sec-head"><h2 class="section-title" data-i18n="careers.openTitle">Open roles</h2></div>
+        <div class="careers-roles__head sec-head">
+          <h2 class="section-title" data-i18n="careers.openTitle">Open roles</h2>
+          <p class="careers-roles__hint" data-i18n="careers.rolesHint">Select a role to open the application form — résumé upload, optional links, and consent in one step.</p>
+        </div>
         <div id="jobs-list" class="jobs-list" aria-live="polite">
           <p class="jobs-loading" data-c="loading">Loading open roles…</p>
         </div>
+        <aside class="careers-inquiry reveal">
+          <div class="careers-inquiry__inner">
+            <div>
+              <h3 class="careers-inquiry__title" data-i18n="careers.inquiryTitle">Don't see your role?</h3>
+              <p class="careers-inquiry__body" data-i18n="careers.inquiryBody">We're always open to thoughtful builders. Send your résumé and a short note — we'll read every message.</p>
+            </div>
+            <a class="btn btn--ghost btn--lg careers-inquiry__btn" href="mailto:careers@gogosling.ca" data-i18n="careers.inquiryBtn">Email careers@gogosling.ca</a>
+          </div>
+        </aside>
       </div>
     </section>
   </main>
@@ -45,37 +57,77 @@
   <!-- Application dialog -->
   <dialog id="apply-dialog" class="apply-dialog" aria-labelledby="apply-heading">
     <div class="apply-dialog__inner">
-      <button type="button" class="apply-dialog__x" data-apply-close aria-label="Close">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
-      </button>
-      <h2 id="apply-heading" class="apply-dialog__title"><span data-c="applyFor">Apply for</span> <span data-apply-role></span></h2>
+      <header class="apply-dialog__header">
+        <div class="apply-dialog__headcopy">
+          <p class="apply-dialog__eyebrow" data-c="applyEyebrow">Application</p>
+          <h2 id="apply-heading" class="apply-dialog__title">
+            <span class="apply-dialog__for" data-c="applyFor">Apply for</span>
+            <span class="apply-dialog__role" data-apply-role></span>
+          </h2>
+        </div>
+        <button type="button" class="apply-dialog__x" data-apply-close data-i18n-attr="aria-label:careers.closeDialog" aria-label="Close">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </header>
 
-      <form novalidate>
+      <form class="apply-form" novalidate>
         <input type="hidden" name="jobSlug" value="" />
         <div class="hp" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
 
-        <label class="field-row"><span data-c="name">Full name</span><input type="text" name="applicantName" required autocomplete="name" /></label>
-        <label class="field-row"><span data-c="email">Email</span><input type="email" name="email" required autocomplete="email" /></label>
-        <label class="field-row"><span data-c="phone">Phone (optional)</span><input type="tel" name="phone" autocomplete="tel" /></label>
-        <label class="field-row"><span data-c="portfolio">Portfolio / website (optional)</span><input type="url" name="portfolio" inputmode="url" /></label>
-        <label class="field-row"><span data-c="linkedin">LinkedIn (optional)</span><input type="url" name="linkedin" inputmode="url" /></label>
-        <label class="field-row"><span data-c="github">GitHub (optional)</span><input type="url" name="github" inputmode="url" /></label>
-        <label class="field-row"><span data-c="message">Why Go!Gosling? (optional)</span><textarea name="coverMessage" rows="4"></textarea></label>
-        <label class="field-row"><span data-c="resume">Résumé (PDF/DOC, max 8MB)</span><input type="file" name="resume" accept=".pdf,.doc,.docx" /></label>
-        <label class="field-check"><input type="checkbox" name="consent" required /><span data-c="consent">I agree that Go!Gosling may store this information to process my application.</span></label>
+        <fieldset class="apply-form__section">
+          <legend class="apply-form__legend" data-c="sectionContact">Contact</legend>
+          <div class="apply-form__grid apply-form__grid--2">
+            <label class="field-row"><span data-c="name">Full name</span><input type="text" name="applicantName" required autocomplete="name" /></label>
+            <label class="field-row"><span data-c="email">Email</span><input type="email" name="email" required autocomplete="email" /></label>
+          </div>
+          <label class="field-row"><span data-c="phone">Phone (optional)</span><input type="tel" name="phone" autocomplete="tel" /></label>
+        </fieldset>
 
-        <p class="apply-error" data-apply-error hidden></p>
+        <fieldset class="apply-form__section">
+          <legend class="apply-form__legend" data-c="sectionLinks">Links (optional)</legend>
+          <div class="apply-form__grid apply-form__grid--2">
+            <label class="field-row"><span data-c="portfolio">Portfolio / website</span><input type="url" name="portfolio" inputmode="url" placeholder="https://" /></label>
+            <label class="field-row"><span data-c="linkedin">LinkedIn</span><input type="url" name="linkedin" inputmode="url" placeholder="https://" /></label>
+          </div>
+          <label class="field-row"><span data-c="github">GitHub</span><input type="url" name="github" inputmode="url" placeholder="https://" /></label>
+        </fieldset>
+
+        <fieldset class="apply-form__section">
+          <legend class="apply-form__legend" data-c="sectionAbout">About you</legend>
+          <label class="field-row"><span data-c="message">Why Go!Gosling?</span><textarea name="coverMessage" rows="4" data-c-ph="messagePh"></textarea></label>
+          <div class="field-row field-row--file">
+            <span class="field-row__label" data-c="resume">Résumé (PDF/DOC, max 8MB)</span>
+            <div class="file-upload">
+              <input class="file-upload__input" type="file" id="resume-input" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword" />
+              <label class="file-upload__trigger btn btn--ghost" for="resume-input" data-c="chooseFile">Choose file</label>
+              <span class="file-upload__name" data-resume-name data-c="noFile">No file chosen</span>
+            </div>
+          </div>
+        </fieldset>
+
+        <label class="field-check apply-consent">
+          <input type="checkbox" name="consent" required />
+          <span><span data-c="consent">I agree that Go!Gosling may store this information to process my application.</span>
+            <a href="privacy-policy.html" class="apply-consent__link" data-c="privacyPolicy">Privacy Policy</a>.</span>
+        </label>
+
+        <p class="apply-error" data-apply-error hidden role="alert"></p>
         <div class="apply-actions">
           <button type="button" class="btn btn--ghost" data-apply-close data-c="cancel">Cancel</button>
-          <button type="submit" class="btn btn--primary" data-c="submit">Submit application</button>
+          <button type="submit" class="btn btn--primary btn--lg apply-actions__submit">
+            <span data-c="submit">Submit application</span>
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
         </div>
       </form>
 
       <div class="apply-done" data-apply-done hidden>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+        <div class="apply-done__badge" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+        </div>
         <h3 data-done-title>Thanks — application received.</h3>
         <p data-done-body>We'll be in touch.</p>
-        <button type="button" class="btn btn--ghost" data-apply-close data-c="cancel">Cancel</button>
+        <button type="button" class="btn btn--primary btn--lg" data-apply-close data-c="close">Close</button>
       </div>
     </div>
   </dialog>
@@ -88,6 +140,7 @@
   <script src="assets/js/chrome.js"></script>
   <script src="assets/js/i18n-fr.js"></script>
   <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/cookies.js"></script>
   <script src="assets/js/main.js"></script>
   <script src="assets/js/careers.js"></script>
 </body>

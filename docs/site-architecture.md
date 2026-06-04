@@ -33,7 +33,7 @@
 - **DRY chrome.** The header and footer are identical on every page, so they live in **one** JavaScript module (`chrome.js`) that injects into placeholders — edit nav/footer once, every page updates.
 - **Content is grounded, not invented.** Marketing copy mirrors the app's shipped strings and contracts (see `README.md` → "Content sources of truth"). Visual tokens mirror the app's frozen `Contracts/Design/design-system-v1.md`.
 - **Progressive enhancement.** Pages are fully readable with JS disabled; JS only adds behavior (nav state, scroll reveal, accordion, forms, language toggle). English ships as crawlable default text in the HTML.
-- **Privacy-first.** No web fonts, no frameworks, no trackers, no analytics by default. System font stack only.
+- **Privacy-first.** No web fonts, no frameworks, no trackers, no analytics by default. System font stack only. **Cookie banner** (`assets/js/cookies.js`) records essential storage consent (`gosling-consent`); see `privacy-policy.html#cookies` and `docs/privacy-compliance-review.md`.
 
 ---
 
