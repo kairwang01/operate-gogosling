@@ -3,9 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title data-i18n="meta.title">Go!Gosling — Say it. It's handled.</title>
+  <title data-i18n="meta.title">Go!Gosling — Canadian AI Company · Say it. It's handled.</title>
   <meta name="description" data-i18n-attr="content:meta.desc"
-        content="Go!Gosling turns what you say into action — chat, health, recipes, routes, search, media, and store, all from one conversation. Your Apple Health data stays on your iPhone. Coming soon on iPhone." />
+        content="Go!Gosling is a Canadian AI company building a private, on-device AI assistant for iPhone. Say what you want and it's handled — chat, health, and routes from one conversation. Your Apple Health data stays on your device. Coming soon." />
+  <meta name="keywords" content="Canadian AI company, AI company Canada, on-device AI, privacy-first AI assistant, iPhone AI assistant, Ontario AI startup, personal AI, Go!Gosling" />
+  <meta name="author" content="Go!Gosling" />
+  <meta name="geo.region" content="CA-ON" />
+  <meta name="geo.placename" content="Ontario, Canada" />
   <link rel="canonical" href="https://gogosling.ca/" />
   <link rel="alternate" hreflang="en" href="https://gogosling.ca/" />
   <link rel="alternate" hreflang="fr" href="https://gogosling.ca/" />
@@ -21,15 +25,15 @@
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Go!Gosling" />
-  <meta property="og:title" content="Go!Gosling — Say it. It's handled." />
-  <meta property="og:description" content="Describe what you want. Go!Gosling turns it into action — chat, health, recipes, routes, search, media, and store, from one conversation. Health stays on your iPhone." />
+  <meta property="og:title" content="Go!Gosling — Canadian AI Company" />
+  <meta property="og:description" content="A Canadian AI company building a private, on-device AI assistant for iPhone. Describe what you want and it's handled — chat, health, and routes from one conversation. Your Apple Health data stays on your device." />
   <meta property="og:url" content="https://gogosling.ca/" />
   <meta property="og:image" content="https://gogosling.ca/assets/img/og-image.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Go!Gosling — Say it. It's handled." />
-  <meta name="twitter:description" content="Go!Gosling turns what you say into action on iPhone — chat, health, recipes, routes, search, media, and store. Your Apple Health data stays on device." />
+  <meta name="twitter:title" content="Go!Gosling — Canadian AI Company" />
+  <meta name="twitter:description" content="A Canadian AI company building a private, on-device AI assistant for iPhone. Say it and it's handled — chat, health, and routes. Your Apple Health data stays on device." />
   <meta name="twitter:image" content="https://gogosling.ca/assets/img/og-image.png" />
 
   <link rel="stylesheet" href="assets/css/tokens.css" />
@@ -40,14 +44,53 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Go!Gosling",
-    "url": "https://gogosling.ca/",
-    "logo": "https://gogosling.ca/assets/img/icon-512.png",
-    "description": "Go!Gosling is a Canadian company. It turns what you say into action on iPhone, and your Apple Health data is processed on-device and never leaves your phone.",
-    "foundingLocation": { "@type": "Country", "name": "Canada" },
-    "address": { "@type": "PostalAddress", "addressCountry": "CA" },
-    "sameAs": []
+    "@graph": [
+      {
+        "@type": ["Organization", "Corporation"],
+        "@id": "https://gogosling.ca/#organization",
+        "name": "Go!Gosling",
+        "alternateName": "Go Gosling",
+        "url": "https://gogosling.ca/",
+        "logo": "https://gogosling.ca/assets/img/icon-512.png",
+        "image": "https://gogosling.ca/assets/img/og-image.png",
+        "description": "Go!Gosling is a Canadian AI company building a private, on-device AI assistant for iPhone. It turns what you say into action — chat, health, and routes from one conversation — and your Apple Health data is processed on-device and never leaves your phone.",
+        "slogan": "Say it. It's handled.",
+        "foundingDate": "2026",
+        "foundingLocation": {
+          "@type": "Place",
+          "address": { "@type": "PostalAddress", "addressRegion": "Ontario", "addressCountry": "CA" }
+        },
+        "address": { "@type": "PostalAddress", "addressRegion": "ON", "addressCountry": "CA" },
+        "areaServed": { "@type": "Country", "name": "Canada" },
+        "knowsAbout": [
+          "Artificial Intelligence",
+          "On-device AI",
+          "Privacy-first AI",
+          "Personal AI assistant",
+          "iPhone apps",
+          "Apple Health"
+        ],
+        "keywords": "Canadian AI company, artificial intelligence, on-device AI, privacy-first AI, iPhone AI assistant, Ontario AI startup",
+        "sameAs": []
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://gogosling.ca/#website",
+        "url": "https://gogosling.ca/",
+        "name": "Go!Gosling",
+        "publisher": { "@id": "https://gogosling.ca/#organization" },
+        "inLanguage": ["en", "fr", "zh-Hans"]
+      },
+      {
+        "@type": "SoftwareApplication",
+        "name": "Go!Gosling",
+        "operatingSystem": "iOS",
+        "applicationCategory": "ProductivityApplication",
+        "description": "A private, on-device AI assistant for iPhone from a Canadian AI company. Say what you want and it's handled — chat, health, and routes from one conversation.",
+        "publisher": { "@id": "https://gogosling.ca/#organization" },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CAD" }
+      }
+    ]
   }
   </script>
 </head>
@@ -68,8 +111,8 @@
 
         <p class="hero__app" data-i18n="hero.app">Go!Gosling · Coming soon · iPhone</p>
         <h1 class="display" data-i18n="hero.title">Say it. It's handled.</h1>
-        <p class="lead hero__lead" data-i18n="hero.lead">Go!Gosling turns what you say into action.</p>
-        <p class="hero__tagline" data-i18n="hero.tagline">You talk. Go!Gosling understands. Things happen.</p>
+        <p class="lead hero__lead" data-i18n="hero.lead">Your personal AI for chat, health, and routes — running entirely on your iPhone, so your life stays yours.</p>
+        <p class="hero__tagline" data-i18n="hero.tagline">You talk. Go!Gosling understands. It gets done.</p>
         <a class="hero__pmquote" href="canada.html" data-i18n="hero.pmquote">“AI that builds Canada strong for all.” — PM Mark Carney, AI for All</a>
 
         <div class="hero__actions" id="notify">
