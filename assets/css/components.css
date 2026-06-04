@@ -223,6 +223,10 @@
   transition: color var(--dur-standard), background var(--dur-standard);
 }
 .lang-toggle button[aria-pressed="true"] { background: var(--brand-50); color: var(--brand-ink); }
+.lang-toggle--3 button { padding: 5px 9px; font-size: 0.6875rem; letter-spacing: 0.02em; }
+@media (min-width: 900px) {
+  .lang-toggle--3 button { padding: 5px 10px; font-size: var(--fs-chip); }
+}
 
 /* Mobile menu */
 .nav__menu-btn {

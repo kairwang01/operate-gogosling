@@ -71,7 +71,8 @@ Website/
     │   └── site.css        # Page-level section composition + responsive
     ├── js/
     │   ├── chrome.js       # NEW — injects shared header + footer into placeholders
-    │   ├── i18n.js         # Bilingual (EN / 中文) string table + language toggle
+    │   ├── i18n-fr.js      # French (fr-CA) locale — loaded before i18n.js
+    │   ├── i18n.js         # Trilingual (EN / FR / 中文) string table + language toggle
     │   ├── main.js         # Nav state, scroll-reveal, FAQ accordion, waitlist form
     │   └── careers.js      # NEW — careers page: fetch jobs, render, apply-form POST
     ├── img/                # Icon set, favicons, apple-touch-icon, OG image
@@ -215,12 +216,12 @@ Legal pages (`privacy-policy.html`, `terms.html`) use a simpler "legal" layout (
 
 ## 5. Internationalization (i18n)
 
-The site is **bilingual today (EN / 中文)** via `assets/js/i18n.js`, and we **recommend adding French (FR)** for the Canadian market.
+The site is **trilingual (EN / FR / 中文)** via `assets/js/i18n.js` plus `assets/js/i18n-fr.js`.
 
 ### How it works (as implemented)
 
 - English ships as the **crawlable default text** in the HTML. `i18n.js` holds an `I18N` table (`{ en: {...}, zh: {...} }`) and swaps text to the selected language on load.
-- **Language detection / persistence:** the choice is stored in `localStorage` under the key **`gosling-lang`**; on first visit it respects the browser language (`navigator.language` starting with `zh` → Chinese, else English). `SUPPORTED = ["en", "zh"]`.
+- **Language detection / persistence:** the choice is stored in `localStorage` under the key **`gosling-lang`**; on first visit it respects the browser language (`zh*` → Chinese, `fr*` → French, else English). `SUPPORTED = ["en", "fr", "zh"]`.
 - **Applying translations** — three attribute hooks, all resolved by `applyLang()`:
 
   | Attribute | Effect |
@@ -229,22 +230,23 @@ The site is **bilingual today (EN / 中文)** via `assets/js/i18n.js`, and we **
   | `data-i18n-html="key"` | sets `innerHTML` (use sparingly; for markup like emphasized spans) |
   | `data-i18n-attr="placeholder:key;aria-label:key"` | sets one or more attributes |
 
-- `applyLang(lang)` also sets `document.documentElement.lang` (`en` or `zh-Hans`), updates each `[data-lang-set]` toggle's `aria-pressed`, persists the choice, and dispatches a **`gosling:langchange`** `CustomEvent`. `main.js` listens for that event to recompute the FAQ accordion's open-panel height after the text length changes.
+- `applyLang(lang)` also sets `document.documentElement.lang` (`en`, `fr`, or `zh-Hans`), updates each `[data-lang-set]` toggle's `aria-pressed`, persists the choice, and dispatches a **`gosling:langchange`** `CustomEvent`. `main.js` listens for that event to recompute the FAQ accordion's open-panel height after the text length changes.
 - Public mini-API: `window.GoslingI18n = { apply, t, current }`. `main.js`'s form code uses `GoslingI18n.t("form.success", lang)` to localize dynamically-inserted strings.
 
 ### Keys
 
 Keys are **dot-namespaced by section** (`hero.*`, `priv.*`, `faq.*`, `foot.*`, `pp.*`, `tos.*`, …). When a page splits out of `index.html`, its keys move with it conceptually but stay in the single shared `I18N` table (one table serves all pages). Missing keys fall back to English, then to the raw key string.
 
-### Adding French (recommended)
+### French locale file
 
-1. Add `"fr"` to `SUPPORTED` in `i18n.js`.
-2. Add an `fr: { … }` block to the `I18N` table mirroring every `en` key.
-3. Add a third button to the `.lang-toggle` in `chrome.js`: `<button type="button" data-lang-set="fr" aria-pressed="false">FR</button>`.
-4. Extend `detectLang()` to map `navigator.language` starting with `fr` → `"fr"`.
-5. Map `fr` to `document.documentElement.lang = "fr"` in `applyLang()`.
+- **`assets/js/i18n-fr.js`** defines `window.GOSLING_I18N_FR` (professional **fr-CA** copy). Load it **before** `i18n.js` on every page.
+- `i18n.js` merges it as `I18N.fr`. Missing keys fall back to English.
 
-> Because the toggle and detection are data-driven (`data-lang-set`, `SUPPORTED`), adding a locale is additive — no markup churn beyond the new toggle button and the new string block.
+### Primary navigation pattern (corporate)
+
+- **Header:** ≤6 items — Features, Privacy, How it works, FAQ, About, Careers (`chrome.js` `NAV` array).
+- **Footer:** deeper IA — Gosli (#meet), Built in Canada (#canada), legal links, contact.
+- **Legal pages:** set `window.GOSLING_CHROME_MINIMAL = true` before `chrome.js` for a compact header (full footer + EN/FR/中 still available).
 
 ---
 

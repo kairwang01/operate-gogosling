@@ -82,10 +82,50 @@
       errSend: "提交时出错，请改用邮件联系我们。",
       type_full_time: "全职", type_part_time: "兼职", type_contract: "合同", type_internship: "实习",
       mode_remote: "远程", mode_hybrid: "混合办公", mode_onsite: "坐班"
+    },
+    fr: {
+      loading: "Chargement des postes ouverts…",
+      emptyTitle: "Aucun poste ouvert pour le moment",
+      emptyBody: "Nous sommes toujours heureux de rencontrer des personnes réfléchies. Dites-nous pourquoi vous seriez un bon fit chez ",
+      open: "Postes ouverts",
+      apply: "Postuler",
+      details: "Détails",
+      responsibilities: "Ce que vous ferez",
+      requirements: "Ce que nous recherchons",
+      nice: "Atouts",
+      comp: "Rémunération",
+      applyFor: "Postuler pour",
+      name: "Nom complet",
+      email: "Courriel",
+      phone: "Téléphone (facultatif)",
+      portfolio: "Portfolio / site web (facultatif)",
+      linkedin: "LinkedIn (facultatif)",
+      github: "GitHub (facultatif)",
+      message: "Pourquoi Go!Gosling? (facultatif)",
+      resume: "CV (PDF/DOC, max. 8 Mo)",
+      consent: "J'accepte que Go!Gosling conserve ces renseignements pour traiter ma candidature.",
+      submit: "Soumettre la candidature",
+      cancel: "Annuler",
+      sending: "Envoi en cours…",
+      okTitle: "Merci — candidature reçue.",
+      okBody: "Nous vous contacterons. Tout ce que vous avez partagé reste confidentiel.",
+      softTitle: "Les candidatures en ligne ouvrent au lancement.",
+      softBody: "Nous n'acceptons pas encore les candidatures en ligne. Veuillez envoyer votre CV et une note à ",
+      errName: "Veuillez entrer votre nom.",
+      errEmail: "Veuillez entrer un courriel valide.",
+      errConsent: "Veuillez confirmer votre consentement pour continuer.",
+      errSend: "Une erreur s'est produite. Veuillez nous écrire par courriel.",
+      type_full_time: "Temps plein", type_part_time: "Temps partiel", type_contract: "Contrat", type_internship: "Stage",
+      mode_remote: "À distance", mode_hybrid: "Hybride", mode_onsite: "Sur place"
     }
   };
 
-  function lang() { return (document.documentElement.lang === "zh-Hans") ? "zh" : "en"; }
+  function lang() {
+    var html = document.documentElement.lang;
+    if (html === "zh-Hans") return "zh";
+    if (html === "fr") return "fr";
+    return "en";
+  }
   function t(k) { return (STR[lang()] && STR[lang()][k] != null) ? STR[lang()][k] : STR.en[k]; }
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]; }); }
 

@@ -34,6 +34,10 @@ so the site and the product never drift. See `assets/css/tokens.css`.
 Zero-build static site — semantic HTML + a layered CSS token system + a little
 vanilla JS. Deployable to any static host with no toolchain.
 
+**Languages:** English, French (fr-CA), and Simplified Chinese — toggle in the shared header (`EN` / `FR` / `中`). French strings live in `assets/js/i18n-fr.js`; load order is `chrome.js` → `i18n-fr.js` → `i18n.js` → `main.js`.
+
+**Shared chrome:** `assets/js/chrome.js` injects one corporate header + footer into `#site-header` / `#site-footer` on every page (see `docs/site-architecture.md`).
+
 ```
 Website/
 ├── index.html              # Landing page (all sections)

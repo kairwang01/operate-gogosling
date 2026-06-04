@@ -1,26 +1,24 @@
 /* ==========================================================================
    Go!Gosling — shared site chrome (header + footer)
-   One source of truth for the nav and footer across every page (zero-build,
-   no framework). Each page includes:
-       <div id="site-header"></div> ... <div id="site-footer"></div>
-       <script>window.GOSLING_PAGE = "careers";</script>   // optional, for active state
-       <script src="assets/js/chrome.js"></script>          // BEFORE i18n.js
+   One source of truth for nav + footer (zero-build). Each page:
+       <div id="site-header"></div> … <div id="site-footer"></div>
+       <script>window.GOSLING_PAGE = "careers";</script>   // optional active state
+       <script src="assets/js/chrome.js"></script>          // BEFORE i18n-fr + i18n
+       <script src="assets/js/i18n-fr.js"></script>
        <script src="assets/js/i18n.js"></script>
        <script src="assets/js/main.js"></script>
-   chrome.js injects the markup synchronously, then i18n.js localizes it.
    ========================================================================== */
 (function () {
   "use strict";
 
-  // Nav items. Sections that still live on the home page use index.html#anchor;
-  // dedicated pages use their own URL. (See docs/site-architecture.md.)
+  // Primary nav — keep ≤6 items for a clean corporate header.
+  // "Meet Gosli" (#meet) and "Canada" (#canada) stay on the home page; footer links them.
   var NAV = [
-    { page: "meet",     href: "index.html#meet",     key: "nav.meet",     en: "Gosli" },
     { page: "features", href: "index.html#features", key: "nav.features", en: "Features" },
     { page: "privacy",  href: "index.html#privacy",  key: "nav.privacy",  en: "Privacy" },
-    { page: "canada",   href: "index.html#canada",   key: "nav.canada",   en: "Canada" },
     { page: "how",      href: "index.html#how",      key: "nav.how",      en: "How it works" },
     { page: "faq",      href: "index.html#faq",      key: "nav.faq",      en: "FAQ" },
+    { page: "about",    href: "about.html",          key: "nav.about",    en: "About" },
     { page: "careers",  href: "careers.html",        key: "nav.careers",  en: "Careers" }
   ];
 
@@ -40,10 +38,15 @@
   }
 
   var LANG_TOGGLE = '' +
-    '<div class="lang-toggle" role="group" aria-label="Language">' +
+    '<div class="lang-toggle lang-toggle--3" role="group" aria-label="Language">' +
       '<button type="button" data-lang-set="en" aria-pressed="true">EN</button>' +
+      '<button type="button" data-lang-set="fr" aria-pressed="false">FR</button>' +
       '<button type="button" data-lang-set="zh" aria-pressed="false">中</button>' +
     '</div>';
+
+  var notifyBtn = window.GOSLING_CHROME_MINIMAL
+    ? '<a href="index.html" class="btn btn--ghost" data-i18n="legal.back">Back to home</a>'
+    : '<a href="index.html#notify" class="btn btn--primary" data-i18n="nav.notify">Notify me</a>';
 
   var HEADER = '' +
     '<header class="nav" id="top">' +
@@ -52,7 +55,7 @@
         '<nav class="nav__links" aria-label="Primary">' + navLinks() + '</nav>' +
         '<div class="nav__actions">' +
           LANG_TOGGLE +
-          '<a href="index.html#notify" class="btn btn--primary" data-i18n="nav.notify">Notify me</a>' +
+          notifyBtn +
           '<button class="nav__menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="mobile-menu" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">' +
             '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>' +
           '</button>' +
@@ -61,7 +64,9 @@
     '</header>' +
     '<div class="mobile-menu" id="mobile-menu" data-mobile-menu>' +
       navLinks() +
-      '<a href="index.html#notify" data-i18n="nav.notify">Notify me</a>' +
+      (window.GOSLING_CHROME_MINIMAL
+        ? '<a href="index.html" data-i18n="legal.back">Back to home</a>'
+        : '<a href="index.html#notify" data-i18n="nav.notify">Notify me</a>') +
     '</div>';
 
   function footCol(titleKey, titleEn, items) {
@@ -83,13 +88,14 @@
           '</div>' +
           '<div class="footer__cols">' +
             footCol("foot.product", "Product", [
+              { href: "index.html#meet",     key: "nav.meet",      en: "Gosli" },
               { href: "index.html#features", key: "foot.features", en: "Features" },
               { href: "index.html#privacy",  key: "foot.privacy",  en: "Privacy" },
               { href: "index.html#how",      key: "foot.how",      en: "How it works" },
-              { href: "index.html#canada",   key: "foot.canadaLink", en: "Built in Canada" },
               { href: "index.html#faq",      key: "foot.faq",      en: "FAQ" }
             ]) +
             footCol("foot.company", "Company", [
+              { href: "index.html#canada",   key: "foot.canadaLink", en: "Built in Canada" },
               { href: "about.html",   key: "foot.about",   en: "About" },
               { href: "careers.html", key: "foot.careers", en: "Careers" },
               { href: "mailto:hello@gogosling.ca", key: "foot.contact", en: "Contact" }
@@ -100,8 +106,7 @@
               { href: "index.html#faq", key: "foot.health",     en: "Health disclaimer" }
             ]) +
             footCol("foot.connect", "Connect", [
-              { href: "mailto:hello@gogosling.ca", key: "foot.email", en: "hello@gogosling.ca" },
-              { href: "#", aria: "X (Twitter)", en: "X / Twitter" }
+              { href: "mailto:hello@gogosling.ca", key: "foot.email", en: "hello@gogosling.ca" }
             ]) +
           '</div>' +
         '</div>' +

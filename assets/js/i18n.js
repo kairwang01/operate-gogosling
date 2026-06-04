@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Go!Gosling — Bilingual content layer (EN / 中文)
+   Go!Gosling — Trilingual content layer (EN / FR / 中文)
    The HTML ships with English as crawlable default text; this table swaps
    to the selected language. Keys are grouped by section.
    Apply: textContent via [data-i18n], innerHTML via [data-i18n-html],
@@ -21,6 +21,7 @@
       "nav.faq": "FAQ",
       "nav.canada": "Canada",
       "nav.careers": "Careers",
+      "nav.about": "About",
       "careers.metaTitle": "Careers — Go!Gosling",
       "careers.metaDesc": "Join Go!Gosling — an early-stage AI company in Ontario, Canada building a private, on-device assistant for iPhone. See open roles and apply.",
       "careers.eyebrow": "Careers",
@@ -121,17 +122,17 @@
 
       "cap.soon": "Coming after launch",
       "cap.recipes.title": "Recipes",
-      "cap.recipes.body": "Plan meals, swap ingredients, and remember what you like — all handled right on your iPhone.",
+      "cap.recipes.body": "Planned: plan meals, swap ingredients, and remember what you like — on your iPhone. Not in the first release.",
       "cap.routes.title": "Routes",
-      "cap.routes.body": "Ask for directions or transit. Go!Gosling opens maps and keeps the context in your conversation.",
+      "cap.routes.body": "Ask for directions or transit. Go!Gosling opens Maps and keeps the context in your conversation.",
       "cap.health.title": "Health",
       "cap.health.body": "Private Apple Health insights, processed entirely on your iPhone whenever you ask.",
       "cap.search.title": "Search",
-      "cap.search.body": "Find answers and sources without ever leaving the conversation.",
+      "cap.search.body": "Planned: find answers and sources without leaving the conversation. Not in the first release.",
       "cap.media.title": "Media",
-      "cap.media.body": "Play, queue, or discover — Go!Gosling connects you to the right app.",
+      "cap.media.body": "Planned: play, queue, or discover — connected to the right app. Not in the first release.",
       "cap.store.title": "Store",
-      "cap.store.body": "Services and commerce, handled the moment you're ready to act.",
+      "cap.store.body": "Planned: services and commerce, always behind a confirmation. Not in the first release.",
 
       /* How it works */
       "how.title": "Three steps. That's it.",
@@ -183,8 +184,8 @@
 
       /* Roadmap */
       "road.eyebrow": "The road ahead",
-      "road.title": "v1 ships Chat + Health. More skills unlock over time.",
-      "road.lead": "Go!Gosling is your private conversation space. Launch ships two features — Chat and Health, with health processed on your iPhone; recipes, routes, search, media, and store follow as each becomes ready.",
+      "road.title": "v1 ships Chat, Health & Maps. More skills unlock over time.",
+      "road.lead": "Go!Gosling is your private conversation space. Launch ships Chat, Health, and Maps on your iPhone, with Calendar, Reminders, Contacts, and Siri Shortcuts; recipes, search, media, and store follow as each becomes ready.",
       "road.live": "Available at launch",
       "road.soon": "Planned for later",
       "road.chat": "Chat",
@@ -290,6 +291,8 @@
       "tos.s8.b": "Questions about these Terms? Reach us at hello@gogosling.ca."
     },
 
+    fr: (typeof window !== "undefined" && window.GOSLING_I18N_FR) ? window.GOSLING_I18N_FR : {},
+
     zh: {
       "meta.title": "Go!Gosling — 说一句，就办好。",
       "meta.desc": "Go!Gosling 把你说的话变成行动——聊天、健康、菜谱、路线、搜索、影音、生活服务，全在一次对话里完成。你的 Apple 健康数据只在 iPhone 上处理，绝不离开手机。即将登陆 iPhone。",
@@ -300,6 +303,8 @@
       "nav.faq": "常见问题",
       "nav.canada": "加拿大",
       "nav.careers": "招聘",
+      "nav.about": "关于我们",
+      "nav.meet": "Gosli",
       "careers.metaTitle": "招聘 — Go!Gosling",
       "careers.metaDesc": "加入 Go!Gosling——一家位于加拿大安大略省的早期 AI 公司，为 iPhone 打造私密的端侧助手。查看在招岗位并投递。",
       "careers.eyebrow": "招聘",
@@ -399,17 +404,17 @@
 
       "cap.soon": "发布后推出",
       "cap.recipes.title": "菜谱",
-      "cap.recipes.body": "规划三餐、替换食材、记住你的口味——这些都在你手机上就能完成。",
+      "cap.recipes.body": "规划中：规划三餐、替换食材、记住口味——在 iPhone 上完成。首发版本不含。",
       "cap.routes.title": "路线",
-      "cap.routes.body": "想去哪儿，直接说。Go!Gosling 帮你查路线、看公交，全程不离开对话。",
+      "cap.routes.body": "想去哪儿，直接说。Go!Gosling 打开地图，并在对话里保留上下文。",
       "cap.health.title": "健康",
       "cap.health.body": "问一下今天的步数、心率趋势——你的健康数据只在手机上处理，不出设备。",
       "cap.search.title": "搜索",
-      "cap.search.body": "想查什么直接问，不用跳出聊天。",
+      "cap.search.body": "规划中：在对话里查答案与来源。首发版本不含。",
       "cap.media.title": "影音",
-      "cap.media.body": "想听歌、看视频，告诉 Go!Gosling 就好。",
+      "cap.media.body": "规划中：播放、排队或发现内容。首发版本不含。",
       "cap.store.title": "生活服务",
-      "cap.store.body": "买东西、订服务，Go!Gosling 帮你安排好。",
+      "cap.store.body": "规划中：服务与商业能力，每次操作前都会征求确认。首发版本不含。",
 
       "how.title": "三步，就够了。",
       "how.s1.title": "下载 Go!Gosling",
@@ -458,8 +463,8 @@
       "ca.link": "查看该战略 →",
 
       "road.eyebrow": "未来规划",
-      "road.title": "首批上线聊天和健康。更多功能陆续到来。",
-      "road.lead": "Go!Gosling 是你的私密对话空间。首批上线聊天和健康，健康数据在你手机上处理；菜谱、路线、搜索、影音、生活服务会陆续开放。",
+      "road.title": "v1 首发聊天、健康与地图。更多能力将陆续解锁。",
+      "road.lead": "Go!Gosling 是你的私密对话空间。首发含聊天、健康与地图，并支持日历、提醒事项、通讯录与 Siri 快捷指令；菜谱、搜索、影音、生活服务将随能力就绪逐步开放。",
       "road.live": "首发可用",
       "road.soon": "后续上线",
       "road.chat": "聊天",
@@ -562,7 +567,7 @@
     }
   };
 
-  const SUPPORTED = ["en", "zh"];
+  const SUPPORTED = ["en", "fr", "zh"];
   const STORE_KEY = "gosling-lang";
 
   function detectLang() {
@@ -571,17 +576,27 @@
       if (saved && SUPPORTED.includes(saved)) return saved;
     } catch (e) {}
     const nav = (navigator.language || "en").toLowerCase();
-    return nav.startsWith("zh") ? "zh" : "en";
+    if (nav.startsWith("zh")) return "zh";
+    if (nav.startsWith("fr")) return "fr";
+    return "en";
+  }
+
+  function htmlLang(lang) {
+    if (lang === "zh") return "zh-Hans";
+    if (lang === "fr") return "fr";
+    return "en";
   }
 
   function t(key, lang) {
     const dict = I18N[lang] || I18N.en;
-    return (key in dict) ? dict[key] : (I18N.en[key] != null ? I18N.en[key] : key);
+    if (key in dict) return dict[key];
+    if (lang !== "en" && I18N.en[key] != null) return I18N.en[key];
+    return key;
   }
 
   function applyLang(lang) {
     if (!SUPPORTED.includes(lang)) lang = "en";
-    document.documentElement.lang = (lang === "zh") ? "zh-Hans" : "en";
+    document.documentElement.lang = htmlLang(lang);
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       el.textContent = t(el.getAttribute("data-i18n"), lang);

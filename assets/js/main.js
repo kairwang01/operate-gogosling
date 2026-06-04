@@ -26,6 +26,7 @@
     const setOpen = function (open) {
       mobileMenu.classList.toggle("is-open", open);
       menuBtn.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
     };
     menuBtn.addEventListener("click", function () {
       setOpen(!mobileMenu.classList.contains("is-open"));
@@ -95,8 +96,14 @@
 
   /* --- Waitlist form ---------------------------------------------------- */
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  function pageLang() {
+    const html = document.documentElement.lang;
+    if (html === "zh-Hans") return "zh";
+    if (html === "fr") return "fr";
+    return "en";
+  }
   const t = function (key) {
-    return window.GoslingI18n ? window.GoslingI18n.t(key, document.documentElement.lang === "zh-Hans" ? "zh" : "en") : key;
+    return window.GoslingI18n ? window.GoslingI18n.t(key, pageLang()) : key;
   };
 
   document.querySelectorAll("[data-waitlist]").forEach(function (form) {

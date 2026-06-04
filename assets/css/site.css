@@ -176,6 +176,16 @@ main { display: block; }
   color: var(--text-secondary);
   line-height: 1.6;
 }
+.cap-card__soon {
+  display: inline-block;
+  margin: 2px 0 var(--space-3);
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--bg-end);
+  color: var(--text-secondary);
+  font-size: var(--fs-chip);
+  font-weight: 600;
+}
 .feat-live {
   max-width: 60ch;
   margin: var(--space-5) auto 0;
