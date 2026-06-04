@@ -97,6 +97,131 @@ main { display: block; }
   justify-content: center;
   margin-top: 0;
 }
+.hero__greet {
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-3);
+}
+.hero__prompts {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto var(--space-8);
+  text-align: center;
+}
+.hero__prompts-label {
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+.prompt-chips {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-2);
+}
+.prompt-chip {
+  display: inline-block;
+  padding: 10px 14px;
+  font-size: var(--fs-chip);
+  font-weight: 500;
+  color: var(--text-primary);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  line-height: 1.35;
+  max-width: 100%;
+}
+.hero__prompts-note {
+  margin-top: var(--space-3);
+  font-size: var(--fs-chip);
+  color: var(--text-muted);
+}
+
+/* --- Dual mode (Marvis-style panels, flat) -------------------------------- */
+.home-modes { padding-block: var(--section-y); }
+.mode-duo {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: 1fr;
+  max-width: var(--container-narrow);
+  margin-inline: auto;
+}
+@media (min-width: 720px) {
+  .mode-duo { grid-template-columns: 1fr 1fr; }
+}
+.mode-card {
+  padding: var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+}
+.mode-card--on {
+  border-color: var(--brand-200);
+  background: var(--brand-50);
+}
+.mode-card__tag {
+  display: inline-block;
+  font-size: var(--fs-chip);
+  font-weight: 600;
+  color: var(--brand-ink);
+  margin-bottom: var(--space-3);
+}
+.mode-card__title {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-3);
+}
+.mode-card__body {
+  font-size: var(--fs-meta);
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* --- Scene grid (Yuanbao/Marvis use-case matrix, text-only) --------------- */
+.scene-grid {
+  display: grid;
+  gap: 0;
+  grid-template-columns: 1fr;
+  max-width: var(--container);
+  margin-inline: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--surface);
+  overflow: hidden;
+}
+@media (min-width: 640px) {
+  .scene-grid { grid-template-columns: repeat(2, 1fr); }
+}
+.scene-tile {
+  padding: var(--space-5) var(--space-6);
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.scene-tile:nth-last-child(-n+2) { border-bottom: 0; }
+@media (max-width: 639px) {
+  .scene-tile:last-child { border-bottom: 0; }
+}
+@media (min-width: 640px) {
+  .scene-tile:nth-child(odd) { border-inline-end: 1px solid var(--line); }
+  .scene-tile:nth-child(n+5) { border-bottom: 0; }
+}
+.scene-tile h3 {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+.scene-tile p {
+  font-size: var(--fs-meta);
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
 
 /* --- Capabilities: stacked rows (not icon-card grid) --------------------- */
 .cap-grid {

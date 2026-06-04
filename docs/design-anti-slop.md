@@ -18,6 +18,16 @@ Reference: [Sailop — 7 dimensions of generic design](https://sailop.com/blog/w
 - **Mascot-led hero** without float animation or radial glow
 - **Left-aligned** subpage section intros
 
+## Competitor patterns we borrow (not copy)
+
+| Source | Pattern | Go!Gosling adaptation |
+|--------|---------|------------------------|
+| [腾讯元宝](https://yuanbao.tencent.com/) | Friendly greet + “可以这样问” starter chips | `hero.greet`, `prompt-chips` on home |
+| [腾讯 Marvis](https://marvis.qq.com/) | Dual mode (efficiency vs local/privacy) + life scenarios | `mode-duo`, `scene-grid` on home |
+| Both | Plain language, assistant-not-platform tone | i18n hero/feat/gal copy refresh |
+
+We do **not** use their purple/green palettes, glass cards, or mascot teams — only layout logic and copy rhythm.
+
 ## Files
 
 - Tokens: `assets/css/tokens.css`

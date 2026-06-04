@@ -110,9 +110,21 @@
         </figure>
 
         <p class="hero__app" data-i18n="hero.app">Go!Gosling · Coming soon · iPhone</p>
+        <p class="hero__greet" data-i18n="hero.greet">Hi — I'm Go!Gosling.</p>
         <h1 class="display" data-i18n="hero.title">Say it. It's handled.</h1>
-        <p class="lead hero__lead" data-i18n="hero.lead">Your personal AI for chat, health, and routes — running entirely on your iPhone, so your life stays yours.</p>
-        <p class="hero__tagline" data-i18n="hero.tagline">You talk. Go!Gosling understands. It gets done.</p>
+        <p class="lead hero__lead" data-i18n="hero.lead">Your assistant on iPhone — for chat, health, and routes. Ask in plain language, confirm once, and it's done.</p>
+        <p class="hero__tagline" data-i18n="hero.tagline">You talk. Gosli works on your phone. Your health data never leaves without your say.</p>
+
+        <div class="hero__prompts" aria-label="Example requests">
+          <p class="hero__prompts-label" data-i18n="hero.demo">What can I help with?</p>
+          <ul class="prompt-chips">
+            <li><span class="prompt-chip" data-i18n="home.prompt.1">How did I sleep this week?</span></li>
+            <li><span class="prompt-chip" data-i18n="home.prompt.2">Draft a kind reply to my landlord</span></li>
+            <li><span class="prompt-chip" data-i18n="home.prompt.3">Find a café near me and open Maps</span></li>
+          </ul>
+          <p class="hero__prompts-note" data-i18n="home.prompt.note">Examples from v1 — try them when the app launches.</p>
+        </div>
+
         <a class="hero__pmquote" href="canada.html" data-i18n="hero.pmquote">“AI that builds Canada strong for all.” — PM Mark Carney, AI for All</a>
 
         <div class="hero__actions" id="notify">
@@ -141,7 +153,63 @@
       </div>
     </section>
 
-    <section class="section section--inset home-explore">
+    <section class="section home-modes">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="section-title" data-i18n="home.modes.title">Two ways it runs — you choose</h2>
+          <p class="lead" data-i18n="home.modes.lead">Sensitive work stays on your iPhone. The network is only used when the task needs it — health never does.</p>
+        </div>
+        <div class="mode-duo">
+          <article class="mode-card mode-card--on">
+            <span class="mode-card__tag" data-i18n="home.mode.on.tag">On-device</span>
+            <h3 class="mode-card__title" data-i18n="home.mode.on.title">Stays on your iPhone</h3>
+            <p class="mode-card__body" data-i18n="home.mode.on.body">Chat and Health use Apple Intelligence on your phone. Apple Health data, summaries, and health questions never upload — no ads, no profiling.</p>
+          </article>
+          <article class="mode-card">
+            <span class="mode-card__tag" data-i18n="home.mode.conn.tag">When needed</span>
+            <h3 class="mode-card__title" data-i18n="home.mode.conn.title">Connected for the rest</h3>
+            <p class="mode-card__body" data-i18n="home.mode.conn.body">Maps, local-life suggestions, and optional account features may use our server — still with Allow-Once before anything acts.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--inset home-scenes">
+      <div class="container">
+        <div class="sec-head">
+          <h2 class="section-title" data-i18n="home.scenes.title">Built for everyday moments</h2>
+          <p class="lead" data-i18n="home.scenes.lead">Not a wall of feature icons — real situations where one conversation is enough.</p>
+        </div>
+        <div class="scene-grid">
+          <article class="scene-tile">
+            <h3 data-i18n="home.scene.health.t">Health check-in</h3>
+            <p data-i18n="home.scene.health.b">Sleep, activity, and recovery — read from Apple Health on-device when you ask.</p>
+          </article>
+          <article class="scene-tile">
+            <h3 data-i18n="home.scene.chat.t">Messages &amp; writing</h3>
+            <p data-i18n="home.scene.chat.b">Draft replies, rewrite tone, or summarize — handled locally when it's personal.</p>
+          </article>
+          <article class="scene-tile">
+            <h3 data-i18n="home.scene.routes.t">Places &amp; routes</h3>
+            <p data-i18n="home.scene.routes.b">Ask for directions or a spot nearby — Maps opens with context from the conversation.</p>
+          </article>
+          <article class="scene-tile">
+            <h3 data-i18n="home.scene.memory.t">Memory you allow</h3>
+            <p data-i18n="home.scene.memory.b">Helpful patterns save only after you confirm. Review, pause, or delete anytime.</p>
+          </article>
+          <article class="scene-tile">
+            <h3 data-i18n="home.scene.confirm.t">Always asks first</h3>
+            <p data-i18n="home.scene.confirm.b">Book, send, pay, or share — you see the action and tap Allow once. Every time.</p>
+          </article>
+          <article class="scene-tile">
+            <h3 data-i18n="home.scene.offline.t">Works offline</h3>
+            <p data-i18n="home.scene.offline.b">Core chat and health tasks keep working when you're off the grid — no upload required.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section home-explore">
       <div class="container">
         <div class="sec-head">
           <h2 class="section-title" data-i18n="home.explore.title">Explore Go!Gosling</h2>
