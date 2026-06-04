@@ -28,8 +28,14 @@ Reference: [Sailop — 7 dimensions of generic design](https://sailop.com/blog/w
 
 We do **not** use their purple/green palettes, glass cards, or mascot teams — only layout logic and copy rhythm.
 
+## Mobile
+
+- `assets/css/mobile.css` — phones ≤719px: safe areas, stacked waitlist, full-width chips, 48px tap targets, nav CTA hidden (use hero form), apply dialog sizing.
+- All pages use `viewport-fit=cover` and fluid `clamp()` type.
+
 ## Files
 
 - Tokens: `assets/css/tokens.css`
 - Components: `assets/css/components.css`
 - Layout: `assets/css/site.css`
+- Mobile: `assets/css/mobile.css`

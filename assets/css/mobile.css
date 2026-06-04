@@ -1,0 +1,218 @@
+/* ==========================================================================
+   Go!Gosling — Mobile & small-screen adaptations
+   Loaded after site.css. Targets phones (≤719px) and narrow viewports.
+   ========================================================================== */
+
+@media (max-width: 719px) {
+  :root {
+    --section-y: clamp(56px, 14vw, 88px);
+    --nav-h: 56px;
+  }
+
+  .container {
+    padding-inline: max(var(--space-4), env(safe-area-inset-left))
+      max(var(--space-4), env(safe-area-inset-right));
+  }
+
+  /* --- Nav: room for menu + language; CTA lives in hero on small phones --- */
+  .nav__inner { min-height: var(--nav-h); }
+  .nav__actions > a.btn--primary { display: none; }
+  .lang-toggle--3 button {
+    min-width: 36px;
+    min-height: 36px;
+    padding: 6px 8px;
+  }
+  .nav__menu-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .mobile-menu {
+    padding: var(--space-4) max(var(--space-4), env(safe-area-inset-right))
+      var(--space-5) max(var(--space-4), env(safe-area-inset-left));
+    max-height: calc(100dvh - var(--nav-h));
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mobile-menu a {
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* --- Hero --- */
+  .hero {
+    padding-top: calc(var(--nav-h) + env(safe-area-inset-top, 0px) + clamp(32px, 8vw, 56px));
+    padding-bottom: clamp(48px, 10vw, 72px);
+  }
+  .hero__inner { max-width: 100%; }
+  .hero__greet { font-size: var(--fs-body); }
+  .hero__lead,
+  .hero__tagline { max-width: none; }
+  .hero__pmquote {
+    font-size: var(--fs-chip);
+    line-height: 1.45;
+    max-width: none;
+    padding-inline: var(--space-2);
+    text-wrap: pretty;
+  }
+  .hero__hook {
+    font-size: var(--fs-chip);
+    line-height: 1.5;
+    text-wrap: pretty;
+  }
+  .hero__actions { max-width: 100%; }
+
+  /* Waitlist: stack email + button (Yuanbao-style full-width on phone) */
+  .field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-radius: var(--radius-card);
+  }
+  .field__input {
+    padding: 12px 14px;
+    font-size: 16px; /* avoids iOS zoom on focus */
+  }
+  .field .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+  .form-success { max-width: 100%; }
+  .store-badge {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  /* Example prompts: full-width chips */
+  .hero__prompts { max-width: 100%; }
+  .prompt-chips {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .prompt-chips li { width: 100%; }
+  .prompt-chip {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 12px 14px;
+    font-size: var(--fs-meta);
+  }
+
+  /* Section headings */
+  .sec-head { margin-bottom: var(--space-10); }
+  .sec-head .lead { font-size: var(--fs-body); }
+
+  /* Capability rows: stack title + badge */
+  .cap-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    gap: var(--space-2);
+  }
+  .cap-card h3 { grid-row: 1; }
+  .cap-card__soon {
+    grid-column: 1;
+    grid-row: 2;
+    justify-self: start;
+  }
+  .cap-card p {
+    grid-column: 1;
+    grid-row: 3;
+  }
+
+  /* Home rows & scenes: larger tap targets */
+  .home-row {
+    padding: var(--space-5) max(var(--space-4), env(safe-area-inset-left))
+      var(--space-5) max(var(--space-4), env(safe-area-inset-right));
+    min-height: 48px;
+  }
+  .scene-tile { padding: var(--space-5) var(--space-4); }
+
+  /* FAQ accordion */
+  .accordion__trigger {
+    padding: var(--space-5) 2px;
+    min-height: 48px;
+    font-size: var(--fs-body);
+  }
+
+  /* Careers */
+  .job-card__apply {
+    width: 100%;
+    min-height: 48px;
+  }
+  .careers-inquiry__btn { min-height: 48px; }
+
+  /* Apply dialog */
+  .apply-dialog {
+    width: calc(100% - 2 * max(var(--space-4), env(safe-area-inset-left)));
+    max-height: calc(100dvh - 2 * var(--space-4));
+    margin: auto;
+  }
+  .apply-dialog__inner { max-height: calc(100dvh - 2 * var(--space-4)); }
+  .apply-form__grid--2 { grid-template-columns: 1fr; }
+  .apply-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+  .apply-actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+  .apply-actions__submit { min-width: 0; }
+
+  /* Spotlight: single column, no overflow */
+  .spotlight__panel { padding: var(--space-6) var(--space-4); }
+  .spotlight__stage { width: min(100%, 280px); }
+  .spotlight__feat h3 { font-size: var(--fs-body); }
+
+  /* State gallery: 2 columns on small phones */
+  .state-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .state-tile { padding: var(--space-4) var(--space-3); }
+
+  /* Footer */
+  .footer__cols { grid-template-columns: 1fr; gap: var(--space-6); }
+  .footer__legal-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .footer__disclaimer { font-size: var(--fs-chip); }
+
+  /* Cookie banner */
+  .cookie-banner__inner {
+    padding-inline: max(var(--space-4), env(safe-area-inset-left))
+      max(var(--space-4), env(safe-area-inset-right));
+  }
+  .cookie-banner__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cookie-banner__actions .btn {
+    width: 100%;
+    min-height: 48px;
+  }
+
+  /* Final CTA */
+  .final-cta__inner { padding-inline: var(--space-2); }
+}
+
+/* Very narrow (iPhone SE, small Android) */
+@media (max-width: 380px) {
+  .display { font-size: clamp(2rem, 9vw, 2.5rem); }
+  .logo__word { font-size: 1.15rem; }
+  .lang-toggle--3 button { padding: 6px 6px; font-size: 0.625rem; }
+}
+
+/* Landscape phone: slightly tighter vertical rhythm */
+@media (max-width: 719px) and (max-height: 500px) {
+  .hero {
+    padding-top: calc(var(--nav-h) + 24px);
+    padding-bottom: 32px;
+  }
+  .hero__icon { width: clamp(96px, 18vw, 140px); }
+}
