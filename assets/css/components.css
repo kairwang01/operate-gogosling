@@ -169,6 +169,7 @@
 }
 .store-badge--light svg { color: var(--text-primary); }
 .store-badge svg { width: 26px; height: 26px; flex: none; }
+.store-badge__apple { width: 24px; height: 24px; }
 .store-badge__txt { display: flex; flex-direction: column; line-height: 1.1; text-align: left; }
 .store-badge__small { font-size: 10px; opacity: 0.7; letter-spacing: 0.02em; }
 .store-badge__big { font-size: 18px; font-weight: 600; letter-spacing: -0.01em; }

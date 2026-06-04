@@ -85,6 +85,16 @@ main { display: block; }
   margin-bottom: var(--space-10);
   max-width: 44ch;
 }
+.hero__pmquote {
+  display: inline-block;
+  margin: calc(-1 * var(--space-6)) auto var(--space-8);
+  max-width: 48ch;
+  font-size: var(--fs-chip);
+  line-height: 1.5;
+  color: var(--text-muted);
+  transition: color var(--dur-standard) var(--ease-standard);
+}
+.hero__pmquote:hover { color: var(--brand-ink); }
 .hero__hook {
   font-size: var(--fs-chip);
   font-weight: 600;
@@ -165,6 +175,15 @@ main { display: block; }
   font-size: var(--fs-meta);
   color: var(--text-secondary);
   line-height: 1.6;
+}
+.feat-live {
+  max-width: 60ch;
+  margin: var(--space-5) auto 0;
+  text-align: center;
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  color: var(--brand-ink);
+  line-height: 1.5;
 }
 .cap-disclaimer {
   margin-top: var(--space-10);

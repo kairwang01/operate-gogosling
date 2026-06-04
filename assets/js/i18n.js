@@ -43,6 +43,9 @@
       "hero.note": "Release date to be announced · iPhone · iOS",
       "hero.store.small": "Coming soon to the",
       "hero.store.big": "App Store",
+      "hero.store.tag": "Soon",
+      "hero.store.aria": "Coming soon to the App Store — join the waitlist",
+      "hero.pmquote": "🍁 “AI that builds Canada strong for all.” — PM Mark Carney, AI for All",
 
       /* State gallery (the animated Gosli) */
       "gal.eyebrow": "Meet Gosli",
@@ -80,6 +83,7 @@
 
       "feat.title": "What Go!Gosling can do for you",
       "feat.lead": "One conversation that connects to everything — an AI companion that gets things done, not a chatbot that just replies.",
+      "feat.live": "Live in v1: Chat, Health & Maps — plus Calendar, Reminders & Contacts and Siri Shortcuts, each with Allow-Once confirmation.",
       "feat.health.note": "Health summaries are wellness information, not medical advice. Go!Gosling is not a medical device.",
 
       "cap.soon": "Coming after launch",
@@ -284,6 +288,9 @@
       "hero.note": "发布日期待公布 · iPhone · iOS",
       "hero.store.small": "即将登陆",
       "hero.store.big": "App Store",
+      "hero.store.tag": "即将",
+      "hero.store.aria": "即将登陆 App Store — 加入候补名单",
+      "hero.pmquote": "🍁 「让 AI 惠及每一个人，建设更强大的加拿大。」—— 加拿大总理 马克·卡尼",
 
       /* 动图画廊 */
       "gal.eyebrow": "认识 Gosli",
@@ -321,6 +328,7 @@
 
       "feat.title": "Go!Gosling 能帮你做什么",
       "feat.lead": "一次对话，搞定日常大小事——是真正能帮你做事的伙伴，不是只会聊天的机器人。",
+      "feat.live": "v1 已上线：聊天、健康与地图——还有日历、提醒事项与通讯录，以及 Siri 快捷指令，每次操作都需「允许一次」确认。",
       "feat.health.note": "健康摘要仅供参考，并非医疗建议。Go!Gosling 不是医疗设备。",
 
       "cap.soon": "发布后推出",
