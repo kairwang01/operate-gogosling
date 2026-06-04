@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   window.GOSLING_I18N_FR = {
-    "meta.title": "Go!Gosling — Dites-le. C'est réglé.",
+    "meta.title": "Go!Gosling — Entreprise canadienne d'IA · Dites-le. C'est réglé.",
     "home.explore.title": "Explorer Go!Gosling",
     "home.explore.lead": "Tout ce qu'il faut savoir — produit, confidentialité et ancrage au Canada.",
     "home.card.more": "En savoir plus →",
@@ -32,7 +32,7 @@
     "faq.metaDesc": "Questions fréquentes sur Go!Gosling — confidentialité, lancement, tarification et plus.",
     "form.sendError": "Impossible de rejoindre la liste pour le moment. Veuillez réessayer sous peu.",
     "legal.promiseLink": "Lire notre promesse de confidentialité",
-    "meta.desc": "Go!Gosling transforme ce que vous dites en action — chat, santé, recettes, itinéraires, recherche, médias et magasin, le tout dans une seule conversation. Vos données Apple Health sont traitées uniquement sur votre iPhone et ne quittent jamais l'appareil. Bientôt disponible.",
+    "meta.desc": "Go!Gosling est une entreprise canadienne d'IA qui conçoit un assistant IA privé, fonctionnant entièrement sur votre iPhone. Dites ce que vous voulez et c'est réglé — chat, santé et itinéraires dans une seule conversation. Vos données Apple Health sont traitées uniquement sur votre iPhone et ne quittent jamais l'appareil. Bientôt disponible.",
 
     "nav.meet": "Gosli",
     "nav.features": "Fonctionnalités",
@@ -53,7 +53,7 @@
     "careers.inquiryBody": "Nous sommes toujours ouverts aux personnes réfléchies. Envoyez votre CV et une courte note — nous lisons chaque message.",
     "careers.inquiryBtn": "Écrire à careers@gogosling.ca",
     "careers.closeDialog": "Fermer la fenêtre",
-    "about.metaTitle": "À propos — Go!Gosling",
+    "about.metaTitle": "À propos — Go!Gosling, entreprise canadienne d'IA",
     "about.metaDesc": "Go!Gosling est une jeune entreprise d'IA en Ontario, au Canada, qui conçoit un assistant privé sur appareil pour iPhone. Pour un échange sur l'investissement ou la technique, écrivez à kair@gogosling.ca.",
     "about.eyebrow": "À propos de nous",
     "about.title": "Une petite équipe ontarienne qui bâtit une IA privée.",
@@ -84,8 +84,8 @@
 
     "hero.app": "Go!Gosling · Bientôt · iPhone",
     "hero.title": "Dites-le. C'est réglé.",
-    "hero.lead": "Go!Gosling transforme ce que vous dites en action — et demande avant d'agir.",
-    "hero.tagline": "Vous parlez. Go!Gosling comprend. Les choses se font.",
+    "hero.lead": "Votre IA personnelle pour le chat, la santé et les itinéraires — entièrement sur votre iPhone, pour que votre vie reste la vôtre.",
+    "hero.tagline": "Vous parlez. Go!Gosling comprend. C'est fait.",
     "hero.demo": "En quoi puis-je vous aider?",
     "gosling.idle": "Demandez n'importe quoi à Go!Gosling…",
     "gosling.thinking": "Go!Gosling réfléchit…",

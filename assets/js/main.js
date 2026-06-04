@@ -6,7 +6,9 @@
 
   const prefersReduced =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const WAITLIST_API = (window.GOSLING_WAITLIST_API || "").replace(/\/$/, "");
+  const WAITLIST_API = (
+    window.GOSLING_WAITLIST_API || "https://api.gogosling.ca/v1/waitlist"
+  ).replace(/\/$/, "");
 
   /* --- Sticky nav state ------------------------------------------------- */
   const nav = document.querySelector(".nav");

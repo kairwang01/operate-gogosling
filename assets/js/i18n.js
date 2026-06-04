@@ -10,8 +10,8 @@
 
   const I18N = {
     en: {
-      "meta.title": "Go!Gosling — Say it. It's handled.",
-      "meta.desc": "Go!Gosling turns what you say into action — chat, health, recipes, routes, search, media, and store, all from one conversation. Your Apple Health data is processed only on your iPhone and never leaves it. Coming soon.",
+      "meta.title": "Go!Gosling — Canadian AI Company · Say it. It's handled.",
+      "meta.desc": "Go!Gosling is a Canadian AI company building a private, on-device AI assistant for iPhone. Say what you want and it's handled — chat, health, and routes from one conversation. Your Apple Health data is processed only on your iPhone and never leaves it. Coming soon.",
 
       "home.explore.title": "Explore Go!Gosling",
       "home.explore.lead": "Everything you need to know — product, privacy, and how we build in Canada.",
@@ -62,7 +62,7 @@
       "careers.inquiryBody": "We're always open to thoughtful builders. Send your résumé and a short note — we'll read every message.",
       "careers.inquiryBtn": "Email careers@gogosling.ca",
       "careers.closeDialog": "Close dialog",
-      "about.metaTitle": "About — Go!Gosling",
+      "about.metaTitle": "About — Go!Gosling, a Canadian AI Company",
       "about.metaDesc": "Go!Gosling is an early-stage AI company in Ontario, Canada, building a private, on-device assistant for iPhone. For investment or technical conversations, reach kair@gogosling.ca.",
       "about.eyebrow": "About us",
       "about.title": "A small Ontario team, building private AI.",
@@ -94,8 +94,8 @@
       /* Hero */
       "hero.app": "Go!Gosling · Coming soon · iPhone",
       "hero.title": "Say it. It's handled.",
-      "hero.lead": "Go!Gosling turns what you say into action — and asks before it acts.",
-      "hero.tagline": "You talk. Go!Gosling understands. Things happen.",
+      "hero.lead": "Your personal AI for chat, health, and routes — running entirely on your iPhone, so your life stays yours.",
+      "hero.tagline": "You talk. Go!Gosling understands. It gets done.",
       "hero.demo": "What can I help with?",
       "gosling.idle": "Ask Go!Gosling anything…",
       "gosling.thinking": "Go!Gosling is thinking…",
@@ -339,8 +339,8 @@
     fr: (typeof window !== "undefined" && window.GOSLING_I18N_FR) ? window.GOSLING_I18N_FR : {},
 
     zh: {
-      "meta.title": "Go!Gosling — 说一句，就办好。",
-      "meta.desc": "Go!Gosling 把你说的话变成行动——聊天、健康、菜谱、路线、搜索、影音、生活服务，全在一次对话里完成。你的 Apple 健康数据只在 iPhone 上处理，绝不离开手机。即将登陆 iPhone。",
+      "meta.title": "Go!Gosling — 加拿大 AI 公司 · 说一句，就办好。",
+      "meta.desc": "Go!Gosling 是一家加拿大 AI 公司，打造完全在 iPhone 本机运行的私密 AI 助手。你说，它就办好——聊天、健康、路线，全在一次对话里完成。你的 Apple 健康数据只在 iPhone 上处理，绝不离开手机。即将登陆。",
 
       "home.explore.title": "探索 Go!Gosling",
       "home.explore.lead": "了解产品、隐私，以及我们如何在加拿大打造。",
@@ -390,7 +390,7 @@
       "careers.inquiryBody": "我们欢迎有想法的建造者来信。附上简历和简短介绍，我们会认真阅读每一封邮件。",
       "careers.inquiryBtn": "发送至 careers@gogosling.ca",
       "careers.closeDialog": "关闭对话框",
-      "about.metaTitle": "关于我们 — Go!Gosling",
+      "about.metaTitle": "关于我们 — Go!Gosling，加拿大 AI 公司",
       "about.metaDesc": "Go!Gosling 是一家位于加拿大安大略省的早期 AI 公司，为 iPhone 打造私密的端侧助手。投资或技术合作，请联系 kair@gogosling.ca。",
       "about.eyebrow": "关于我们",
       "about.title": "一支安大略小团队，专注打造私密 AI。",
@@ -421,8 +421,8 @@
 
       "hero.app": "Go!Gosling 即将上线 · iPhone",
       "hero.title": "说一句，就办好。",
-      "hero.lead": "Go!Gosling 把你说的话变成行动——动手前一定先问你。",
-      "hero.tagline": "你开口，Go!Gosling 来理解，事情就办好了。",
+      "hero.lead": "你的私人 AI——聊天、健康、路线都能办，全程在 iPhone 本机运行，你的生活始终属于你。",
+      "hero.tagline": "你开口，Go!Gosling 来理解，事情就办好。",
       "hero.demo": "你想做什么？",
       "gosling.idle": "问 Go!Gosling 任何事…",
       "gosling.thinking": "Go!Gosling 正在思考…",
