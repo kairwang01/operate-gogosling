@@ -506,12 +506,38 @@ main { display: block; }
 
 /* --- Built in Canada · AI for All ---------------------------------------- */
 .canada {
+  position: relative;
+  isolation: isolate;
   background:
     radial-gradient(110% 90% at 50% 0%, var(--brand-50) 0%, rgba(244, 241, 254, 0) 62%),
     var(--bg-start);
 }
-.canada__eyebrow { display: inline-flex; align-items: center; gap: 6px; }
-.canada__leaf { font-size: 1em; line-height: 1; filter: saturate(1.05); }
+/* Faded Canadian flag watermark, fading out downward */
+.canada::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url(../img/ca-flag.png) no-repeat center 8%;
+  background-size: min(760px, 88%) auto;
+  opacity: 0.05;
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 28%, transparent 72%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 28%, transparent 72%);
+}
+.canada > .container { position: relative; z-index: 1; }
+.canada__eyebrow { display: inline-flex; align-items: center; gap: 7px; }
+.canada__flag {
+  width: 22px; height: auto; border-radius: 2px; display: inline-block;
+  vertical-align: middle; box-shadow: 0 0 0 1px var(--line);
+}
+/* small flag chip in place of the maple emoji on text lines */
+.footer__canada::before, .hero__pmquote::before {
+  content: ""; display: inline-block; width: 19px; height: 12px;
+  margin-right: 7px; vertical-align: -1px; border-radius: 2px;
+  background: url(../img/ca-flag.png) center / cover no-repeat;
+  box-shadow: 0 0 0 1px var(--line);
+}
 .canada__quote {
   max-width: 640px;
   margin: var(--space-10) auto var(--space-12);
@@ -569,3 +595,93 @@ main { display: block; }
 @media (min-width: 860px) {
   .canada__grid { grid-template-columns: repeat(3, 1fr); }
 }
+
+/* ==========================================================================
+   Sub-pages (Careers, About) — share the fixed nav, so add top offset
+   ========================================================================== */
+.subhero { padding-top: calc(var(--nav-h) + clamp(40px, 7vw, 84px)); }
+.subhero--canada {
+  position: relative; isolation: isolate;
+  background: radial-gradient(110% 90% at 50% 0%, var(--brand-50) 0%, rgba(244,241,254,0) 64%), var(--bg-start);
+}
+
+/* --- Careers: job list + cards ------------------------------------------- */
+.jobs-list { display: grid; gap: var(--space-4); grid-template-columns: 1fr; }
+.jobs-loading { color: var(--text-muted); }
+.job-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-card); padding: var(--space-6);
+}
+.job-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); }
+.job-card__title { font-size: var(--fs-h3); font-weight: 600; letter-spacing: -0.01em; }
+.job-card__meta { font-size: var(--fs-chip); color: var(--text-muted); margin-top: 4px; }
+.job-card__apply { flex: none; }
+.job-card__summary { color: var(--text-secondary); margin-top: var(--space-3); font-size: var(--fs-meta); }
+.job-card__details { margin-top: var(--space-3); }
+.job-card__details > summary {
+  cursor: pointer; font-size: var(--fs-meta); font-weight: 600; color: var(--brand-ink);
+  list-style: none; display: inline-flex; align-items: center; gap: 6px; padding: 4px 0;
+}
+.job-card__details > summary::-webkit-details-marker { display: none; }
+.job-card__details > summary::before { content: "+"; font-weight: 700; }
+.job-card__details[open] > summary::before { content: "–"; }
+.job-card__body { padding-top: var(--space-3); color: var(--text-secondary); font-size: var(--fs-meta); }
+.job-card__body h4 { font-size: var(--fs-meta); color: var(--text-primary); margin: var(--space-4) 0 6px; }
+.job-card__body ul { padding-left: 1.15em; display: grid; gap: 5px; }
+.jobs-empty { text-align: center; padding: var(--space-10) 0; color: var(--text-secondary); }
+.jobs-empty h3 { font-size: var(--fs-h3); margin-bottom: var(--space-3); color: var(--text-primary); }
+@media (min-width: 720px) { .jobs-list { grid-template-columns: repeat(2, 1fr); } }
+
+/* --- Apply dialog -------------------------------------------------------- */
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.apply-dialog {
+  border: 0; padding: 0; border-radius: var(--radius-card);
+  max-width: 560px; width: calc(100% - 2 * var(--space-5));
+  box-shadow: var(--elev-floating); color: var(--text-primary); background: var(--surface);
+}
+.apply-dialog::backdrop { background: rgba(20, 18, 30, 0.45); }
+.apply-dialog__inner { position: relative; padding: var(--space-8); max-height: 86vh; overflow: auto; }
+.apply-dialog__x {
+  position: absolute; top: var(--space-4); right: var(--space-4);
+  width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--line); background: var(--surface); color: var(--text-secondary);
+}
+.apply-dialog__x svg { width: 18px; height: 18px; }
+.apply-dialog__title { font-size: var(--fs-h3); letter-spacing: -0.01em; margin-bottom: var(--space-5); padding-right: var(--space-8); }
+.field-row { display: flex; flex-direction: column; gap: 5px; margin-bottom: var(--space-4); font-size: var(--fs-meta); font-weight: 600; color: var(--text-secondary); }
+.field-row input, .field-row textarea {
+  font: inherit; font-weight: 400; color: var(--text-primary);
+  padding: 10px 12px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface);
+}
+.field-row input:focus-visible, .field-row textarea:focus-visible { outline: none; border-color: var(--brand); box-shadow: 0 0 0 3px var(--brand-100); }
+.field-check { display: flex; align-items: flex-start; gap: 9px; font-size: var(--fs-chip); color: var(--text-secondary); margin-bottom: var(--space-5); line-height: 1.4; }
+.field-check input { margin-top: 2px; flex: none; }
+.apply-error { color: #c0564c; font-size: var(--fs-chip); margin-bottom: var(--space-3); }
+.apply-actions { display: flex; gap: var(--space-3); justify-content: flex-end; }
+.apply-done { text-align: center; padding: var(--space-6) 0; }
+.apply-done svg { width: 40px; height: 40px; color: var(--tint-health); margin: 0 auto var(--space-4); }
+.apply-done h3 { font-size: var(--fs-h3); margin-bottom: var(--space-3); }
+.apply-done p { color: var(--text-secondary); margin-bottom: var(--space-5); }
+.apply-done__mail { color: var(--brand-ink); font-weight: 600; }
+
+/* --- About --------------------------------------------------------------- */
+.about-mission { max-width: 720px; margin-inline: auto; text-align: center; }
+.about-mission .section-title { margin: var(--space-4) 0; }
+.about-mission p { color: var(--text-secondary); font-size: var(--fs-lead); line-height: 1.6; }
+.contact-grid { display: grid; gap: var(--space-4); grid-template-columns: 1fr; max-width: 820px; margin: 0 auto var(--space-8); }
+.contact-card {
+  display: block; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius-card); padding: var(--space-6);
+  transition: border-color var(--dur-standard), transform var(--dur-standard) var(--ease-emphasized);
+}
+.contact-card:hover { border-color: var(--brand-200); transform: translateY(-2px); }
+.contact-card__ic {
+  width: 44px; height: 44px; border-radius: var(--radius-compact); display: grid; place-items: center;
+  background: var(--brand-50); color: var(--brand-ink); margin-bottom: var(--space-4);
+}
+.contact-card__ic svg { width: 22px; height: 22px; }
+.contact-card h3 { font-size: var(--fs-h3); margin-bottom: 8px; }
+.contact-card p { color: var(--text-secondary); font-size: var(--fs-meta); margin-bottom: var(--space-4); }
+.contact-card__mail { font-weight: 600; color: var(--brand-ink); font-size: var(--fs-meta); }
+.about-foot-cta { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+@media (min-width: 720px) { .contact-grid { grid-template-columns: repeat(2, 1fr); } }

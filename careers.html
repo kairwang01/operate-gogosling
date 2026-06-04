@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="careers.metaTitle">Careers — Go!Gosling</title>
+  <meta name="description" data-i18n-attr="content:careers.metaDesc"
+        content="Join Go!Gosling — an early-stage AI company in Ontario, Canada building a private, on-device assistant for iPhone. See open roles and apply." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://gogosling.ca/careers.html" />
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="section subhero">
+      <div class="container">
+        <div class="sec-head center">
+          <span class="eyebrow eyebrow--brand" data-i18n="careers.eyebrow">Careers</span>
+          <h1 class="section-title" style="margin-top:var(--space-4)" data-i18n="careers.title">Build Go!Gosling with us.</h1>
+          <p class="lead mx-auto measure" style="margin-inline:auto" data-i18n="careers.lead">We're a small, early-stage AI company in Ontario, Canada, building a private, on-device assistant for iPhone. If that excites you, we'd love to meet you.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--inset">
+      <div class="container">
+        <div class="sec-head"><h2 class="section-title" data-i18n="careers.openTitle">Open roles</h2></div>
+        <div id="jobs-list" class="jobs-list" aria-live="polite">
+          <p class="jobs-loading" data-c="loading">Loading open roles…</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Application dialog -->
+  <dialog id="apply-dialog" class="apply-dialog" aria-labelledby="apply-heading">
+    <div class="apply-dialog__inner">
+      <button type="button" class="apply-dialog__x" data-apply-close aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <h2 id="apply-heading" class="apply-dialog__title"><span data-c="applyFor">Apply for</span> <span data-apply-role></span></h2>
+
+      <form novalidate>
+        <input type="hidden" name="jobSlug" value="" />
+        <div class="hp" aria-hidden="true"><label>Company website<input type="text" name="company_website" tabindex="-1" autocomplete="off" /></label></div>
+
+        <label class="field-row"><span data-c="name">Full name</span><input type="text" name="applicantName" required autocomplete="name" /></label>
+        <label class="field-row"><span data-c="email">Email</span><input type="email" name="email" required autocomplete="email" /></label>
+        <label class="field-row"><span data-c="phone">Phone (optional)</span><input type="tel" name="phone" autocomplete="tel" /></label>
+        <label class="field-row"><span data-c="portfolio">Portfolio / website (optional)</span><input type="url" name="portfolio" inputmode="url" /></label>
+        <label class="field-row"><span data-c="linkedin">LinkedIn (optional)</span><input type="url" name="linkedin" inputmode="url" /></label>
+        <label class="field-row"><span data-c="github">GitHub (optional)</span><input type="url" name="github" inputmode="url" /></label>
+        <label class="field-row"><span data-c="message">Why Go!Gosling? (optional)</span><textarea name="coverMessage" rows="4"></textarea></label>
+        <label class="field-row"><span data-c="resume">Résumé (PDF/DOC, max 8MB)</span><input type="file" name="resume" accept=".pdf,.doc,.docx" /></label>
+        <label class="field-check"><input type="checkbox" name="consent" required /><span data-c="consent">I agree that Go!Gosling may store this information to process my application.</span></label>
+
+        <p class="apply-error" data-apply-error hidden></p>
+        <div class="apply-actions">
+          <button type="button" class="btn btn--ghost" data-apply-close data-c="cancel">Cancel</button>
+          <button type="submit" class="btn btn--primary" data-c="submit">Submit application</button>
+        </div>
+      </form>
+
+      <div class="apply-done" data-apply-done hidden>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+        <h3 data-done-title>Thanks — application received.</h3>
+        <p data-done-body>We'll be in touch.</p>
+        <button type="button" class="btn btn--ghost" data-apply-close data-c="cancel">Cancel</button>
+      </div>
+    </div>
+  </dialog>
+
+  <div id="site-footer"></div>
+
+  <script>window.GOSLING_PAGE = "careers";
+    /* Set this to your API base URL once the backend is live, e.g.:
+       window.GOSLING_CAREERS_API = "https://api.gogosling.ca"; */</script>
+  <script src="assets/js/chrome.js"></script>
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/careers.js"></script>
+</body>
+</html>

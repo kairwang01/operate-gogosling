@@ -1,0 +1,125 @@
+{
+  "_comment": "Placeholder job data. Same shape as GET /api/careers/jobs (jobs[]). The careers page uses this until window.GOSLING_CAREERS_API is set, then it fetches live from PostgreSQL via the server. Edit/seed real roles through the admin backend (see docs/careers-system.md).",
+  "jobs": [
+    {
+      "id": "seed-ios",
+      "slug": "founding-ios-engineer",
+      "title": "Founding iOS Engineer",
+      "team": "Engineering",
+      "location": "Toronto, ON · Remote (Canada)",
+      "employmentType": "full_time",
+      "workMode": "hybrid",
+      "summary": "Own the Go!Gosling iPhone app end to end — SwiftUI, on-device AI, and an agent that turns intent into action.",
+      "descriptionMd": "We're a small Ontario team building a private, on-device life assistant for iPhone. You'll shape the app's architecture and the on-device agent experience from the ground up.",
+      "responsibilities": [
+        "Build core SwiftUI surfaces (Chat, Health, Maps) and the on-device agent loop",
+        "Integrate Apple Foundation Models, HealthKit, MapKit, and App Intents",
+        "Keep everything fast, private, and Allow-Once safe — no data leaves the device unless the user says so",
+        "Help define our testing bar and ship to the App Store"
+      ],
+      "requirements": [
+        "3+ years shipping production iOS apps in Swift",
+        "Deep SwiftUI and Swift concurrency experience",
+        "Care about privacy, performance, and craft",
+        "Comfortable owning ambiguity at an early-stage startup"
+      ],
+      "niceToHave": [
+        "On-device ML / Core ML / Apple Foundation Models",
+        "HealthKit, MapKit, or App Intents experience",
+        "Open-source or indie app track record"
+      ],
+      "compRange": "Competitive salary + meaningful early equity",
+      "postedAt": "2026-06-04"
+    },
+    {
+      "id": "seed-backend",
+      "slug": "backend-engineer",
+      "title": "Backend Engineer (NestJS · PostgreSQL)",
+      "team": "Engineering",
+      "location": "Remote (Canada)",
+      "employmentType": "full_time",
+      "workMode": "remote",
+      "summary": "Build the privacy-first server: APIs, membership, metered AI, and the data layer — never touching users' on-device health data.",
+      "descriptionMd": "Design and run the server that powers membership, model access, and local-life results — with a hard boundary that health data stays on the device.",
+      "responsibilities": [
+        "Build NestJS services and a clean PostgreSQL data layer",
+        "Design APIs the iOS app and careers/admin tools consume",
+        "Own auth, rate limiting, observability, and cost-aware AI routing",
+        "Uphold the privacy contract: no health data on the server, ever"
+      ],
+      "requirements": [
+        "3+ years backend (Node/TypeScript); NestJS a strong plus",
+        "Solid PostgreSQL and API design",
+        "Security and privacy mindset",
+        "Startup pace and ownership"
+      ],
+      "niceToHave": [
+        "LLM/AI infrastructure or metered billing",
+        "StoreKit / subscriptions",
+        "Infra-as-code, CI/CD"
+      ],
+      "compRange": "Competitive salary + meaningful early equity",
+      "postedAt": "2026-06-04"
+    },
+    {
+      "id": "seed-design",
+      "slug": "product-designer",
+      "title": "Product Designer",
+      "team": "Design",
+      "location": "Toronto, ON · Hybrid",
+      "employmentType": "full_time",
+      "workMode": "hybrid",
+      "summary": "Shape Gosli and a calm, trustworthy assistant experience — from the design system to the smallest delightful state.",
+      "descriptionMd": "Own product design across the app and brand. You'll evolve our design system and make a powerful agent feel warm, calm, and safe.",
+      "responsibilities": [
+        "Design end-to-end flows for Chat, Health, and Maps",
+        "Grow the design-system and the Gosli character system",
+        "Prototype interactions and on-device agent states",
+        "Partner closely with engineering on a high craft bar"
+      ],
+      "requirements": [
+        "4+ years product design for consumer mobile (iOS)",
+        "Strong systems thinking and a polished portfolio",
+        "Motion / interaction design sensibility",
+        "Comfort in early-stage ambiguity"
+      ],
+      "niceToHave": [
+        "Illustration or character/mascot design",
+        "Health or AI product experience",
+        "Bilingual (EN/FR or EN/中文)"
+      ],
+      "compRange": "Competitive salary + meaningful early equity",
+      "postedAt": "2026-06-04"
+    },
+    {
+      "id": "seed-gtm",
+      "slug": "founding-growth-marketer",
+      "title": "Founding Growth & Community",
+      "team": "Growth",
+      "location": "Toronto, ON · Remote (Canada)",
+      "employmentType": "full_time",
+      "workMode": "remote",
+      "summary": "Take Go!Gosling to launch and beyond — story, waitlist, community, and our first thousand true fans.",
+      "descriptionMd": "Lead go-to-market for launch: positioning, the launch waitlist, content, and community across Canada and beyond.",
+      "responsibilities": [
+        "Own pre-launch waitlist growth and launch-day momentum",
+        "Craft story and content that respects our privacy-first values",
+        "Build community and gather product feedback",
+        "Measure what matters without compromising user privacy"
+      ],
+      "requirements": [
+        "3+ years growth/marketing for consumer apps",
+        "Excellent writing and product storytelling",
+        "Data-informed and scrappy",
+        "Excited by an early-stage AI startup"
+      ],
+      "niceToHave": [
+        "App Store launch experience",
+        "Bilingual (EN/FR or EN/中文)",
+        "Privacy / trust-tech affinity"
+      ],
+      "compRange": "Competitive salary + meaningful early equity",
+      "postedAt": "2026-06-04"
+    }
+  ]
+}

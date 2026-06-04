@@ -1,0 +1,125 @@
+/* ==========================================================================
+   Go!Gosling — shared site chrome (header + footer)
+   One source of truth for the nav and footer across every page (zero-build,
+   no framework). Each page includes:
+       <div id="site-header"></div> ... <div id="site-footer"></div>
+       <script>window.GOSLING_PAGE = "careers";</script>   // optional, for active state
+       <script src="assets/js/chrome.js"></script>          // BEFORE i18n.js
+       <script src="assets/js/i18n.js"></script>
+       <script src="assets/js/main.js"></script>
+   chrome.js injects the markup synchronously, then i18n.js localizes it.
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  // Nav items. Sections that still live on the home page use index.html#anchor;
+  // dedicated pages use their own URL. (See docs/site-architecture.md.)
+  var NAV = [
+    { page: "meet",     href: "index.html#meet",     key: "nav.meet",     en: "Gosli" },
+    { page: "features", href: "index.html#features", key: "nav.features", en: "Features" },
+    { page: "privacy",  href: "index.html#privacy",  key: "nav.privacy",  en: "Privacy" },
+    { page: "canada",   href: "index.html#canada",   key: "nav.canada",   en: "Canada" },
+    { page: "how",      href: "index.html#how",      key: "nav.how",      en: "How it works" },
+    { page: "faq",      href: "index.html#faq",      key: "nav.faq",      en: "FAQ" },
+    { page: "careers",  href: "careers.html",        key: "nav.careers",  en: "Careers" }
+  ];
+
+  var active = window.GOSLING_PAGE || "";
+
+  var LOGO = '' +
+    '<a class="logo" href="index.html" aria-label="Go!Gosling home">' +
+      '<span class="logo__mark" aria-hidden="true"><img src="assets/img/icon-192.png" alt="" width="32" height="32" /></span>' +
+      '<span class="logo__word">Go!Gosling</span>' +
+    '</a>';
+
+  function navLinks(extraClass) {
+    return NAV.map(function (n) {
+      var cur = (n.page === active) ? ' aria-current="page"' : '';
+      return '<a class="' + (extraClass || "") + '" href="' + n.href + '"' + cur + ' data-i18n="' + n.key + '">' + n.en + '</a>';
+    }).join("");
+  }
+
+  var LANG_TOGGLE = '' +
+    '<div class="lang-toggle" role="group" aria-label="Language">' +
+      '<button type="button" data-lang-set="en" aria-pressed="true">EN</button>' +
+      '<button type="button" data-lang-set="zh" aria-pressed="false">中</button>' +
+    '</div>';
+
+  var HEADER = '' +
+    '<header class="nav" id="top">' +
+      '<div class="container nav__inner">' +
+        LOGO +
+        '<nav class="nav__links" aria-label="Primary">' + navLinks() + '</nav>' +
+        '<div class="nav__actions">' +
+          LANG_TOGGLE +
+          '<a href="index.html#notify" class="btn btn--primary" data-i18n="nav.notify">Notify me</a>' +
+          '<button class="nav__menu-btn" type="button" data-menu-btn aria-expanded="false" aria-controls="mobile-menu" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>' +
+          '</button>' +
+        '</div>' +
+      '</div>' +
+    '</header>' +
+    '<div class="mobile-menu" id="mobile-menu" data-mobile-menu>' +
+      navLinks() +
+      '<a href="index.html#notify" data-i18n="nav.notify">Notify me</a>' +
+    '</div>';
+
+  function footCol(titleKey, titleEn, items) {
+    var lis = items.map(function (it) {
+      return '<li><a href="' + it.href + '"' + (it.aria ? ' aria-label="' + it.aria + '"' : "") +
+        (it.key ? ' data-i18n="' + it.key + '"' : "") + '>' + it.en + '</a></li>';
+    }).join("");
+    return '<div class="footer__col"><h4 data-i18n="' + titleKey + '">' + titleEn + '</h4><ul>' + lis + '</ul></div>';
+  }
+
+  var FOOTER = '' +
+    '<footer class="site-footer">' +
+      '<div class="container">' +
+        '<div class="footer__top">' +
+          '<div class="footer__brand">' +
+            LOGO +
+            '<p class="footer__tagline" data-i18n="foot.tagline">Go!Gosling — say it, and it\'s handled, with your health kept on your iPhone.</p>' +
+            '<p class="footer__canada" data-i18n="foot.canada">A Canadian company · Built in Canada</p>' +
+          '</div>' +
+          '<div class="footer__cols">' +
+            footCol("foot.product", "Product", [
+              { href: "index.html#features", key: "foot.features", en: "Features" },
+              { href: "index.html#privacy",  key: "foot.privacy",  en: "Privacy" },
+              { href: "index.html#how",      key: "foot.how",      en: "How it works" },
+              { href: "index.html#canada",   key: "foot.canadaLink", en: "Built in Canada" },
+              { href: "index.html#faq",      key: "foot.faq",      en: "FAQ" }
+            ]) +
+            footCol("foot.company", "Company", [
+              { href: "about.html",   key: "foot.about",   en: "About" },
+              { href: "careers.html", key: "foot.careers", en: "Careers" },
+              { href: "mailto:hello@gogosling.ca", key: "foot.contact", en: "Contact" }
+            ]) +
+            footCol("foot.legal", "Legal", [
+              { href: "privacy.html", key: "foot.privacyPolicy", en: "Privacy Policy" },
+              { href: "terms.html",   key: "foot.terms",        en: "Terms of Service" },
+              { href: "index.html#faq", key: "foot.health",     en: "Health disclaimer" }
+            ]) +
+            footCol("foot.connect", "Connect", [
+              { href: "mailto:hello@gogosling.ca", key: "foot.email", en: "hello@gogosling.ca" },
+              { href: "#", aria: "X (Twitter)", en: "X / Twitter" }
+            ]) +
+          '</div>' +
+        '</div>' +
+        '<div class="footer__bottom">' +
+          '<p class="footer__disclaimer" data-i18n="foot.ai">Go!Gosling uses on-device AI. AI-generated content can be incomplete or wrong — please use your own judgment, and never rely on it for medical, legal, or financial decisions.</p>' +
+          '<p class="footer__disclaimer" data-i18n="foot.healthFull">Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition. Always consult a qualified clinician for medical decisions, and call your local emergency number in an emergency.</p>' +
+          '<div class="footer__legal-row">' +
+            '<span data-i18n="foot.copyright">© 2026 Go!Gosling. All rights reserved.</span>' +
+            '<span data-i18n="foot.madeWith">Designed for privacy. Built for iPhone.</span>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+    '</footer>';
+
+  function inject(id, html) {
+    var el = document.getElementById(id);
+    if (el) el.innerHTML = html;
+  }
+  inject("site-header", HEADER);
+  inject("site-footer", FOOTER);
+})();
