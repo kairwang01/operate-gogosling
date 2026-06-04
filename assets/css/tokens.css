@@ -1,0 +1,124 @@
+/* ==========================================================================
+   Go!Gosling — Design Tokens
+   Source of truth: the app's frozen `Contracts/Design/design-system-v1.md`
+   (mirrored here so the marketing site and the product never drift apart).
+   Accent is a calm soft-blue, sampled from the real gosling App Icon backdrop —
+   one restrained accent, carried by whitespace (Marvis-inspired restraint).
+   Everything else is the app's neutral, light, on-device system.
+   ========================================================================== */
+
+:root {
+  /* --- Brand (soft-blue, from the gosling App Icon backdrop) -------------- */
+  /* The mascot sits on a calm light-blue field; the accent echoes it gently. */
+  --brand-indigo: #4F86F0;   /* slightly deeper blue for hover */
+  --brand-violet: #6AA0F5;   /* lighter end of the soft-blue range */
+  --brand:        #5B93F2;   /* primary accent — calm sky blue */
+  --brand-ink:    #2F5DB0;   /* deeper blue for text-on-light (AA contrast) */
+  --brand-50:     #eef4ff;   /* faint blue wash (icon tiles, chips) */
+  --brand-100:    #dde9fe;
+  --brand-200:    #c4d8fc;
+  --brand-gradient: linear-gradient(135deg, #5B93F2 0%, #6AA0F5 100%);
+  --brand-gradient-soft: linear-gradient(135deg, #79a8f6 0%, #93bcf8 100%);
+
+  /* --- Neutral surfaces (design-system-v1: light canvas) ----------------- */
+  --bg-start:       #FFFFFF;
+  --bg-end:         #F5F7FB;  /* faintly cool, premium light grey-blue */
+  --bg-inset:       #F8FAFD;
+  --surface:        #FFFFFF;
+  --surface-2:      #F8FAFD;
+  --surface-strong: #161A22;  /* inverted dark surface (CTA on dark, footer) */
+
+  /* --- Text -------------------------------------------------------------- */
+  --text-primary:   #1C1F21;
+  --text-secondary: #57595E;
+  --text-muted:     #82858A;
+  --text-on-strong: #FFFFFF;
+  --text-on-strong-muted: rgba(255,255,255,0.66);
+
+  /* --- Lines ------------------------------------------------------------- */
+  --line:        rgba(0,0,0,0.06);
+  --line-strong: rgba(0,0,0,0.10);
+  --line-ondark: rgba(255,255,255,0.12);
+
+  /* --- Section identity tints (from AppTheme.tint(for:)) ----------------- */
+  --tint-chat:   #1A1C21;  /* chat   = accentStrong (ink) */
+  --tint-health: #4F6E61;  /* health = success (calm green) */
+  --tint-ai:     #61738A;  /* ai/search = sky (slate blue) */
+  --tint-maps:   #91754A;  /* maps   = warning (tan) */
+  --tint-store:  #595E69;  /* store  = accent (gray) */
+  --health-50:   #eef3f1;
+  --health-ink:  #3c574c;
+
+  /* --- Typography (system stack ≈ San Francisco) ------------------------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+               "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+               Roboto, Helvetica, Arial, "Apple Color Emoji", sans-serif;
+  --font-rounded: ui-rounded, "SF Pro Rounded", -apple-system, var(--font-sans);
+
+  /* Fluid type scale (clamp: mobile -> desktop) — bigger, more spacious */
+  --fs-display: clamp(2.6rem, 1.7rem + 4.4vw, 4.6rem);   /* hero — bold, generous */
+  --fs-h1:      clamp(2.05rem, 1.45rem + 2.9vw, 3.2rem);  /* section titles */
+  --fs-h2:      clamp(1.55rem, 1.2rem + 1.6vw, 2.1rem);
+  --fs-h3:      clamp(1.2rem, 1.06rem + 0.6vw, 1.45rem);
+  --fs-lead:    clamp(1.14rem, 1.02rem + 0.6vw, 1.4rem);  /* hero subhead */
+  --fs-body:    1.0625rem;   /* 17px — iOS body */
+  --fs-meta:    0.9375rem;   /* 15px */
+  --fs-chip:    0.8125rem;   /* 13px */
+  --fs-eyebrow: 0.75rem;     /* 12px */
+
+  --lh-tight:  1.05;
+  --lh-snug:   1.22;
+  --lh-normal: 1.6;
+  --tracking-eyebrow: 0.14em;
+  --tracking-tight:  -0.02em;
+  --tracking-display: -0.035em;
+
+  /* --- Spacing scale ----------------------------------------------------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;   /* screenPadding */
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  --container:    1140px;
+  --container-narrow: 760px;
+  --section-y: clamp(80px, 6vw + 48px, 152px);   /* more breathing room */
+
+  /* --- Radius (soft, friendly, consistent) ------------------------------- */
+  --radius-card:    28px;
+  --radius-compact: 20px;
+  --radius-pill:    999px;
+  --radius-sm:      14px;
+
+  /* --- Elevation — one cohesive soft-shadow family ----------------------- */
+  --elev-raised:   0 2px 4px rgba(22,26,34,0.04), 0 12px 28px rgba(22,26,34,0.06);
+  --elev-floating: 0 6px 14px rgba(22,26,34,0.07), 0 20px 44px rgba(22,26,34,0.08);
+  /* Layered soft shadow for the hero icon (multi-step natural falloff) */
+  --elev-device:
+      0 2px 6px rgba(22,26,34,0.05),
+      0 12px 28px rgba(22,26,34,0.07),
+      0 32px 64px rgba(38,72,140,0.12),
+      0 56px 110px rgba(38,72,140,0.10);
+  --elev-brand:   0 14px 34px rgba(91,147,242,0.30);
+
+  /* --- Motion (design-system-v1) ----------------------------------------- */
+  --dur-standard: 0.24s;
+  --ease-standard: cubic-bezier(0.4, 0.0, 0.2, 1);   /* ≈ easeInOut */
+  --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1); /* ≈ spring settle */
+  --dur-reveal: 0.7s;
+
+  /* --- Layout helpers ---------------------------------------------------- */
+  --nav-h: 64px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-standard: 0.12s; --dur-reveal: 0.12s; }
+}

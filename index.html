@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="meta.title">Go!Gosling — Say it. It's handled.</title>
+  <meta name="description" data-i18n-attr="content:meta.desc"
+        content="Go!Gosling turns what you say into action — chat, health, recipes, routes, search, media, and store, all from one conversation. Your Apple Health data stays on your iPhone. Coming soon on iPhone." />
+  <link rel="canonical" href="https://gogosling.ca/" />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="color-scheme" content="light" />
+
+  <!-- Icons / manifest -->
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Go!Gosling" />
+  <meta property="og:title" content="Go!Gosling — Say it. It's handled." />
+  <meta property="og:description" content="Describe what you want. Go!Gosling turns it into action — chat, health, recipes, routes, search, media, and store, from one conversation. Health stays on your iPhone." />
+  <meta property="og:url" content="https://gogosling.ca/" />
+  <meta property="og:image" content="https://gogosling.ca/assets/img/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Go!Gosling — Say it. It's handled." />
+  <meta name="twitter:description" content="Go!Gosling turns what you say into action on iPhone — chat, health, recipes, routes, search, media, and store. Your Apple Health data stays on device." />
+  <meta name="twitter:image" content="https://gogosling.ca/assets/img/og-image.png" />
+
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/site.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Go!Gosling",
+    "url": "https://gogosling.ca/",
+    "logo": "https://gogosling.ca/assets/img/icon-512.png",
+    "description": "Go!Gosling turns what you say into action on iPhone. Your Apple Health data is processed on-device and never leaves your phone.",
+    "sameAs": []
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============================ NAV ============================ -->
+  <header class="nav" id="top">
+    <div class="container nav__inner">
+      <a class="logo" href="#top" aria-label="Go!Gosling home">
+        <span class="logo__mark" aria-hidden="true">
+          <img src="assets/img/icon-192.png" alt="" width="32" height="32" />
+        </span>
+        <span class="logo__word">Go!Gosling</span>
+      </a>
+
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#meet" data-i18n="nav.meet">Gosli</a>
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button type="button" data-lang-set="en" aria-pressed="true">EN</button>
+          <button type="button" data-lang-set="zh" aria-pressed="false">中</button>
+        </div>
+        <a href="#notify" class="btn btn--ghost" data-i18n="nav.notify">Notify me</a>
+        <button class="nav__menu-btn" type="button" data-menu-btn aria-expanded="false"
+                aria-controls="mobile-menu" data-i18n-attr="aria-label:nav.menu" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu" data-mobile-menu>
+    <a href="#meet" data-i18n="nav.meet">Gosli</a>
+    <a href="#features" data-i18n="nav.features">Features</a>
+    <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+    <a href="#how" data-i18n="nav.how">How it works</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="#notify" data-i18n="nav.notify">Notify me</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="hero hero--center">
+      <div class="container hero__inner">
+        <figure class="hero__art">
+          <span class="hero__art-glow" aria-hidden="true"></span>
+          <img class="hero__icon" src="assets/img/app-icon-1024.png"
+               width="220" height="220" decoding="async" fetchpriority="high"
+               alt="Go!Gosling" />
+        </figure>
+
+        <p class="hero__app" data-i18n="hero.app">Go!Gosling · Coming soon · iPhone</p>
+        <h1 class="display" data-i18n="hero.title">Say it. It's handled.</h1>
+        <p class="lead hero__lead" data-i18n="hero.lead">Go!Gosling turns what you say into action.</p>
+        <p class="hero__tagline" data-i18n="hero.tagline">You talk. Go!Gosling understands. Things happen.</p>
+
+        <div class="hero__actions" id="notify">
+          <form class="waitlist" data-waitlist novalidate>
+            <div class="field">
+              <input class="field__input" type="email" name="email" required autocomplete="email"
+                     data-i18n-attr="placeholder:hero.email;aria-label:hero.email" placeholder="Enter your email" />
+              <button class="btn btn--primary" type="submit" data-i18n="hero.cta">Notify me at launch</button>
+            </div>
+          </form>
+          <div class="form-success" data-waitlist-success hidden>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+            <span data-success-text>You are on the list. We will email you the moment Go!Gosling launches — nothing else.</span>
+          </div>
+          <button type="button" class="store-badge store-badge--light" onclick="document.querySelector('#notify input')&&document.querySelector('#notify input').focus()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="2.5" width="16" height="19" rx="4"/><path d="M12 7v7"/><path d="M9 11l3 3 3-3"/></svg>
+            <span class="store-badge__txt">
+              <span class="store-badge__small" data-i18n="hero.store.small">Coming soon to the</span>
+              <span class="store-badge__big" data-i18n="hero.store.big">App Store</span>
+            </span>
+          </button>
+          <p class="hero__hook" data-i18n="hero.hook">Health stays on your iPhone · Memory you control · Asks before it acts</p>
+          <p class="form-note hero__note" data-i18n="hero.note">Release date to be announced · iPhone · iOS</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== STATE GALLERY (动图) ===================== -->
+    <section class="section state-gallery" id="meet">
+      <div class="container">
+        <div class="sec-head center">
+          <span class="eyebrow eyebrow--brand" data-i18n="gal.eyebrow">Meet Gosli</span>
+          <h2 class="section-title" style="margin-top:var(--space-4)" data-i18n="gal.title">One companion, every part of your day.</h2>
+          <p class="lead mx-auto" data-i18n="gal.lead">Gosli is the face of Go!Gosling — it listens, thinks, remembers, and acts. Always gentle, always on your side.</p>
+        </div>
+
+        <div class="state-grid">
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-idle.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.idle.cap" alt="Listening" /></span>
+            <span class="state-tile__cap" data-i18n="gal.idle.cap">Listening</span>
+            <span class="state-tile__sub" data-i18n="gal.idle.sub">Just say what you need</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-thinking.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.thinking.cap" alt="Thinking it through" /></span>
+            <span class="state-tile__cap" data-i18n="gal.thinking.cap">Thinking it through</span>
+            <span class="state-tile__sub" data-i18n="gal.thinking.sub">Works out the best way to help</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-memory.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.memory.cap" alt="Remembering" /></span>
+            <span class="state-tile__cap" data-i18n="gal.memory.cap">Remembering</span>
+            <span class="state-tile__sub" data-i18n="gal.memory.sub">Keeps what matters — only if you allow it</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-working.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.working.cap" alt="On it" /></span>
+            <span class="state-tile__cap" data-i18n="gal.working.cap">On it</span>
+            <span class="state-tile__sub" data-i18n="gal.working.sub">Turns your words into a plan</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-phone.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.phone.cap" alt="On your iPhone" /></span>
+            <span class="state-tile__cap" data-i18n="gal.phone.cap">On your iPhone</span>
+            <span class="state-tile__sub" data-i18n="gal.phone.sub">Runs on-device, private by default</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-ready.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.ready.cap" alt="Ready" /></span>
+            <span class="state-tile__cap" data-i18n="gal.ready.cap">Ready</span>
+            <span class="state-tile__sub" data-i18n="gal.ready.sub">Standing by for the next thing</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-routing.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.routing.cap" alt="Finding the way" /></span>
+            <span class="state-tile__cap" data-i18n="gal.routing.cap">Finding the way</span>
+            <span class="state-tile__sub" data-i18n="gal.routing.sub">Places and routes, opened in Maps</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-recipe.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.recipe.cap" alt="Planning meals" /></span>
+            <span class="state-tile__cap" data-i18n="gal.recipe.cap">Planning meals</span>
+            <span class="state-tile__sub" data-i18n="gal.recipe.sub">Recipes and groceries, sorted</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-health.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.health.cap" alt="Health check-in" /></span>
+            <span class="state-tile__cap" data-i18n="gal.health.cap">Health check-in</span>
+            <span class="state-tile__sub" data-i18n="gal.health.sub">Your Apple Health, read on-device</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-sleep.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.sleep.cap" alt="Works offline" /></span>
+            <span class="state-tile__cap" data-i18n="gal.sleep.cap">Works offline</span>
+            <span class="state-tile__sub" data-i18n="gal.sleep.sub">No signal needed for on-device tasks</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-permission.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.permission.cap" alt="Asks first" /></span>
+            <span class="state-tile__cap" data-i18n="gal.permission.cap">Asks first</span>
+            <span class="state-tile__sub" data-i18n="gal.permission.sub">Nothing booked or sent without a yes</span>
+          </article>
+          <article class="state-tile reveal">
+            <span class="state-tile__media"><img src="assets/anim/gosli-success.png" width="140" height="140" loading="lazy" decoding="async" data-i18n-attr="alt:gal.success.cap" alt="Done" /></span>
+            <span class="state-tile__cap" data-i18n="gal.success.cap">Done</span>
+            <span class="state-tile__sub" data-i18n="gal.success.sub">Handled — say the next thing</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SPOTLIGHT (on-device) ===================== -->
+    <section class="section spotlight" id="ondevice">
+      <div class="container">
+        <div class="spotlight__panel reveal">
+          <div class="spotlight__copy">
+            <span class="eyebrow eyebrow--brand spotlight__eyebrow" data-i18n="spot.eyebrow">Private by design</span>
+            <h2 class="spotlight__title" data-i18n="spot.title">Real help that stays on your side.</h2>
+            <p class="spotlight__lead" data-i18n="spot.lead">Go!Gosling does the smart part on your iPhone — and never acts behind your back.</p>
+            <ul class="spotlight__list">
+              <li class="spotlight__feat">
+                <span class="spotlight__feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M9 9h6v6H9z"/><path d="M9 2v2M15 2v2M9 20v2M15 20v2M2 9h2M2 15h2M20 9h2M20 15h2"/></svg></span>
+                <div><h3 data-i18n="spot.f1.t">On-device intelligence</h3><p data-i18n="spot.f1.b">Health and chat run on Apple's on-device models. Your Apple Health data never leaves your iPhone.</p></div>
+              </li>
+              <li class="spotlight__feat">
+                <span class="spotlight__feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></span>
+                <div><h3 data-i18n="spot.f2.t">Just talk</h3><p data-i18n="spot.f2.b">Speak naturally. On-device speech turns your voice into action — no cloud transcription.</p></div>
+              </li>
+              <li class="spotlight__feat">
+                <span class="spotlight__feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12a1 1 0 0 1 1 1v17l-7-4-7 4V4a1 1 0 0 1 1-1Z"/></svg></span>
+                <div><h3 data-i18n="spot.f3.t">Memory you control</h3><p data-i18n="spot.f3.b">It remembers helpful patterns only after you confirm. Review, pause, or delete anytime.</p></div>
+              </li>
+              <li class="spotlight__feat">
+                <span class="spotlight__feat-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 10-4-1.7-7-5.6-7-10V6l7-3Z"/><path d="M9 12l2 2 4-4"/></svg></span>
+                <div><h3 data-i18n="spot.f4.t">Always asks first</h3><p data-i18n="spot.f4.b">Anything that books, sends, pays, or shares asks for a yes — every single time.</p></div>
+              </li>
+            </ul>
+          </div>
+          <div class="spotlight__stage" data-tilt>
+            <img class="spotlight__pet" src="assets/anim/gosli-permission.png" width="280" height="280" loading="lazy" decoding="async" data-i18n-attr="alt:spot.title" alt="Go!Gosling asks before it acts" />
+            <div class="spotlight__float spotlight__float--a">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.4-3 8.3-7 10-4-1.7-7-5.6-7-10V6l7-3Z"/></svg>
+              <span class="spotlight__float-txt"><strong data-i18n="spot.tag.a">On-device</strong><small data-i18n="spot.tag.a.sub">health &amp; chat</small></span>
+            </div>
+            <div class="spotlight__float spotlight__float--b">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+              <span class="spotlight__float-txt"><strong data-i18n="spot.tag.b">Allow once</strong><small data-i18n="spot.tag.b.sub">asks every time</small></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FEATURES ============================ -->
+    <section class="section section--inset" id="features">
+      <div class="container">
+        <div class="sec-head center">
+          <h2 class="section-title" data-i18n="feat.title">What Go!Gosling can do for you</h2>
+          <p class="lead mx-auto" data-i18n="feat.lead">Everyday tasks routed from one conversation — an agent that acts, not a chatbot that only answers.</p>
+        </div>
+
+        <div class="cap-grid">
+          <article class="cap-card">
+            <span class="cap-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3v7a3 3 0 0 0 6 0V3"/><path d="M9 3v18"/>
+                <path d="M16 3c-1.5 1-2 3-2 5s.5 3 2 3h2V3z"/><path d="M18 11v10"/>
+              </svg>
+            </span>
+            <h3 data-i18n="cap.recipes.title">Recipes</h3>
+            <span class="cap-card__soon" data-i18n="cap.soon" style="display:inline-block;margin:2px 0 8px;padding:2px 9px;border-radius:999px;background:#eef1f6;color:#5b6473;font-size:12px;font-weight:600;">Coming after launch</span>
+            <p data-i18n="cap.recipes.body">Planned: plan meals, swap ingredients, and remember what you like — on your iPhone. Not in the first release.</p>
+          </article>
+          <article class="cap-card">
+            <span class="cap-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11Z"/><circle cx="12" cy="10" r="2.6"/>
+              </svg>
+            </span>
+            <h3 data-i18n="cap.routes.title">Routes</h3>
+            <p data-i18n="cap.routes.body">Ask for directions or transit. Go!Gosling opens the maps surface and keeps context in the conversation.</p>
+          </article>
+          <article class="cap-card">
+            <span class="cap-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.5 11h-3l-2 5-4-11-2.5 6H3.5"/>
+              </svg>
+            </span>
+            <h3 data-i18n="cap.health.title">Health</h3>
+            <p data-i18n="cap.health.body">Private Apple Health insights, processed entirely on your iPhone whenever you ask.</p>
+          </article>
+          <article class="cap-card">
+            <span class="cap-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="7"/><path d="m20 20-3.2-3.2"/>
+              </svg>
+            </span>
+            <h3 data-i18n="cap.search.title">Search</h3>
+            <span class="cap-card__soon" data-i18n="cap.soon" style="display:inline-block;margin:2px 0 8px;padding:2px 9px;border-radius:999px;background:#eef1f6;color:#5b6473;font-size:12px;font-weight:600;">Coming after launch</span>
+            <p data-i18n="cap.search.body">Planned: find answers and sources without leaving the conversation. Not in the first release.</p>
+          </article>
+          <article class="cap-card">
+            <span class="cap-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V6l10-2v12"/><circle cx="6" cy="18" r="3"/><circle cx="16" cy="16" r="3"/>
+              </svg>
+            </span>
+            <h3 data-i18n="cap.media.title">Media</h3>
+            <span class="cap-card__soon" data-i18n="cap.soon" style="display:inline-block;margin:2px 0 8px;padding:2px 9px;border-radius:999px;background:#eef1f6;color:#5b6473;font-size:12px;font-weight:600;">Coming after launch</span>
+            <p data-i18n="cap.media.body">Planned: play, queue, or discover — connected to the right app. Not in the first release.</p>
+          </article>
+          <article class="cap-card">
+            <span class="cap-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 7h14l-1 13H6L5 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/>
+              </svg>
+            </span>
+            <h3 data-i18n="cap.store.title">Store</h3>
+            <span class="cap-card__soon" data-i18n="cap.soon" style="display:inline-block;margin:2px 0 8px;padding:2px 9px;border-radius:999px;background:#eef1f6;color:#5b6473;font-size:12px;font-weight:600;">Coming after launch</span>
+            <p data-i18n="cap.store.body">Planned: services and commerce, always behind a confirmation. Not in the first release.</p>
+          </article>
+        </div>
+        <p class="cap-disclaimer" data-i18n="feat.health.note">Health summaries are wellness information, not medical advice. Go!Gosling is not a medical device.</p>
+      </div>
+    </section>
+
+    <!-- ============================ HOW IT WORKS ============================ -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="sec-head center">
+          <h2 class="section-title" data-i18n="how.title">Three steps to get started.</h2>
+        </div>
+        <div class="steps steps--plain">
+          <div class="step">
+            <div class="step__num">1</div>
+            <h3 data-i18n="how.s1.title">Download Go!Gosling</h3>
+            <p data-i18n="how.s1.body">One tap from the App Store when it launches on iPhone.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">2</div>
+            <h3 data-i18n="how.s2.title">Describe what you want</h3>
+            <p data-i18n="how.s2.body">Type or speak a natural instruction — find a route, check health, draft a message, or ask a question.</p>
+          </div>
+          <div class="step">
+            <div class="step__num">3</div>
+            <h3 data-i18n="how.s3.title">Confirm, and it's done</h3>
+            <p data-i18n="how.s3.body">Go!Gosling routes to the right capability and shows you the plan. Anything that books, sends, pays, or shares asks for your confirmation first — every time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ PRIVACY ============================ -->
+    <section class="section section--inset" id="privacy">
+      <div class="container">
+        <div class="sec-head center">
+          <h2 class="section-title" data-i18n="priv.title">Your health stays on your iPhone.</h2>
+          <p class="priv-tagline" data-i18n="priv.tagline">Health on-device · Memory you control · No account required to start</p>
+          <p class="lead mx-auto measure" style="margin-inline:auto;margin-top:var(--space-4)" data-i18n="priv.lead">Apple Health data and any health questions are processed only on your iPhone and are never sent to our servers. For general, non-health requests (like finding a cafe nearby), Go!Gosling can use our server — never your health data.</p>
+        </div>
+
+        <div class="privacy__grid">
+          <div class="card card--flat">
+            <h3 class="card__title" data-i18n="priv.c1.title">Health stays on-device</h3>
+            <p class="card__body" data-i18n="priv.c1.body">Apple Health data, its summaries, and your health questions never leave your iPhone — never sent to our servers, never to any remote AI, never used for ads.</p>
+          </div>
+          <div class="card card--flat">
+            <h3 class="card__title" data-i18n="priv.c2.title">Optional account</h3>
+            <p class="card__body" data-i18n="priv.c2.body">You can use Chat and Health without signing in. An optional account (email + encrypted credential) unlocks membership and server-backed local-life results.</p>
+          </div>
+          <div class="card card--flat">
+            <h3 class="card__title" data-i18n="priv.c3.title">No ads, no tracking</h3>
+            <p class="card__body" data-i18n="priv.c3.body">No ads, no cross-app tracking, and no advertising profile built about you. We never sell or rent your data.</p>
+          </div>
+          <div class="card card--flat">
+            <h3 class="card__title" data-i18n="priv.c4.title">You are always in control</h3>
+            <p class="card__body" data-i18n="priv.c4.body">Memory is saved only after you confirm it, and anything that books, sends, pays, or shares asks for your permission each time.</p>
+          </div>
+        </div>
+
+        <div class="privacy__never">
+          <h3 data-i18n="priv.never.title">What Go!Gosling does not do</h3>
+          <ul class="never-list never-list--light">
+            <li data-i18n="priv.never.1">Send your health data off your device</li>
+            <li data-i18n="priv.never.2">Sell or rent your data</li>
+            <li data-i18n="priv.never.3">Show you ads</li>
+            <li data-i18n="priv.never.4">Track you across apps</li>
+            <li data-i18n="priv.never.5">Require an account to use Chat or Health</li>
+            <li data-i18n="priv.never.6">Save a memory without your confirmation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FAQ ============================ -->
+    <section class="section how" id="faq">
+      <div class="container faq__grid">
+        <div class="sec-head" style="margin-bottom:0">
+          <h2 class="section-title" data-i18n="faq.title">Questions, answered.</h2>
+          <p class="lead" data-i18n="faq.lead">Everything you might want to know before Go!Gosling lands on your iPhone.</p>
+        </div>
+        <div class="accordion">
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq0"><span data-i18n="faq.q0">What is Go!Gosling?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq0" role="region"><div class="accordion__panel-inner" data-i18n="faq.a0">Go!Gosling turns what you say into action. You describe what you want; it understands intent, uses memory you control, checks permissions and risk, and routes the task to the right in-app capability — chat, health, recipes, routes, search, media, and store, all from one conversation.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq1"><span data-i18n="faq.q1">When will Go!Gosling launch?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq1" role="region"><div class="accordion__panel-inner" data-i18n="faq.a1">The launch date is being finalized. Join the list and you will be the first to know — we will email you the moment Go!Gosling is live.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq2"><span data-i18n="faq.q2">Which devices does Go!Gosling support?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq2" role="region"><div class="accordion__panel-inner" data-i18n="faq.a2">Go!Gosling launches on iPhone (iOS). Support for additional platforms may follow in future versions.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq3"><span data-i18n="faq.q3">Is Go!Gosling private?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq3" role="region"><div class="accordion__panel-inner" data-i18n="faq.a3">Your Apple Health data and any health questions are processed only on your iPhone and never sent to our servers or any remote AI. For general, non-health requests, the app may use our server with a coarse, non-identifying region code — never precise location, and never your health data.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq4"><span data-i18n="faq.q4">Do I need an account?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq4" role="region"><div class="accordion__panel-inner" data-i18n="faq.a4">No. You can use Chat and Health without signing in. An optional account (email + encrypted credential) unlocks membership and server-backed local-life results, and you can delete it anytime in Settings → Account.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq5"><span data-i18n="faq.q5">Is Go!Gosling a medical device?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq5" role="region"><div class="accordion__panel-inner" data-i18n="faq.a5">No. Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition, and its AI summaries can be incomplete or wrong. Always consult a qualified clinician for medical decisions.</div></div>
+          </div>
+          <div class="accordion__item">
+            <button class="accordion__trigger" aria-expanded="false" aria-controls="faq6"><span data-i18n="faq.q6">How much will Go!Gosling cost?</span><span class="accordion__icon" aria-hidden="true"></span></button>
+            <div class="accordion__panel" id="faq6" role="region"><div class="accordion__panel-inner" data-i18n="faq.a6">Pricing will be shared closer to launch. Join the list and we will keep you updated.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================ FINAL CTA ============================ -->
+    <section class="section final-cta">
+      <div class="container final-cta__inner">
+          <h2 data-i18n="cta.title">Be first to try Go!Gosling.</h2>
+          <p data-i18n="cta.lead">Coming soon on Go!Gosling for iPhone — we will notify you when v1 is ready.</p>
+          <div>
+            <form class="waitlist" data-waitlist novalidate>
+              <div class="field">
+                <input class="field__input" type="email" name="email" required autocomplete="email"
+                       data-i18n-attr="placeholder:cta.email;aria-label:cta.email" placeholder="Enter your email" />
+                <button class="btn btn--primary" type="submit" data-i18n="cta.btn">Notify me at launch</button>
+              </div>
+            </form>
+            <div class="form-success" data-waitlist-success hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+              <span data-success-text>You are on the list.</span>
+            </div>
+            <p class="form-note" data-i18n="cta.note">We will email you on launch day. No spam.</p>
+          </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a class="logo" href="#top" aria-label="Go!Gosling home">
+            <span class="logo__mark" aria-hidden="true"><img src="assets/img/icon-192.png" alt="" width="32" height="32" /></span>
+            <span class="logo__word">Go!Gosling</span>
+          </a>
+          <p class="footer__tagline" data-i18n="foot.tagline">Go!Gosling — say it, and it's handled, with your health kept on your iPhone.</p>
+        </div>
+        <div class="footer__cols">
+          <div class="footer__col">
+            <h4 data-i18n="foot.product">Product</h4>
+            <ul>
+              <li><a href="#features" data-i18n="foot.features">Features</a></li>
+              <li><a href="#privacy" data-i18n="foot.privacy">Privacy</a></li>
+              <li><a href="#how" data-i18n="foot.how">How it works</a></li>
+              <li><a href="#faq" data-i18n="foot.faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 data-i18n="foot.company">Company</h4>
+            <ul>
+              <li><a href="#" data-i18n="foot.about">About</a></li>
+              <li><a href="#" data-i18n="foot.blog">Blog</a></li>
+              <li><a href="#" data-i18n="foot.careers">Careers</a></li>
+              <li><a href="mailto:hello@gogosling.ca" data-i18n="foot.contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 data-i18n="foot.legal">Legal</h4>
+            <ul>
+              <li><a href="privacy.html" data-i18n="foot.privacyPolicy">Privacy Policy</a></li>
+              <li><a href="terms.html" data-i18n="foot.terms">Terms of Service</a></li>
+              <li><a href="#faq" data-i18n="foot.health">Health disclaimer</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h4 data-i18n="foot.connect">Connect</h4>
+            <ul>
+              <li><a href="mailto:hello@gogosling.ca" data-i18n="foot.email">hello@gogosling.ca</a></li>
+              <li><a href="#" aria-label="X (Twitter)">X / Twitter</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__disclaimer" data-i18n="foot.ai">Go!Gosling uses on-device AI. AI-generated content can be incomplete or wrong — please use your own judgment, and never rely on it for medical, legal, or financial decisions.</p>
+        <p class="footer__disclaimer" data-i18n="foot.healthFull">Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition. Always consult a qualified clinician for medical decisions, and call your local emergency number in an emergency.</p>
+        <div class="footer__legal-row">
+          <span data-i18n="foot.copyright">© 2026 Go!Gosling. All rights reserved.</span>
+          <span data-i18n="foot.madeWith">Designed for privacy. Built for iPhone.</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

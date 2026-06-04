@@ -1,0 +1,514 @@
+/* ==========================================================================
+   Go!Gosling — Bilingual content layer (EN / 中文)
+   The HTML ships with English as crawlable default text; this table swaps
+   to the selected language. Keys are grouped by section.
+   Apply: textContent via [data-i18n], innerHTML via [data-i18n-html],
+   attributes via [data-i18n-attr="placeholder:key;aria-label:key"].
+   ========================================================================== */
+(function () {
+  "use strict";
+
+  const I18N = {
+    en: {
+      "meta.title": "Go!Gosling — Say it. It's handled.",
+      "meta.desc": "Go!Gosling turns what you say into action — chat, health, recipes, routes, search, media, and store, all from one conversation. Your Apple Health data is processed only on your iPhone and never leaves it. Coming soon.",
+
+      /* Nav */
+      "nav.meet": "Gosli",
+      "nav.features": "Features",
+      "nav.privacy": "Privacy",
+      "nav.how": "How it works",
+      "nav.faq": "FAQ",
+      "nav.notify": "Notify me",
+      "nav.menu": "Open menu",
+
+      /* Hero */
+      "hero.app": "Go!Gosling · Coming soon · iPhone",
+      "hero.title": "Say it. It's handled.",
+      "hero.lead": "Go!Gosling turns what you say into action — and asks before it acts.",
+      "hero.tagline": "You talk. Go!Gosling understands. Things happen.",
+      "hero.demo": "What can I help with?",
+      "gosling.idle": "Ask Go!Gosling anything…",
+      "gosling.thinking": "Go!Gosling is thinking…",
+      "gosling.ex1.prompt": "How did I sleep this week?",
+      "gosling.ex1.status": "Routed to Health · on-device",
+      "gosling.ex2.prompt": "Draft a kind reply to my landlord",
+      "gosling.ex2.status": "Routed to Chat · on-device",
+      "gosling.ex3.prompt": "Summarize this article in plain language",
+      "gosling.ex3.status": "Answered on-device",
+      "hero.hook": "Health stays on your iPhone · Memory you control · Asks before it acts",
+      "hero.email": "Enter your email",
+      "hero.cta": "Notify me at launch",
+      "hero.note": "Release date to be announced · iPhone · iOS",
+      "hero.store.small": "Coming soon to the",
+      "hero.store.big": "App Store",
+
+      /* State gallery (the animated Gosli) */
+      "gal.eyebrow": "Meet Gosli",
+      "gal.title": "One companion, every part of your day.",
+      "gal.lead": "Gosli is the face of Go!Gosling — it listens, thinks, remembers, and acts. Always gentle, always on your side.",
+      "gal.idle.cap": "Listening",            "gal.idle.sub": "Just say what you need",
+      "gal.thinking.cap": "Thinking it through", "gal.thinking.sub": "Works out the best way to help",
+      "gal.memory.cap": "Remembering",         "gal.memory.sub": "Keeps what matters — only if you allow it",
+      "gal.working.cap": "On it",              "gal.working.sub": "Turns your words into a plan",
+      "gal.phone.cap": "On your iPhone",       "gal.phone.sub": "Runs on-device, private by default",
+      "gal.ready.cap": "Ready",                "gal.ready.sub": "Standing by for the next thing",
+      "gal.routing.cap": "Finding the way",    "gal.routing.sub": "Places and routes, opened in Maps",
+      "gal.recipe.cap": "Planning meals",      "gal.recipe.sub": "Recipes and groceries, sorted",
+      "gal.health.cap": "Health check-in",     "gal.health.sub": "Your Apple Health, read on-device",
+      "gal.sleep.cap": "Works offline",        "gal.sleep.sub": "No signal needed for on-device tasks",
+      "gal.permission.cap": "Asks first",      "gal.permission.sub": "Nothing booked or sent without a yes",
+      "gal.success.cap": "Done",               "gal.success.sub": "Handled — say the next thing",
+
+      /* Spotlight (on-device panel) */
+      "spot.eyebrow": "Private by design",
+      "spot.title": "Real help that stays on your side.",
+      "spot.lead": "Go!Gosling does the smart part on your iPhone — and never acts behind your back.",
+      "spot.f1.t": "On-device intelligence",
+      "spot.f1.b": "Health and chat run on Apple's on-device models. Your Apple Health data never leaves your iPhone.",
+      "spot.f2.t": "Just talk",
+      "spot.f2.b": "Speak naturally. On-device speech turns your voice into action — no cloud transcription.",
+      "spot.f3.t": "Memory you control",
+      "spot.f3.b": "It remembers helpful patterns only after you confirm. Review, pause, or delete anytime.",
+      "spot.f4.t": "Always asks first",
+      "spot.f4.b": "Anything that books, sends, pays, or shares asks for a yes — every single time.",
+      "spot.tag.a": "On-device",
+      "spot.tag.a.sub": "health & chat",
+      "spot.tag.b": "Allow once",
+      "spot.tag.b.sub": "asks every time",
+
+      "feat.title": "What Go!Gosling can do for you",
+      "feat.lead": "One conversation that connects to everything — an AI companion that gets things done, not a chatbot that just replies.",
+      "feat.health.note": "Health summaries are wellness information, not medical advice. Go!Gosling is not a medical device.",
+
+      "cap.recipes.title": "Recipes",
+      "cap.recipes.body": "Plan meals, swap ingredients, and remember what you like — all handled right on your iPhone.",
+      "cap.routes.title": "Routes",
+      "cap.routes.body": "Ask for directions or transit. Go!Gosling opens maps and keeps the context in your conversation.",
+      "cap.health.title": "Health",
+      "cap.health.body": "Private Apple Health insights, processed entirely on your iPhone whenever you ask.",
+      "cap.search.title": "Search",
+      "cap.search.body": "Find answers and sources without ever leaving the conversation.",
+      "cap.media.title": "Media",
+      "cap.media.body": "Play, queue, or discover — Go!Gosling connects you to the right app.",
+      "cap.store.title": "Store",
+      "cap.store.body": "Services and commerce, handled the moment you're ready to act.",
+
+      /* How it works */
+      "how.title": "Three steps. That's it.",
+      "how.s1.title": "Download Go!Gosling",
+      "how.s1.body": "One tap from the App Store when it launches on iPhone.",
+      "how.s2.title": "Say what you need",
+      "how.s2.body": "Type or speak naturally — find a route, check your health, draft a message, or ask anything on your mind.",
+      "how.s3.title": "Confirm, and it's done",
+      "how.s3.body": "Go!Gosling figures out what to do and shows you the plan. Anything that books, sends, pays, or shares asks for your confirmation first — every time.",
+
+      /* Privacy */
+      "priv.title": "Your health stays on your iPhone.",
+      "priv.tagline": "Health on-device · Memory you control · No account required to start",
+      "priv.lead": "Apple Health data and any health questions are processed only on your iPhone and are never sent to our servers. For general, non-health requests (like finding a cafe nearby), Go!Gosling can use our server — never your health data.",
+      "priv.z1": "ads",
+      "priv.z2": "data selling",
+      "priv.z3": "trackers",
+      "priv.c1.title": "Health stays on-device",
+      "priv.c1.body": "Apple Health data, its summaries, and your health questions never leave your iPhone — never sent to our servers, never to any remote AI, never used for ads.",
+      "priv.c2.title": "Optional account",
+      "priv.c2.body": "You can use Chat and Health without signing in. An optional account (email + encrypted credential) unlocks membership and server-backed local-life results.",
+      "priv.c3.title": "No ads, no tracking",
+      "priv.c3.body": "No ads, no cross-app tracking, and no advertising profile built about you. We never sell or rent your data.",
+      "priv.c4.title": "You are always in control",
+      "priv.c4.body": "Memory is saved only after you confirm it, and anything that books, sends, pays, or shares asks for your permission each time.",
+      "priv.never.title": "What Go!Gosling does not do",
+      "priv.never.1": "Send your health data off your device",
+      "priv.never.2": "Sell or rent your data",
+      "priv.never.3": "Show you ads",
+      "priv.never.4": "Track you across apps",
+      "priv.never.5": "Require an account to use Chat or Health",
+      "priv.never.6": "Save a memory without your confirmation",
+
+      /* Roadmap */
+      "road.eyebrow": "The road ahead",
+      "road.title": "v1 ships Chat + Health. More skills unlock over time.",
+      "road.lead": "Go!Gosling is your private conversation space. Launch ships two features — Chat and Health, with health processed on your iPhone; recipes, routes, search, media, and store follow as each becomes ready.",
+      "road.live": "Available at launch",
+      "road.soon": "Planned for later",
+      "road.chat": "Chat",
+      "road.health": "Health",
+      "road.recipes": "Recipes",
+      "road.routes": "Routes",
+      "road.search": "Search",
+      "road.media": "Media",
+      "road.store": "Store",
+
+      /* FAQ */
+      "faq.eyebrow": "FAQ",
+      "faq.title": "Questions, answered.",
+      "faq.lead": "Everything you might want to know before Go!Gosling lands on your iPhone.",
+      "faq.q0": "What is Go!Gosling?",
+      "faq.a0": "Go!Gosling turns what you say into action. You describe what you need; it understands your intent, uses memory you control, checks permissions and risk, and handles the task using the right feature in the app — chat, health, recipes, routes, search, media, and store, all from one conversation.",
+      "faq.q1": "When will Go!Gosling launch?",
+      "faq.a1": "The launch date is being finalized. Join the list and you'll be the first to know — we'll email you the moment Go!Gosling is live.",
+      "faq.q2": "Which devices does Go!Gosling support?",
+      "faq.a2": "Go!Gosling launches on iPhone (iOS). Support for additional platforms may follow in future versions.",
+      "faq.q3": "Is Go!Gosling private?",
+      "faq.a3": "Your Apple Health data and any health questions are processed only on your iPhone and never sent to our servers or any remote AI. For general, non-health requests, the app may use our server with a coarse, non-identifying region code — never precise location, and never your health data.",
+      "faq.q4": "Do I need an account?",
+      "faq.a4": "No. You can use Chat and Health without signing in. An optional account (email + encrypted credential) unlocks membership and server-backed local-life results, and you can delete it anytime in Settings → Account.",
+      "faq.q5": "Is Go!Gosling a medical device?",
+      "faq.a5": "No. Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition, and its AI summaries can be incomplete or wrong. Always consult a qualified clinician for medical decisions.",
+      "faq.q6": "How much will Go!Gosling cost?",
+      "faq.a6": "Pricing will be shared closer to launch. Join the list and we'll keep you updated.",
+
+      /* Final CTA */
+      "cta.title": "Be the first to try Go!Gosling.",
+      "cta.lead": "Coming soon on Go!Gosling for iPhone — we'll let you know the moment v1 is ready.",
+      "cta.email": "Enter your email",
+      "cta.btn": "Notify me at launch",
+      "cta.note": "We'll email you on launch day. No spam, ever.",
+      "form.success": "You're on the list. We'll email you when Go!Gosling launches — nothing else.",
+      "form.invalid": "Please enter a valid email address.",
+
+      /* Footer */
+      "foot.tagline": "Go!Gosling — say it, and it's handled, with your health kept on your iPhone.",
+      "foot.product": "Product",
+      "foot.company": "Company",
+      "foot.legal": "Legal",
+      "foot.connect": "Connect",
+      "foot.features": "Features",
+      "foot.privacy": "Privacy",
+      "foot.how": "How it works",
+      "foot.roadmap": "Roadmap",
+      "foot.faq": "FAQ",
+      "foot.about": "About",
+      "foot.blog": "Blog",
+      "foot.careers": "Careers",
+      "foot.contact": "Contact",
+      "foot.privacyPolicy": "Privacy Policy",
+      "foot.terms": "Terms of Service",
+      "foot.health": "Health disclaimer",
+      "foot.email": "hello@gogosling.ca",
+      "foot.ai": "Go!Gosling uses on-device AI. AI-generated content can be incomplete or wrong — please use your own judgment, and never rely on it for medical, legal, or financial decisions.",
+      "foot.healthFull": "Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition. Always consult a qualified clinician for medical decisions, and call your local emergency number in an emergency.",
+      "foot.copyright": "© 2026 Go!Gosling. All rights reserved.",
+      "foot.madeWith": "Designed for privacy. Built for iPhone.",
+
+      /* Legal pages */
+      "legal.updated": "Last updated",
+      "legal.back": "Back to home",
+      "pp.title": "Privacy Policy",
+      "pp.intro": "Go!Gosling is a chat-first life assistant. This policy explains what we collect, what we do not collect, and the controls you have. The guiding principle: your personal health data never leaves your device, and we never act on your behalf without asking.",
+      "pp.s1.t": "1. Your health data stays on your device",
+      "pp.s1.b": "Go!Gosling reads Apple Health (HealthKit) data only on your device, to show you your own insights (heart rate, sleep, activity, recovery). Your HealthKit data, any summaries of it, and any prompts about your health are never transmitted off your device, never sent to our servers, never sent to any third-party or remote AI model, and never used for advertising. Health-related questions are answered fully on-device. Only general, non-health requests (e.g. \"find a cafe nearby\") may use our server.",
+      "pp.s2.t": "2. What we collect",
+      "pp.s2.b": "Account information (email): if you create an account, we store your email and an encrypted credential to sign you in — used for app functionality only. Sign-in is optional and is not required to use Chat or Health. Coarse, non-identifying context: to make local-life suggestions relevant (e.g. a coarse region code). We do not collect precise location. Operational data: minimal, non-identifying logs to keep the service running and secure. We do not build advertising profiles.",
+      "pp.s3.t": "3. What we do NOT do",
+      "pp.s3.b": "We do not sell or rent your data. We do not use your data to track you across other apps or websites. We do not show ads. We do not transmit or share your health data.",
+      "pp.s4.t": "4. Memory you control",
+      "pp.s4.b": "Go!Gosling can remember helpful patterns (e.g. \"you usually compare options before deciding\"). Memory is never written silently — a candidate is saved only after you confirm it, and you can review, edit, pause, or delete what it remembers at any time, on your device.",
+      "pp.s5.t": "5. Actions require your confirmation",
+      "pp.s5.b": "Anything that books, sends, pays, shares, or opens another app shows you exactly what it will do and asks for your permission each time. A confirmation is good for one action only.",
+      "pp.s6.t": "6. Your rights and choices",
+      "pp.s6.b": "Delete your account and data: available in the app under Settings → Account. Deleting your account removes your server-side account data. Manage memory: pause or delete remembered items in the app at any time. Revoke Health access: in iOS Settings → Privacy → Health at any time.",
+      "pp.s7.t": "7. Data security, retention & children",
+      "pp.s7.b": "We protect account data in transit (TLS) and at rest. We retain account data only while your account exists; when you delete your account, associated server data is removed. Go!Gosling is not directed to children under 13, and we do not knowingly collect data from children. We may update this policy; material changes will be reflected here with a new \"Last updated\" date.",
+      "pp.s8.t": "8. Contact",
+      "pp.s8.b": "Questions about privacy? Reach us at privacy@gogosling.ca.",
+      "tos.title": "Terms of Service",
+      "tos.intro": "These Terms govern your use of the Go!Gosling app. By using Go!Gosling, you agree to them. Please read them together with our Privacy Policy.",
+      "tos.s1.t": "1. The service",
+      "tos.s1.b": "Go!Gosling turns what you say into action. You describe tasks in natural language, and Go!Gosling routes them to the right capability — chat, health, recipes, routes, search, media, and store. An optional account enables membership and server-backed local-life results, but is not required to use chat or health.",
+      "tos.s2.t": "2. Not professional advice",
+      "tos.s2.b": "Go!Gosling is a wellness and information tool, not a medical device. It does not diagnose, treat, or prevent any condition. Its summaries can be incomplete or wrong. Always consult a qualified clinician for medical decisions, and call your local emergency number in an emergency. Go!Gosling does not provide legal, financial, or other professional advice.",
+      "tos.s3.t": "3. AI-generated content",
+      "tos.s3.b": "Responses are generated by AI and may be inaccurate, incomplete, or out of date. You are responsible for how you use any output. Do not rely on Go!Gosling for decisions that require professional judgment.",
+      "tos.s4.t": "4. Acceptable use",
+      "tos.s4.b": "Use Go!Gosling lawfully and do not attempt to misuse, disrupt, reverse engineer, or use the app to harm yourself or others.",
+      "tos.s5.t": "5. Intellectual property",
+      "tos.s5.b": "Go!Gosling, its name, logo, and design are owned by the Go!Gosling team. These Terms do not grant you rights to our trademarks or branding.",
+      "tos.s6.t": "6. Disclaimers and liability",
+      "tos.s6.b": "Go!Gosling is provided \"as is,\" without warranties of any kind, to the maximum extent permitted by law. To the extent permitted by law, the Go!Gosling team is not liable for any indirect or consequential damages arising from your use of the app.",
+      "tos.s7.t": "7. Changes",
+      "tos.s7.b": "We may update these Terms as Go!Gosling evolves. Material changes will be reflected here with an updated date.",
+      "tos.s8.t": "8. Contact",
+      "tos.s8.b": "Questions about these Terms? Reach us at hello@gogosling.ca."
+    },
+
+    zh: {
+      "meta.title": "Go!Gosling — 说一句，就办好。",
+      "meta.desc": "Go!Gosling 把你说的话变成行动——聊天、健康、菜谱、路线、搜索、影音、生活服务，全在一次对话里完成。你的 Apple 健康数据只在 iPhone 上处理，绝不离开手机。即将登陆 iPhone。",
+
+      "nav.features": "功能",
+      "nav.privacy": "隐私",
+      "nav.how": "怎么用",
+      "nav.faq": "常见问题",
+      "nav.notify": "通知我",
+      "nav.menu": "打开菜单",
+
+      "hero.app": "Go!Gosling 即将上线 · iPhone",
+      "hero.title": "说一句，就办好。",
+      "hero.lead": "Go!Gosling 把你说的话变成行动——动手前一定先问你。",
+      "hero.tagline": "你开口，Go!Gosling 来理解，事情就办好了。",
+      "hero.demo": "你想做什么？",
+      "gosling.idle": "问 Go!Gosling 任何事…",
+      "gosling.thinking": "Go!Gosling 正在思考…",
+      "gosling.ex1.prompt": "我这周睡得怎么样？",
+      "gosling.ex1.status": "已路由到健康 · 本地完成",
+      "gosling.ex2.prompt": "帮我给房东写一条客气的回复",
+      "gosling.ex2.status": "已路由到对话 · 本地完成",
+      "gosling.ex3.prompt": "用大白话帮我总结这篇文章",
+      "gosling.ex3.status": "已在本地作答",
+      "hero.hook": "健康数据只留在手机上 · 记忆由你掌控 · 动手前先问你",
+      "hero.email": "输入你的邮箱",
+      "hero.cta": "发布时通知我",
+      "hero.note": "发布日期待公布 · iPhone · iOS",
+      "hero.store.small": "即将登陆",
+      "hero.store.big": "App Store",
+
+      /* 动图画廊 */
+      "gal.eyebrow": "认识 Gosli",
+      "gal.title": "一个伙伴，陪你过好每一天。",
+      "gal.lead": "Gosli 是 Go!Gosling 的形象——它会聆听、会思考、会记住、会动手。始终温柔，始终站在你这边。",
+      "gal.idle.cap": "聆听中",          "gal.idle.sub": "想做什么，说一句就好",
+      "gal.thinking.cap": "正在思考",     "gal.thinking.sub": "盘算怎么帮你最合适",
+      "gal.memory.cap": "记在心里",       "gal.memory.sub": "记住要紧的事——但要先经你同意",
+      "gal.working.cap": "马上办",        "gal.working.sub": "把你说的话变成一份方案",
+      "gal.phone.cap": "就在你手机上",     "gal.phone.sub": "本地运行，默认就保护隐私",
+      "gal.ready.cap": "随时待命",        "gal.ready.sub": "下一件事，等你开口",
+      "gal.routing.cap": "帮你找路",      "gal.routing.sub": "地点和路线，一键打开地图",
+      "gal.recipe.cap": "张罗三餐",       "gal.recipe.sub": "菜谱和采购，帮你安排好",
+      "gal.health.cap": "健康小结",       "gal.health.sub": "你的 Apple 健康，只在本地读取",
+      "gal.sleep.cap": "离线也能用",      "gal.sleep.sub": "本地任务，没网也不耽误",
+      "gal.permission.cap": "先问你",     "gal.permission.sub": "没有你的同意，绝不预订或发送",
+      "gal.success.cap": "搞定",          "gal.success.sub": "办好啦——再说下一件",
+
+      /* 本地优先面板 */
+      "spot.eyebrow": "为隐私而设计",
+      "spot.title": "真正帮上忙，又始终站在你这边。",
+      "spot.lead": "聪明的那一步，Go!Gosling 在你手机上完成——绝不背着你行动。",
+      "spot.f1.t": "设备端智能",
+      "spot.f1.b": "健康和聊天由 Apple 的设备端模型处理。你的 Apple 健康数据绝不离开 iPhone。",
+      "spot.f2.t": "开口就行",
+      "spot.f2.b": "自然说话即可。设备端语音把你的声音变成行动——不上传云端转写。",
+      "spot.f3.t": "记忆由你掌控",
+      "spot.f3.b": "只有经你确认，它才会记住有用的习惯。随时查看、暂停或删除。",
+      "spot.f4.t": "动手前先问你",
+      "spot.f4.b": "凡是要预订、发送、付款或分享的操作，每一次都先征得你同意。",
+      "spot.tag.a": "本地处理",
+      "spot.tag.a.sub": "健康与聊天",
+      "spot.tag.b": "允许一次",
+      "spot.tag.b.sub": "每次都先问",
+
+      "feat.title": "Go!Gosling 能帮你做什么",
+      "feat.lead": "一次对话，搞定日常大小事——是真正能帮你做事的伙伴，不是只会聊天的机器人。",
+      "feat.health.note": "健康摘要仅供参考，并非医疗建议。Go!Gosling 不是医疗设备。",
+
+      "cap.recipes.title": "菜谱",
+      "cap.recipes.body": "规划三餐、替换食材、记住你的口味——这些都在你手机上就能完成。",
+      "cap.routes.title": "路线",
+      "cap.routes.body": "想去哪儿，直接说。Go!Gosling 帮你查路线、看公交，全程不离开对话。",
+      "cap.health.title": "健康",
+      "cap.health.body": "问一下今天的步数、心率趋势——你的健康数据只在手机上处理，不出设备。",
+      "cap.search.title": "搜索",
+      "cap.search.body": "想查什么直接问，不用跳出聊天。",
+      "cap.media.title": "影音",
+      "cap.media.body": "想听歌、看视频，告诉 Go!Gosling 就好。",
+      "cap.store.title": "生活服务",
+      "cap.store.body": "买东西、订服务，Go!Gosling 帮你安排好。",
+
+      "how.title": "三步，就够了。",
+      "how.s1.title": "下载 Go!Gosling",
+      "how.s1.body": "发布后，在 App Store 一键获取。",
+      "how.s2.title": "说出你想做的事",
+      "how.s2.body": "打字或语音都行——查路线、看健康、写消息，或者随便问问。",
+      "how.s3.title": "看一眼，点一下，搞定",
+      "how.s3.body": "Go!Gosling 找到最合适的处理方式，并把方案给你看。凡是要预订、发送、付款或分享的操作，每次都会先征得你的确认。",
+
+      "priv.title": "你的健康数据，只留在你的手机上。",
+      "priv.tagline": "健康数据本地处理 · 记忆由你掌控 · 无需注册即可开始",
+      "priv.lead": "Apple 健康数据和任何健康相关的提问，都只在你手机上处理，绝不发给我们的服务器。只有处理一般的非健康请求（比如查附近的咖啡馆）时，Go!Gosling 才可能用到我们的服务器——绝不会用到你的健康数据。",
+      "priv.z1": "广告",
+      "priv.z2": "出售数据",
+      "priv.z3": "追踪器",
+      "priv.c1.title": "健康数据只在本地",
+      "priv.c1.body": "Apple 健康数据、它的摘要、你的健康提问，都绝不离开你的 iPhone——不发给我们的服务器，不发给任何远程 AI，也绝不用于广告。",
+      "priv.c2.title": "可选账号",
+      "priv.c2.body": "不登录也能用聊天和健康。可选账号（邮箱 + 加密凭证）用来开通会员、获取服务器支持的本地生活结果。",
+      "priv.c3.title": "无广告、不追踪",
+      "priv.c3.body": "没有广告、不跨应用追踪你、不会建立你的广告画像。我们绝不出售或出租你的数据。",
+      "priv.c4.title": "你说了算",
+      "priv.c4.body": "只有经你确认，记忆才会被保存；凡是要预订、发送、付款或分享的操作，每次都会先征得你的同意。",
+      "priv.never.title": "Go!Gosling 绝不会做的事",
+      "priv.never.1": "把你的健康数据传出设备",
+      "priv.never.2": "出售或出租你的数据",
+      "priv.never.3": "给你看广告",
+      "priv.never.4": "跨应用追踪你",
+      "priv.never.5": "强制你注册才能用聊天或健康",
+      "priv.never.6": "未经你确认就保存记忆",
+
+      "road.eyebrow": "未来规划",
+      "road.title": "首批上线聊天和健康。更多功能陆续到来。",
+      "road.lead": "Go!Gosling 是你的私密对话空间。首批上线聊天和健康，健康数据在你手机上处理；菜谱、路线、搜索、影音、生活服务会陆续开放。",
+      "road.live": "首发可用",
+      "road.soon": "后续上线",
+      "road.chat": "聊天",
+      "road.health": "健康",
+      "road.recipes": "菜谱",
+      "road.routes": "路线",
+      "road.search": "搜索",
+      "road.media": "影音",
+      "road.store": "生活服务",
+
+      "faq.eyebrow": "常见问题",
+      "faq.title": "你的疑问，我们逐一回答。",
+      "faq.lead": "在 Go!Gosling 来到你的 iPhone 之前，你想知道的都在这里。",
+      "faq.q0": "Go!Gosling 是什么？",
+      "faq.a0": "Go!Gosling 把你说的话变成行动。你告诉它你想做什么，它会理解你的意思，用你掌控的记忆，看看有没有权限、安不安全，然后找到最合适的方式帮你搞定。聊天、健康、菜谱、路线、搜索、影音、生活服务，全在一次对话里。",
+      "faq.q1": "Go!Gosling 什么时候上线？",
+      "faq.a1": "上线日期正在最后确认。留下邮箱，你会第一时间知道——Go!Gosling 一上线，我们立刻通知你。",
+      "faq.q2": "Go!Gosling 支持哪些手机？",
+      "faq.a2": "Go!Gosling 首发支持 iPhone（iOS 系统）。后续版本会考虑支持更多设备。",
+      "faq.q3": "Go!Gosling 真的能保护隐私吗？",
+      "faq.a3": "你的 Apple 健康数据和任何健康提问，都只在你手机上处理，绝不发给我们的服务器或任何远程 AI。处理一般的非健康请求时，app 可能用到我们的服务器，但只用一个粗略、无法识别身份的地区码——绝不会用精确定位，也绝不会用你的健康数据。",
+      "faq.q4": "需要注册吗？",
+      "faq.a4": "不需要。不登录也能用聊天和健康。可选账号（邮箱 + 加密凭证）用来开通会员、获取服务器支持的本地生活结果，你随时可以在「设置 → 账号」里删除它。",
+      "faq.q5": "Go!Gosling 是医疗设备吗？",
+      "faq.a5": "不是。Go!Gosling 是健康和生活参考工具，不是医疗设备。它不诊断、不治疗、不预防任何疾病，AI 给出的健康信息可能不完整或有偏差。任何医疗决定请务必咨询专业医生。",
+      "faq.q6": "Go!Gosling 收费吗？",
+      "faq.a6": "价格会在临近上线时公布。留下邮箱，我们会及时告诉你。",
+
+      "cta.title": "比别人先用上 Go!Gosling。",
+      "cta.lead": "Go!Gosling for iPhone 即将上线——第一时间通知你。",
+      "cta.email": "输入你的邮箱",
+      "cta.btn": "发布时通知我",
+      "cta.note": "上线当天邮件通知，绝无垃圾邮件。",
+      "form.success": "已加入名单。Go!Gosling 发布时第一时间通知你——没有其他打扰。",
+      "form.invalid": "请输入有效的邮箱地址。",
+
+      "foot.tagline": "Go!Gosling——说一句就办好，健康数据只留在你手机上。",
+      "foot.product": "产品",
+      "foot.company": "公司",
+      "foot.legal": "法律",
+      "foot.connect": "联系",
+      "foot.features": "功能",
+      "foot.privacy": "隐私",
+      "foot.how": "怎么用",
+      "foot.roadmap": "未来规划",
+      "foot.faq": "常见问题",
+      "foot.about": "关于我们",
+      "foot.blog": "博客",
+      "foot.careers": "加入我们",
+      "foot.contact": "联系我们",
+      "foot.privacyPolicy": "隐私政策",
+      "foot.terms": "服务条款",
+      "foot.health": "健康声明",
+      "foot.email": "hello@gogosling.ca",
+      "foot.ai": "Go!Gosling 使用设备端 AI。AI 生成的内容可能不完整或有误，请自行判断，不要依赖它做医疗、法律或财务决策。",
+      "foot.healthFull": "Go!Gosling 是健康和生活参考工具，不是医疗设备。它不诊断、不治疗、不预防任何疾病。任何医疗决定请务必咨询专业医生，紧急情况请拨打当地急救电话。",
+      "foot.copyright": "© 2026 Go!Gosling 版权所有。",
+      "foot.madeWith": "为隐私而设计，为 iPhone 而生。",
+
+      "legal.updated": "最后更新",
+      "legal.back": "返回首页",
+      "pp.title": "隐私政策",
+      "pp.intro": "Go!Gosling 是一款以对话为核心的生活助手。这份政策说明我们收集什么、不收集什么，以及你拥有哪些控制权。核心原则：你的个人健康数据绝不离开你的设备，未经你同意我们绝不替你行动。",
+      "pp.s1.t": "1. 你的健康数据留在你的设备上",
+      "pp.s1.b": "Go!Gosling 只在你的设备上读取 Apple 健康（HealthKit）数据，用来给你看你自己的洞察（心率、睡眠、活动、恢复）。你的 HealthKit 数据、它的任何摘要、以及任何健康相关的提问，都绝不传出你的设备、绝不发给我们的服务器、绝不发给任何第三方或远程 AI 模型，也绝不用于广告。健康相关的问题完全在设备本地作答。只有一般的非健康请求（比如「查附近的咖啡馆」）才可能用到我们的服务器。",
+      "pp.s2.t": "2. 我们收集的信息",
+      "pp.s2.b": "账号信息（邮箱）：如果你创建账号，我们会保存你的邮箱和一份加密凭证用于登录——仅用于应用功能。登录是可选的，使用聊天或健康并不需要登录。粗略、无法识别身份的上下文：用来让本地生活建议更相关（比如一个粗略的地区码）。我们不收集精确定位。运行数据：为保持服务运行和安全而产生的最少量、无法识别身份的日志。我们不建立广告画像。",
+      "pp.s3.t": "3. 我们绝不会做的事",
+      "pp.s3.b": "我们不出售或出租你的数据。我们不会用你的数据跨其他应用或网站追踪你。我们不展示广告。我们不传输或共享你的健康数据。",
+      "pp.s4.t": "4. 由你掌控的记忆",
+      "pp.s4.b": "Go!Gosling 可以记住一些有用的习惯（比如「你通常会先比较几个选项再决定」）。记忆绝不会被悄悄写入——只有经你确认，候选项才会被保存；你随时可以在设备上查看、编辑、暂停或删除它记住的内容。",
+      "pp.s5.t": "5. 操作都需要你的确认",
+      "pp.s5.b": "凡是要预订、发送、付款、分享或打开另一个应用的操作，都会把它要做的事清清楚楚地展示给你，并每次都征得你的同意。一次确认只对一个操作有效。",
+      "pp.s6.t": "6. 你的权利与选择",
+      "pp.s6.b": "删除你的账号和数据：在应用内「设置 → 账号」即可。删除账号会移除你在服务器端的账号数据。管理记忆：随时在应用内暂停或删除已记住的内容。撤销健康权限：随时在 iOS「设置 → 隐私 → 健康」里操作。",
+      "pp.s7.t": "7. 数据安全、留存与儿童",
+      "pp.s7.b": "我们对账号数据在传输中（TLS）和存储时都加以保护。我们只在你的账号存在期间保留账号数据；当你删除账号时，相关的服务器数据会被移除。Go!Gosling 不面向 13 岁以下儿童，我们也不会有意收集儿童的数据。我们可能更新本政策，重大变更会在这里更新并注明新的「最后更新」日期。",
+      "pp.s8.t": "8. 联系我们",
+      "pp.s8.b": "对隐私有疑问？请通过 privacy@gogosling.ca 联系我们。",
+      "tos.title": "服务条款",
+      "tos.intro": "本条款适用于你使用 Go!Gosling 应用。使用 Go!Gosling 即表示你同意。请和我们的隐私政策一起看。",
+      "tos.s1.t": "1. 服务说明",
+      "tos.s1.b": "Go!Gosling 把你说的话变成行动。你用日常语言说想做什么，它把任务路由到合适的能力——聊天、健康、菜谱、路线、搜索、影音、生活服务。可选账号用来开通会员、获取服务器支持的本地生活结果，但使用聊天或健康并不需要它。",
+      "tos.s2.t": "2. 非专业建议",
+      "tos.s2.b": "Go!Gosling 是健康和生活参考工具，不是医疗设备。它不诊断、不治疗、不预防任何疾病，给出的信息可能不完整或有偏差。任何医疗决定请务必咨询专业医生，紧急情况请拨打当地急救电话。Go!Gosling 不提供法律、财务或其他专业建议。",
+      "tos.s3.t": "3. AI 生成内容",
+      "tos.s3.b": "回复由 AI 生成，可能不准确、不完整或已过时。你需要自己判断怎么用这些内容。涉及专业判断的决定，不要依赖 Go!Gosling。",
+      "tos.s4.t": "4. 合理使用",
+      "tos.s4.b": "请合法使用 Go!Gosling，不要试图滥用、干扰、逆向工程，或用它伤害自己或他人。",
+      "tos.s5.t": "5. 知识产权",
+      "tos.s5.b": "Go!Gosling 及其名称、标志和设计属于 Go!Gosling 团队。本条款不给你任何使用我们商标或品牌的权利。",
+      "tos.s6.t": "6. 免责与责任",
+      "tos.s6.b": "在法律允许的最大范围内，Go!Gosling 按“现状”提供，不附带任何担保。在法律允许范围内，Go!Gosling 团队不因你使用本应用而产生的任何间接或后果性损失承担责任。",
+      "tos.s7.t": "7. 条款更新",
+      "tos.s7.b": "随着 Go!Gosling 的发展，我们可能会更新这些条款。重要变更会在这里更新并注明日期。",
+      "tos.s8.t": "8. 联系我们",
+      "tos.s8.b": "对本条款有疑问？请通过 hello@gogosling.ca 联系我们。"
+    }
+  };
+
+  const SUPPORTED = ["en", "zh"];
+  const STORE_KEY = "gosling-lang";
+
+  function detectLang() {
+    try {
+      const saved = localStorage.getItem(STORE_KEY);
+      if (saved && SUPPORTED.includes(saved)) return saved;
+    } catch (e) {}
+    const nav = (navigator.language || "en").toLowerCase();
+    return nav.startsWith("zh") ? "zh" : "en";
+  }
+
+  function t(key, lang) {
+    const dict = I18N[lang] || I18N.en;
+    return (key in dict) ? dict[key] : (I18N.en[key] != null ? I18N.en[key] : key);
+  }
+
+  function applyLang(lang) {
+    if (!SUPPORTED.includes(lang)) lang = "en";
+    document.documentElement.lang = (lang === "zh") ? "zh-Hans" : "en";
+
+    document.querySelectorAll("[data-i18n]").forEach(function (el) {
+      el.textContent = t(el.getAttribute("data-i18n"), lang);
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach(function (el) {
+      el.innerHTML = t(el.getAttribute("data-i18n-html"), lang);
+    });
+    document.querySelectorAll("[data-i18n-attr]").forEach(function (el) {
+      el.getAttribute("data-i18n-attr").split(";").forEach(function (pair) {
+        const idx = pair.indexOf(":");
+        if (idx === -1) return;
+        const attr = pair.slice(0, idx).trim();
+        const key = pair.slice(idx + 1).trim();
+        if (attr && key) el.setAttribute(attr, t(key, lang));
+      });
+    });
+
+    // toggle button state
+    document.querySelectorAll("[data-lang-set]").forEach(function (btn) {
+      btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang-set") === lang));
+    });
+
+    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    document.dispatchEvent(new CustomEvent("gosling:langchange", { detail: { lang: lang } }));
+  }
+
+  // Expose minimal API
+  window.GoslingI18n = { apply: applyLang, t: t, current: detectLang };
+
+  function init() {
+    applyLang(detectLang());
+    document.querySelectorAll("[data-lang-set]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        applyLang(btn.getAttribute("data-lang-set"));
+      });
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

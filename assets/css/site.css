@@ -1,0 +1,486 @@
+/* ==========================================================================
+   Go!Gosling — Page composition (sections)
+   Marvis / 元宝-inspired: white-led, flat, product-first — not AI-template.
+   ========================================================================== */
+
+main { display: block; }
+
+.section--inset { background: var(--bg-end); }
+
+/* --- HERO (centered, mascot-led, Marvis-style) --------------------------- */
+.hero {
+  position: relative;
+  padding-top: calc(var(--nav-h) + clamp(56px, 9vw, 104px));
+  padding-bottom: clamp(72px, 9vw, 128px);
+  background:
+    radial-gradient(120% 90% at 50% -10%, var(--brand-50) 0%, rgba(238,244,255,0) 58%),
+    var(--bg-start);
+}
+.hero--center .hero__inner {
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Mascot app-icon hero (App Store-style big rounded square on a soft glow) */
+.hero__art {
+  position: relative;
+  margin: 0 0 var(--space-8);
+  display: grid;
+  place-items: center;
+}
+.hero__art-glow {
+  position: absolute;
+  width: 132%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(91,147,242,0.22) 0%, rgba(91,147,242,0) 68%);
+  filter: blur(6px);
+  z-index: 0;
+}
+.hero__icon {
+  position: relative;
+  z-index: 1;
+  width: clamp(132px, 22vw, 200px);
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 23%;            /* iOS superellipse-ish app-icon corner */
+  box-shadow: var(--elev-device);
+  animation: hero-float 7s var(--ease-standard) infinite;
+}
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-9px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__icon { animation: none; }
+}
+
+.hero__app {
+  font-size: var(--fs-chip);
+  font-weight: 600;
+  color: var(--brand-ink);
+  margin-bottom: var(--space-4);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.hero h1 {
+  margin-bottom: var(--space-5);
+  font-weight: 700;
+  letter-spacing: var(--tracking-display);
+}
+.hero__lead {
+  max-width: 32ch;
+  margin-inline: auto;
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+}
+.hero__tagline {
+  font-size: var(--fs-meta);
+  color: var(--text-muted);
+  margin-bottom: var(--space-10);
+  max-width: 44ch;
+}
+.hero__hook {
+  font-size: var(--fs-chip);
+  font-weight: 600;
+  color: var(--brand-ink);
+  margin-top: var(--space-2);
+  letter-spacing: 0.01em;
+  line-height: 1.5;
+  max-width: 42ch;
+}
+.hero__actions {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+.hero__actions .waitlist { width: 100%; }
+.hero__note {
+  justify-content: center;
+  margin-top: 0;
+}
+
+/* --- Capability tiles (Marvis-style illustrated cards) ------------------- */
+.cap-grid {
+  display: grid;
+  gap: var(--space-5);
+  grid-template-columns: 1fr;
+}
+.cap-card {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: var(--space-8);
+  box-shadow: var(--elev-raised);
+  transition: transform var(--dur-standard) var(--ease-emphasized),
+              box-shadow var(--dur-standard) var(--ease-standard),
+              border-color var(--dur-standard);
+}
+.cap-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--elev-floating);
+  border-color: var(--line-strong);
+}
+.cap-card--live {
+  border-color: var(--brand-200);
+  background: linear-gradient(180deg, var(--brand-50) 0%, var(--surface) 62%);
+}
+.cap-card__icon {
+  width: 52px; height: 52px;
+  border-radius: var(--radius-compact);
+  display: grid; place-items: center;
+  margin-bottom: var(--space-5);
+  background: var(--brand-50);
+  color: var(--brand-ink);
+}
+.cap-card__icon svg { width: 26px; height: 26px; }
+.cap-card--live .cap-card__icon {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: var(--elev-brand);
+}
+.cap-card__badge {
+  position: absolute; top: var(--space-6); right: var(--space-6);
+  font-size: var(--fs-eyebrow); font-weight: 700;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  background: var(--brand); color: #fff;
+}
+.cap-card h3 {
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.01em;
+}
+.cap-card p {
+  font-size: var(--fs-meta);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.cap-disclaimer {
+  margin-top: var(--space-10);
+  text-align: center;
+  font-size: var(--fs-chip);
+  color: var(--text-muted);
+}
+@media (min-width: 640px) {
+  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 980px) {
+  .cap-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* --- Section heading block ----------------------------------------------- */
+.sec-head { max-width: 680px; margin-bottom: var(--space-16); }
+.sec-head.center { margin-inline: auto; text-align: center; }
+.sec-head .section-title { margin-bottom: var(--space-5); }
+
+/* --- How it works (plain steps) ------------------------------------------ */
+.steps { display: grid; gap: var(--space-6); grid-template-columns: 1fr; }
+.steps--plain .step {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: var(--space-8);
+  box-shadow: var(--elev-raised);
+}
+.steps--plain .step__num {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  background: var(--brand-50);
+  color: var(--brand-ink);
+  margin-bottom: var(--space-5);
+  box-shadow: none;
+}
+.step h3 { font-size: var(--fs-h3); margin-bottom: var(--space-2); font-weight: 700; }
+.step p { color: var(--text-secondary); font-size: var(--fs-meta); line-height: 1.6; }
+@media (min-width: 800px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+
+/* --- Privacy section ----------------------------------------------------- */
+.priv-tagline {
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  color: var(--brand-ink);
+  margin-top: var(--space-4);
+}
+.privacy__grid { display: grid; gap: var(--space-5); grid-template-columns: 1fr; }
+.privacy__never {
+  margin-top: var(--space-12);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--line);
+}
+.privacy__never h3 {
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  margin-bottom: var(--space-5);
+  text-align: center;
+}
+.never-list--light {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: 1fr;
+  max-width: 560px;
+  margin-inline: auto;
+}
+.never-list--light li {
+  font-size: var(--fs-meta);
+  color: var(--text-secondary);
+  padding-left: 1.1em;
+  position: relative;
+}
+.never-list--light li::before {
+  content: "·";
+  position: absolute;
+  left: 0;
+  color: var(--text-muted);
+  font-weight: 700;
+}
+@media (min-width: 720px) {
+  .privacy__grid { grid-template-columns: repeat(2, 1fr); }
+  .never-list--light { grid-template-columns: repeat(2, 1fr); max-width: none; }
+}
+
+/* --- Roadmap ------------------------------------------------------------- */
+.roadmap__chips { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+.roadmap__group { margin-bottom: var(--space-8); }
+.roadmap__group:last-child { margin-bottom: 0; }
+.roadmap__group h4 {
+  font-size: var(--fs-eyebrow);
+  font-weight: 700;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--space-3);
+}
+
+/* --- FAQ ----------------------------------------------------------------- */
+.faq__grid { display: grid; gap: var(--space-12); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 900px) { .faq__grid { grid-template-columns: 0.8fr 1.2fr; gap: var(--space-16); } }
+
+/* --- Final CTA (light, calm closing panel) ------------------------------- */
+.final-cta {
+  background:
+    radial-gradient(120% 120% at 50% 0%, var(--brand-50) 0%, rgba(238,244,255,0) 60%),
+    var(--bg-start);
+  border-top: 1px solid var(--line);
+}
+.final-cta__inner {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+}
+.final-cta h2 {
+  font-size: var(--fs-h1);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-5);
+}
+.final-cta p {
+  color: var(--text-secondary);
+  font-size: var(--fs-lead);
+  margin-bottom: var(--space-10);
+  max-width: 42ch;
+  margin-inline: auto;
+}
+.final-cta .waitlist { margin-inline: auto; }
+.final-cta .form-note { justify-content: center; }
+
+/* --- State gallery — the animated Gosli (动图 showcase) ------------------- */
+/* Faithful to Marvis's character grid: a calm white field, generous gutters,
+   one charming line-art mascot per tile. The mascot GIFs are transparent
+   256² line art, so each sits on a soft radial well with a gentle drop-shadow.
+   prefers-reduced-motion swaps every GIF to its first-frame PNG (see main.js). */
+.state-gallery { background: var(--bg-start); }
+.state-grid {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(2, 1fr);
+}
+.state-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-2);
+  padding: var(--space-5) var(--space-4) var(--space-6);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--elev-raised);
+  transition: transform var(--dur-standard) var(--ease-emphasized),
+              box-shadow var(--dur-standard) var(--ease-standard),
+              border-color var(--dur-standard);
+}
+.state-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--elev-floating);
+  border-color: var(--line-strong);
+}
+.state-tile__media {
+  width: clamp(104px, 30vw, 140px);
+  aspect-ratio: 1;
+  margin-bottom: var(--space-2);
+  display: grid;
+  place-items: center;
+  border-radius: var(--radius-compact);
+  background: radial-gradient(circle at 50% 44%, var(--brand-50) 0%, rgba(238,244,255,0) 72%);
+}
+.state-tile__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 14px rgba(20,35,60,0.10));
+  /* Crisp line-art stills (smooth alpha — no GIF dithering/speckle), brought
+     to life with clean CSS motion instead of a noisy animated GIF. */
+  animation: gosli-bob 5s var(--ease-standard) infinite;
+  will-change: transform;
+}
+.state-tile__cap {
+  font-size: var(--fs-body);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+.state-tile__sub {
+  font-size: var(--fs-chip);
+  color: var(--text-muted);
+  line-height: 1.45;
+  max-width: 24ch;
+}
+@media (min-width: 600px) { .state-grid { grid-template-columns: repeat(3, 1fr); gap: var(--space-5); } }
+@media (min-width: 980px) { .state-grid { grid-template-columns: repeat(4, 1fr); } }
+
+/* Staggered timing so the grid breathes organically, not in lockstep. */
+@keyframes gosli-bob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%      { transform: translateY(-7px) rotate(-1.2deg); }
+}
+.state-tile:nth-child(2n) .state-tile__media img { animation-duration: 5.7s; animation-delay: -1.4s; }
+.state-tile:nth-child(3n) .state-tile__media img { animation-duration: 6.3s; animation-delay: -2.7s; }
+.state-tile:nth-child(4n) .state-tile__media img { animation-duration: 5.2s; animation-delay: -0.6s; }
+.state-tile:nth-child(5n) .state-tile__media img { animation-duration: 6.0s; animation-delay: -3.3s; }
+@media (prefers-reduced-motion: reduce) {
+  .state-tile__media img { animation: none; }
+}
+
+/* --- Spotlight — soft-gradient feature panel (Marvis screenshot-2 feel) --- */
+/* Big rounded panel, gentle blue→lavender→peach wash, copy on the left and a
+   mascot "stage" on the right with two floating glass cards for depth. */
+.spotlight { background: var(--bg-start); }
+.spotlight__panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: clamp(24px, 3vw, 34px);
+  padding: clamp(28px, 4.5vw, 60px);
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(255,243,233,0.85) 0%, rgba(255,243,233,0) 46%),
+    linear-gradient(135deg, #eef4ff 0%, #f3eeff 52%, #fbf6ff 100%);
+  box-shadow: var(--elev-raised);
+  display: grid;
+  gap: var(--space-10);
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+.spotlight__eyebrow { margin-bottom: var(--space-4); }
+.spotlight__title {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-5);
+}
+.spotlight__lead {
+  font-size: var(--fs-lead);
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: var(--space-8);
+  max-width: 38ch;
+}
+.spotlight__list { list-style: none; padding: 0; display: grid; gap: var(--space-5); }
+.spotlight__feat { display: flex; gap: var(--space-4); align-items: flex-start; }
+.spotlight__feat-ic {
+  width: 40px; height: 40px; flex: none;
+  border-radius: var(--radius-compact);
+  display: grid; place-items: center;
+  background: rgba(255,255,255,0.8);
+  border: 1px solid var(--line);
+  color: var(--brand-ink);
+  box-shadow: 0 2px 6px rgba(22,26,34,0.05);
+}
+.spotlight__feat-ic svg { width: 21px; height: 21px; }
+.spotlight__feat h3 { font-size: var(--fs-h3); font-weight: 700; margin-bottom: 3px; letter-spacing: -0.01em; }
+.spotlight__feat p { font-size: var(--fs-meta); color: var(--text-secondary); line-height: 1.55; max-width: 40ch; }
+
+.spotlight__stage {
+  position: relative;
+  margin-inline: auto;
+  width: min(100%, 360px);
+  aspect-ratio: 1;
+  border-radius: var(--radius-card);
+  background:
+    radial-gradient(circle at 50% 46%, #ffffff 0%, rgba(255,255,255,0.35) 60%, rgba(255,255,255,0) 75%);
+  display: grid;
+  place-items: center;
+}
+.spotlight__pet {
+  width: 74%;
+  height: 74%;
+  object-fit: contain;
+  filter: drop-shadow(0 16px 30px rgba(20,35,60,0.16));
+  animation: hero-float 7s var(--ease-standard) infinite;
+}
+@media (prefers-reduced-motion: reduce) { .spotlight__pet { animation: none; } }
+.spotlight__float {
+  position: absolute;
+  display: flex; align-items: center; gap: 9px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.82);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.9);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--elev-floating);
+  font-size: var(--fs-chip); font-weight: 600; color: var(--text-primary);
+  white-space: nowrap;
+}
+.spotlight__float svg { width: 17px; height: 17px; flex: none; color: var(--brand-ink); }
+.spotlight__float--a { top: 8%; left: -4%; }
+.spotlight__float--b { bottom: 10%; right: -5%; }
+.spotlight__float-txt { display: flex; flex-direction: column; line-height: 1.22; }
+.spotlight__float-txt strong { font-weight: 700; }
+.spotlight__float small { font-size: 11px; font-weight: 500; color: var(--text-muted); }
+@media (min-width: 900px) {
+  .spotlight__panel { grid-template-columns: 1.04fr 0.96fr; gap: var(--space-16); }
+}
+
+/* --- Legal pages --------------------------------------------------------- */
+.legal { padding-top: calc(var(--nav-h) + var(--space-16)); }
+.legal__doc { max-width: var(--container-narrow); margin-inline: auto; }
+.legal__doc h1 { font-size: var(--fs-h1); letter-spacing: -0.02em; margin-bottom: var(--space-3); }
+.legal__meta { color: var(--text-muted); font-size: var(--fs-meta); margin-bottom: var(--space-10); }
+.legal__doc h2 { font-size: var(--fs-h3); margin: var(--space-10) 0 var(--space-4); }
+.legal__doc p, .legal__doc li { color: var(--text-secondary); margin-bottom: var(--space-4); }
+.legal__doc ul { padding-left: 1.2em; }
+.legal__callout {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-compact);
+  padding: var(--space-5);
+  margin-bottom: var(--space-8);
+  font-size: var(--fs-meta);
+  color: var(--text-secondary);
+}
