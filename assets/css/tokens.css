@@ -90,24 +90,21 @@
 
   --container:    1140px;
   --container-narrow: 760px;
-  --section-y: clamp(80px, 6vw + 48px, 152px);   /* more breathing room */
+  --section-y: clamp(96px, 7vw + 56px, 168px);
 
   /* --- Radius (soft, friendly, consistent) ------------------------------- */
-  --radius-card:    28px;
-  --radius-compact: 20px;
+  /* iOS-like radii — avoid oversized “template” rounding */
+  --radius-card:    18px;
+  --radius-compact: 12px;
   --radius-pill:    999px;
-  --radius-sm:      14px;
+  --radius-sm:      10px;
+  --radius-btn:     12px;
 
-  /* --- Elevation — one cohesive soft-shadow family ----------------------- */
-  --elev-raised:   0 2px 4px rgba(22,26,34,0.04), 0 12px 28px rgba(22,26,34,0.06);
-  --elev-floating: 0 6px 14px rgba(22,26,34,0.07), 0 20px 44px rgba(22,26,34,0.08);
-  /* Layered soft shadow for the hero icon (multi-step natural falloff) */
-  --elev-device:
-      0 2px 6px rgba(22,26,34,0.05),
-      0 12px 28px rgba(22,26,34,0.07),
-      0 32px 64px rgba(38,72,140,0.12),
-      0 56px 110px rgba(38,72,140,0.10);
-  --elev-brand:   0 14px 34px rgba(91,147,242,0.30);
+  /* Flat elevation — hairline + one soft layer (no marketing glow stacks) */
+  --elev-raised:   0 1px 2px rgba(22,26,34,0.04);
+  --elev-floating: 0 4px 16px rgba(22,26,34,0.08);
+  --elev-device:   0 8px 24px rgba(22,26,34,0.10);
+  --elev-brand:    none;
 
   /* --- Motion (design-system-v1) ----------------------------------------- */
   --dur-standard: 0.24s;
