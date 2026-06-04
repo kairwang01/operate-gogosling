@@ -97,10 +97,26 @@
           <label class="field-row"><span data-c="message">Why Go!Gosling?</span><textarea name="coverMessage" rows="4" data-c-ph="messagePh"></textarea></label>
           <div class="field-row field-row--file">
             <span class="field-row__label" data-c="resume">Résumé (PDF/DOC, max 8MB)</span>
-            <div class="file-upload">
-              <input class="file-upload__input" type="file" id="resume-input" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword" />
-              <label class="file-upload__trigger btn btn--ghost" for="resume-input" data-c="chooseFile">Choose file</label>
-              <span class="file-upload__name" data-resume-name data-c="noFile">No file chosen</span>
+            <div class="file-upload" data-file-upload>
+              <input class="file-upload__input" type="file" id="resume-input" name="resume" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
+              <div class="file-upload__zone" data-resume-zone tabindex="0" role="button" aria-controls="resume-input" aria-describedby="resume-input-hint">
+                <span class="file-upload__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M4 14v4a2 2 0 002 2h12a2 2 0 002-2v-4"/></svg>
+                </span>
+                <p class="file-upload__prompt" data-c="resumePrompt">Drop your résumé here, or click to browse</p>
+                <p class="file-upload__hint" id="resume-input-hint" data-c="resumeHint">PDF or Word document · maximum 8 MB</p>
+                <span class="file-upload__browse" data-c="chooseFile">Browse files</span>
+              </div>
+              <div class="file-upload__picked" data-resume-picked>
+                <span class="file-upload__picked-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6M8 13h8M8 17h5"/></svg>
+                </span>
+                <div class="file-upload__picked-info">
+                  <span class="file-upload__name" data-resume-name></span>
+                  <span class="file-upload__meta" data-resume-meta></span>
+                </div>
+                <button type="button" class="file-upload__clear" data-resume-clear data-c="clearFile">Remove</button>
+              </div>
             </div>
           </div>
         </fieldset>

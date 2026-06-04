@@ -10,6 +10,8 @@
 
   var API = (window.GOSLING_CAREERS_API || "").replace(/\/$/, "");
   var CAREERS_EMAIL = "careers@gogosling.ca";
+  var RESUME_MAX_BYTES = 8 * 1024 * 1024;
+  var RESUME_ACCEPT_RE = /\.(pdf|doc|docx)$/i;
 
   // Self-contained UI strings (job CONTENT comes from the data source).
   var STR = {
@@ -21,8 +23,6 @@
       apply: "Apply",
       applyAria: "Apply for this role",
       details: "View role details",
-      noFile: "No file chosen",
-      chooseFile: "Choose file",
       applyEyebrow: "Application",
       sectionContact: "Contact",
       sectionLinks: "Links (optional)",
@@ -44,6 +44,13 @@
       github: "GitHub (optional)",
       message: "Why Go!Gosling? (optional)",
       resume: "Résumé (PDF/DOC, max 8MB)",
+      resumePrompt: "Drop your résumé here, or click to browse",
+      resumeHint: "PDF or Word document · maximum 8 MB",
+      chooseFile: "Browse files",
+      clearFile: "Remove",
+      errResume: "Please attach your résumé (PDF or Word, max 8 MB).",
+      errResumeSize: "Résumé must be 8 MB or smaller.",
+      errResumeType: "Please use a PDF or Word document (.pdf, .doc, .docx).",
       consent: "I agree that Go!Gosling may store this information to process my application.",
       submit: "Submit application",
       cancel: "Cancel",
@@ -67,8 +74,6 @@
       apply: "申请",
       applyAria: "申请该岗位",
       details: "查看岗位详情",
-      noFile: "未选择文件",
-      chooseFile: "选择文件",
       applyEyebrow: "职位申请",
       sectionContact: "联系方式",
       sectionLinks: "链接（选填）",
@@ -90,6 +95,13 @@
       github: "GitHub（选填）",
       message: "为什么选择 Go!Gosling？（选填）",
       resume: "简历（PDF/DOC，≤8MB）",
+      resumePrompt: "将简历拖放到此处，或点击选择文件",
+      resumeHint: "PDF 或 Word · 最大 8 MB",
+      chooseFile: "浏览文件",
+      clearFile: "移除",
+      errResume: "请上传简历（PDF 或 Word，≤8 MB）。",
+      errResumeSize: "简历不能超过 8 MB。",
+      errResumeType: "请使用 PDF 或 Word 格式（.pdf、.doc、.docx）。",
       consent: "我同意 Go!Gosling 存储以上信息用于处理我的申请。",
       submit: "提交申请",
       cancel: "取消",
@@ -113,8 +125,6 @@
       apply: "Postuler",
       applyAria: "Postuler pour ce poste",
       details: "Voir les détails du poste",
-      noFile: "Aucun fichier",
-      chooseFile: "Choisir un fichier",
       applyEyebrow: "Candidature",
       sectionContact: "Coordonnées",
       sectionLinks: "Liens (facultatif)",
@@ -136,6 +146,13 @@
       github: "GitHub (facultatif)",
       message: "Pourquoi Go!Gosling? (facultatif)",
       resume: "CV (PDF/DOC, max. 8 Mo)",
+      resumePrompt: "Déposez votre CV ici ou cliquez pour parcourir",
+      resumeHint: "PDF ou Word · maximum 8 Mo",
+      chooseFile: "Parcourir les fichiers",
+      clearFile: "Retirer",
+      errResume: "Veuillez joindre votre CV (PDF ou Word, max. 8 Mo).",
+      errResumeSize: "Le CV doit faire 8 Mo ou moins.",
+      errResumeType: "Veuillez utiliser un PDF ou un document Word (.pdf, .doc, .docx).",
       consent: "J'accepte que Go!Gosling conserve ces renseignements pour traiter ma candidature.",
       submit: "Soumettre la candidature",
       cancel: "Annuler",
@@ -236,8 +253,7 @@
     form.hidden = false;
     form.reset();
     dlg.querySelector('input[name="jobSlug"]').value = slug;
-    var resumeName = dlg.querySelector("[data-resume-name]");
-    if (resumeName) resumeName.textContent = t("noFile");
+    resetResumeUI(dlg);
     var errBox = dlg.querySelector("[data-apply-error]");
     if (errBox) errBox.hidden = true;
     var done = dlg.querySelector("[data-apply-done]");
@@ -257,6 +273,117 @@
 
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  function formatFileSize(bytes) {
+    if (bytes < 1024) return bytes + " B";
+    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
+    return (bytes / (1024 * 1024)).toFixed(1) + " MB";
+  }
+
+  function resetResumeUI(scope) {
+    var root = scope || document;
+    var wrap = root.querySelector("[data-file-upload]");
+    var input = root.querySelector("#resume-input");
+    if (input) input.value = "";
+    if (!wrap) return;
+    wrap.classList.remove("is-filled", "is-dragover");
+    var name = wrap.querySelector("[data-resume-name]");
+    var meta = wrap.querySelector("[data-resume-meta]");
+    if (name) name.textContent = "";
+    if (meta) meta.textContent = "";
+  }
+
+  function setResumeFile(dlg, file) {
+    var wrap = dlg.querySelector("[data-file-upload]");
+    var input = dlg.querySelector("#resume-input");
+    if (!wrap || !input) return false;
+    if (!file) {
+      resetResumeUI(dlg);
+      return true;
+    }
+    if (!RESUME_ACCEPT_RE.test(file.name)) {
+      err(dlg, "errResumeType");
+      return false;
+    }
+    if (file.size > RESUME_MAX_BYTES) {
+      err(dlg, "errResumeSize");
+      return false;
+    }
+    try {
+      var dt = new DataTransfer();
+      dt.items.add(file);
+      input.files = dt.files;
+    } catch (e) {
+      return false;
+    }
+    wrap.classList.add("is-filled");
+    wrap.classList.remove("is-dragover");
+    var name = wrap.querySelector("[data-resume-name]");
+    var meta = wrap.querySelector("[data-resume-meta]");
+    if (name) name.textContent = file.name;
+    if (meta) meta.textContent = formatFileSize(file.size);
+    var errBox = dlg.querySelector("[data-apply-error]");
+    if (errBox) errBox.hidden = true;
+    return true;
+  }
+
+  function wireResumeUpload(dlg) {
+    var wrap = dlg.querySelector("[data-file-upload]");
+    var input = dlg.querySelector("#resume-input");
+    var zone = dlg.querySelector("[data-resume-zone]");
+    var clearBtn = dlg.querySelector("[data-resume-clear]");
+    if (!wrap || !input || !zone) return;
+
+    zone.addEventListener("click", function () { input.click(); });
+    zone.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        input.click();
+      }
+    });
+    input.addEventListener("change", function () {
+      var f = input.files && input.files[0];
+      if (f) setResumeFile(dlg, f);
+      else resetResumeUI(dlg);
+    });
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        resetResumeUI(dlg);
+        input.focus();
+      });
+    }
+    ["dragenter", "dragover"].forEach(function (ev) {
+      wrap.addEventListener(ev, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        wrap.classList.add("is-dragover");
+      });
+    });
+    ["dragleave", "drop"].forEach(function (ev) {
+      wrap.addEventListener(ev, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (ev === "dragleave" && e.target !== wrap && !wrap.contains(e.relatedTarget)) return;
+        wrap.classList.remove("is-dragover");
+      });
+    });
+    wrap.addEventListener("drop", function (e) {
+      wrap.classList.remove("is-dragover");
+      var f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+      if (f) setResumeFile(dlg, f);
+    });
+  }
+
+  function err(dlg, key) {
+    var box = dlg.querySelector("[data-apply-error]");
+    if (box) {
+      box.textContent = t(key);
+      box.hidden = false;
+      box.scrollIntoView({ block: "nearest", behavior: "smooth" });
+      setTimeout(function () { box.hidden = true; }, 6000);
+    }
+  }
+
   function wireDialog() {
     var dlg = document.getElementById("apply-dialog");
     if (!dlg) return;
@@ -264,23 +391,25 @@
     dlg.querySelectorAll("[data-apply-close]").forEach(function (b) {
       b.addEventListener("click", function () { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); });
     });
-    var resumeInput = dlg.querySelector("#resume-input");
-    var resumeName = dlg.querySelector("[data-resume-name]");
-    if (resumeInput && resumeName) {
-      resumeInput.addEventListener("change", function () {
-        var f = resumeInput.files && resumeInput.files[0];
-        resumeName.textContent = f ? f.name : t("noFile");
-        resumeName.classList.toggle("is-set", !!f);
-      });
-    }
+    wireResumeUpload(dlg);
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var fd = new FormData(form);
       // honeypot
       if ((fd.get("company_website") || "").trim() !== "") return;
-      if (!(fd.get("applicantName") || "").trim()) return err("errName");
-      if (!EMAIL_RE.test((fd.get("email") || "").trim())) return err("errEmail");
-      if (fd.get("consent") !== "on" && fd.get("consent") !== "true") return err("errConsent");
+      if (!(fd.get("applicantName") || "").trim()) return err(dlg, "errName");
+      if (!EMAIL_RE.test((fd.get("email") || "").trim())) return err(dlg, "errEmail");
+      if (fd.get("consent") !== "on" && fd.get("consent") !== "true") return err(dlg, "errConsent");
+      var resumeInput = dlg.querySelector("#resume-input");
+      var resumeFile = resumeInput && resumeInput.files && resumeInput.files[0];
+      if (API) {
+        if (!resumeFile) return err(dlg, "errResume");
+        if (resumeFile.size > RESUME_MAX_BYTES) return err(dlg, "errResumeSize");
+        if (!RESUME_ACCEPT_RE.test(resumeFile.name)) return err(dlg, "errResumeType");
+      } else if (resumeFile) {
+        if (resumeFile.size > RESUME_MAX_BYTES) return err(dlg, "errResumeSize");
+        if (!RESUME_ACCEPT_RE.test(resumeFile.name)) return err(dlg, "errResumeType");
+      }
 
       if (API) {
         fd.set("consent", "true");
@@ -292,7 +421,7 @@
         fetch(API + "/api/careers/applications", { method: "POST", body: fd })
           .then(function (r) { if (!r.ok) throw new Error("bad"); return r.json(); })
           .then(function () { success(t("okTitle"), t("okBody")); })
-          .catch(function () { err("errSend"); })
+          .catch(function () { err(dlg, "errSend"); })
           .then(function () {
             btn.disabled = false;
             if (labelEl) labelEl.textContent = label;
@@ -305,10 +434,6 @@
       }
     });
 
-    function err(key) {
-      var box = dlg.querySelector("[data-apply-error]");
-      if (box) { box.textContent = t(key); box.hidden = false; setTimeout(function () { box.hidden = true; }, 5000); }
-    }
     function success(title, body, mail) {
       form.hidden = true;
       var done = dlg.querySelector("[data-apply-done]");
