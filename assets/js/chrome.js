@@ -1,25 +1,16 @@
 /* ==========================================================================
    Go!Gosling — shared site chrome (header + footer)
-   One source of truth for nav + footer (zero-build). Each page:
-       <div id="site-header"></div> … <div id="site-footer"></div>
-       <script>window.GOSLING_PAGE = "careers";</script>   // optional active state
-       <script src="assets/js/chrome.js"></script>          // BEFORE i18n-fr + i18n
-       <script src="assets/js/i18n-fr.js"></script>
-       <script src="assets/js/i18n.js"></script>
-       <script src="assets/js/main.js"></script>
    ========================================================================== */
 (function () {
   "use strict";
 
-  // Primary nav — keep ≤6 items for a clean corporate header.
-  // "Meet Gosli" (#meet) and "Canada" (#canada) stay on the home page; footer links them.
   var NAV = [
-    { page: "features", href: "index.html#features", key: "nav.features", en: "Features" },
-    { page: "privacy",  href: "index.html#privacy",  key: "nav.privacy",  en: "Privacy" },
-    { page: "how",      href: "index.html#how",      key: "nav.how",      en: "How it works" },
-    { page: "faq",      href: "index.html#faq",      key: "nav.faq",      en: "FAQ" },
-    { page: "about",    href: "about.html",          key: "nav.about",    en: "About" },
-    { page: "careers",  href: "careers.html",        key: "nav.careers",  en: "Careers" }
+    { page: "features", href: "features.html", key: "nav.features", en: "Features" },
+    { page: "privacy",  href: "privacy.html",  key: "nav.privacy",  en: "Privacy" },
+    { page: "how",      href: "how.html",      key: "nav.how",      en: "How it works" },
+    { page: "faq",      href: "faq.html",      key: "nav.faq",      en: "FAQ" },
+    { page: "about",    href: "about.html",    key: "nav.about",    en: "About" },
+    { page: "careers",  href: "careers.html",  key: "nav.careers",  en: "Careers" }
   ];
 
   var active = window.GOSLING_PAGE || "";
@@ -88,22 +79,23 @@
           '</div>' +
           '<div class="footer__cols">' +
             footCol("foot.product", "Product", [
-              { href: "index.html#meet",     key: "nav.meet",      en: "Gosli" },
-              { href: "index.html#features", key: "foot.features", en: "Features" },
-              { href: "index.html#privacy",  key: "foot.privacy",  en: "Privacy" },
-              { href: "index.html#how",      key: "foot.how",      en: "How it works" },
-              { href: "index.html#faq",      key: "foot.faq",      en: "FAQ" }
+              { href: "meet.html",      key: "nav.meet",      en: "Gosli" },
+              { href: "features.html",  key: "foot.features", en: "Features" },
+              { href: "privacy.html",   key: "foot.privacy",  en: "Privacy" },
+              { href: "how.html",       key: "foot.how",      en: "How it works" },
+              { href: "features.html#roadmap", key: "foot.roadmap", en: "Roadmap" },
+              { href: "faq.html",       key: "foot.faq",      en: "FAQ" }
             ]) +
             footCol("foot.company", "Company", [
-              { href: "index.html#canada",   key: "foot.canadaLink", en: "Built in Canada" },
+              { href: "canada.html",  key: "foot.canadaLink", en: "Built in Canada" },
               { href: "about.html",   key: "foot.about",   en: "About" },
               { href: "careers.html", key: "foot.careers", en: "Careers" },
               { href: "mailto:hello@gogosling.ca", key: "foot.contact", en: "Contact" }
             ]) +
             footCol("foot.legal", "Legal", [
-              { href: "privacy.html", key: "foot.privacyPolicy", en: "Privacy Policy" },
-              { href: "terms.html",   key: "foot.terms",        en: "Terms of Service" },
-              { href: "index.html#faq", key: "foot.health",     en: "Health disclaimer" }
+              { href: "privacy-policy.html", key: "foot.privacyPolicy", en: "Privacy Policy" },
+              { href: "terms.html",          key: "foot.terms",         en: "Terms of Service" },
+              { href: "faq.html",            key: "foot.health",        en: "Health disclaimer" }
             ]) +
             footCol("foot.connect", "Connect", [
               { href: "mailto:hello@gogosling.ca", key: "foot.email", en: "hello@gogosling.ca" }

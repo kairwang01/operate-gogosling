@@ -40,24 +40,17 @@ vanilla JS. Deployable to any static host with no toolchain.
 
 ```
 Website/
-├── index.html              # Landing page (all sections)
-├── privacy.html            # Privacy Policy (template — review before launch)
-├── terms.html              # Terms of Service (template — review before launch)
-├── site.webmanifest        # PWA manifest
-├── README.md
-└── assets/
-    ├── css/
-    │   ├── tokens.css       # Design tokens — mirrors app design-system-v1 + brand purple
-    │   ├── base.css         # Reset, document defaults, type + layout primitives
-    │   ├── components.css   # Nav, buttons, cards, forms, footer, iPhone mockup, accordion
-    │   └── site.css         # Page-level section composition + responsive
-    ├── js/
-    │   ├── i18n.js          # Bilingual (EN / 中文) string table + language toggle
-    │   └── main.js          # Nav, scroll-reveal, FAQ accordion, waitlist form
-    └── img/                 # Icon set, favicons, apple-touch-icon, OG image
+├── index.html              # Home — hero, explore grid, waitlist
+├── meet.html, features.html, how.html, privacy.html, canada.html, faq.html
+├── about.html, careers.html
+├── privacy-policy.html, terms.html   # Legal (counsel review before launch)
+├── sitemap.xml
+└── assets/js/chrome.js, i18n.js, i18n-fr.js, main.js, …
 ```
 
-### Bilingual (EN / 中文)
+See [Site map (multi-page)](#site-map-multi-page) below for URLs.
+
+### Trilingual (EN / FR / 中文)
 
 English ships as the crawlable default text in the HTML; `i18n.js` swaps to the
 selected language and remembers the choice (`localStorage` key `gosling-lang`). It also
@@ -97,11 +90,38 @@ Open Graph `og:url` / `og:image`) to the real domain.
 
 ## Wiring the waitlist
 
-`main.js` currently validates the email and stores it in `localStorage` as a
-placeholder, then shows the success state. To capture real signups, replace the
-"No backend yet" block in `main.js` with a `fetch()` POST to your provider
-(e.g. Mailchimp/ConvertKit/Buttondown, a Formspree endpoint, or a serverless
-function). The success/`form.success` UI is already wired.
+`main.js` validates the email, shows success UI, and always keeps a local backup in
+`localStorage` (`gosling-waitlist`).
+
+When your endpoint is ready, set this **before** `main.js` on `index.html` (and any
+page with a waitlist form):
+
+```html
+<script>window.GOSLING_WAITLIST_API = "https://api.gogosling.ca/api/waitlist";</script>
+```
+
+It POSTs JSON: `{ "email", "source": "website", "locale": "en"|"fr"|"zh" }`.
+If the request fails, the user sees `form.sendError` and can retry.
+
+**Careers** uses the same pattern: `window.GOSLING_CAREERS_API` (see `docs/careers-system.md`).
+
+## Site map (multi-page)
+
+| Page | URL |
+|------|-----|
+| Home (hero + explore) | `/` |
+| Meet Gosli | `/meet.html` |
+| Features + roadmap | `/features.html` |
+| How it works | `/how.html` |
+| Privacy promise (marketing) | `/privacy.html` |
+| Built in Canada | `/canada.html` |
+| FAQ | `/faq.html` |
+| About | `/about.html` |
+| Careers | `/careers.html` |
+| Privacy Policy (legal) | `/privacy-policy.html` |
+| Terms (legal) | `/terms.html` |
+
+`assets/js/chrome.js` owns nav/footer links. `sitemap.xml` lists all public URLs.
 
 ---
 

@@ -5,12 +5,10 @@
 > This document describes the information architecture, the shared chrome component, the page map,
 > the i18n approach, the design-token system, how to add a page, and the deploy story.
 >
-> **Current state (read this first):** today the site is effectively one big landing page
-> (`index.html` holds every section) plus two legal pages (`privacy.html`, `terms.html`). We are
-> now adding the shared **`assets/js/chrome.js`** header/footer component, a **`careers.html`**
-> page, and an **`about.html`** page. **Splitting the remaining `index.html` sections into their
-> own dedicated pages (`features.html`, `how.html`, etc.) is the documented next step**, described
-> below as the target structure.
+> **Current state:** multi-page marketing site with shared **`chrome.js`**, trilingual i18n
+> (`i18n.js` + `i18n-fr.js`), slim **`index.html`**, and dedicated pages for product, privacy,
+> Canada, FAQ, About, and Careers. Legal policy lives at **`privacy-policy.html`**; the marketing
+> privacy promise is **`privacy.html`**.
 
 ---
 
