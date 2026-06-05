@@ -67,7 +67,7 @@
     var essential = banner.querySelector("[data-cookie-essential]");
     if (accept) {
       accept.addEventListener("click", function () {
-        saveConsent(false);
+        saveConsent(true);
         closeBanner(banner);
       });
     }

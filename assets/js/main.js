@@ -211,6 +211,7 @@
     if (!err) {
       err = document.createElement("p");
       err.setAttribute("data-form-error", "");
+      err.setAttribute("role", "alert");
       err.className = "form-note";
       err.style.color = "#c0564c";
       form.parentNode.insertBefore(err, form.nextSibling);

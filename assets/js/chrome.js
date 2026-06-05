@@ -30,9 +30,9 @@
 
   var LANG_TOGGLE = '' +
     '<div class="lang-toggle lang-toggle--3" role="group" aria-label="Language">' +
-      '<button type="button" data-lang-set="en" aria-pressed="true">EN</button>' +
-      '<button type="button" data-lang-set="fr" aria-pressed="false">FR</button>' +
-      '<button type="button" data-lang-set="zh" aria-pressed="false">中</button>' +
+      '<button type="button" data-lang-set="en" aria-pressed="true" aria-label="English" title="English">EN</button>' +
+      '<button type="button" data-lang-set="fr" aria-pressed="false" aria-label="Français" title="Français">FR</button>' +
+      '<button type="button" data-lang-set="zh" aria-pressed="false" aria-label="中文" title="中文">中</button>' +
     '</div>';
 
   var notifyBtn = window.GOSLING_CHROME_MINIMAL
