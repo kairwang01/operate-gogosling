@@ -122,6 +122,16 @@
     grid-row: 3;
   }
 
+  /* How it works steps */
+  .steps--plain .step {
+    padding: var(--space-5) var(--space-4);
+    gap: var(--space-4);
+  }
+  .steps--plain .step__copy p {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
   /* Home rows & scenes: larger tap targets */
   .home-row {
     padding: var(--space-5) max(var(--space-4), env(safe-area-inset-left))

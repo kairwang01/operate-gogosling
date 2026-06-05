@@ -219,7 +219,7 @@ The site is **trilingual (EN / FR / 中文)** via `assets/js/i18n.js` plus `asse
 ### How it works (as implemented)
 
 - English ships as the **crawlable default text** in the HTML. `i18n.js` holds an `I18N` table (`{ en: {...}, zh: {...} }`) and swaps text to the selected language on load.
-- **Language detection / persistence:** the choice is stored in `localStorage` under the key **`gosling-lang`**; on first visit it respects the browser language (`zh*` → Chinese, `fr*` → French, else English). `SUPPORTED = ["en", "fr", "zh"]`.
+- **Language / persistence:** the site **defaults to English** on first visit. The visitor’s choice is stored in `localStorage` under **`gosling-lang`** only after they tap EN / FR / 中. `SUPPORTED = ["en", "fr", "zh"]`.
 - **Applying translations** — three attribute hooks, all resolved by `applyLang()`:
 
   | Attribute | Effect |

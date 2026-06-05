@@ -53,7 +53,7 @@ See [Site map (multi-page)](#site-map-multi-page) below for URLs.
 ### Trilingual (EN / FR / 中文)
 
 English ships as the crawlable default text in the HTML; `i18n.js` swaps to the
-selected language and remembers the choice (`localStorage` key `gosling-lang`). It also
+defaults to **English** on first visit; the visitor’s explicit choice is remembered (`localStorage` key `gosling-lang`). It also
 respects the browser language on first visit. Translate by editing the `I18N` table —
 keys are referenced from markup via:
 

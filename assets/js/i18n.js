@@ -49,7 +49,7 @@
       "home.card.privacy.title": "Privacy",
       "home.card.privacy.body": "Your health stays on your iPhone. Memory you control. No account required.",
       "home.card.how.title": "How it works",
-      "home.card.how.body": "Three steps from download to done — with confirmation every time.",
+      "home.card.how.body": "Get Gosli, ask in plain language, confirm once — health stays on your iPhone.",
       "home.card.canada.title": "Built in Canada",
       "home.card.canada.body": "A Canadian company aligned with AI for All — trust, opportunity, sovereignty.",
       "home.card.faq.title": "FAQ",
@@ -60,7 +60,7 @@
       "features.metaTitle": "Features — Go!Gosling",
       "features.metaDesc": "What Go!Gosling can do — chat, health, maps, and more from one conversation on iPhone.",
       "how.metaTitle": "How it works — Go!Gosling",
-      "how.metaDesc": "How Go!Gosling works — three steps to turn what you say into action on iPhone.",
+      "how.metaDesc": "Three steps from App Store to done: tell Gosli what you need, review the plan, and tap Allow once. Chat and health stay on your iPhone.",
       "privPage.metaTitle": "Privacy — Go!Gosling",
       "privPage.metaDesc": "Your health stays on your iPhone — Go!Gosling privacy promise and on-device design.",
       "canada.metaTitle": "Built in Canada — Go!Gosling",
@@ -196,13 +196,18 @@
       "cap.store.body": "Planned: services and commerce, always behind a confirmation. Not in the first release.",
 
       /* How it works */
+      "how.eyebrow": "How it works",
       "how.title": "Three steps. That's it.",
-      "how.s1.title": "Download Go!Gosling",
-      "how.s1.body": "One tap from the App Store when it launches on iPhone.",
-      "how.s2.title": "Say what you need",
-      "how.s2.body": "Type or speak naturally — find a route, check your health, draft a message, or ask anything on your mind.",
-      "how.s3.title": "Confirm, and it's done",
-      "how.s3.body": "Go!Gosling figures out what to do and shows you the plan. Anything that books, sends, pays, or shares asks for your confirmation first — every time.",
+      "how.lead": "One conversation on your iPhone — Gosli routes chat, health, and maps, shows you the plan, and asks before it acts. No account needed to start.",
+      "how.s1.title": "Get it on iPhone",
+      "how.s1.body": "One tap from the App Store at launch. Open Gosli and start talking — chat and health work without signing in.",
+      "how.s2.title": "Tell Gosli what you want",
+      "how.s2.body": "Speak or type in plain language. “How did I sleep?” routes to Health on your iPhone. “Draft a kind reply” stays in Chat on-device. “Find a café and open Maps” may use our server — never your health data.",
+      "how.s3.title": "See the plan, tap Allow once",
+      "how.s3.body": "Before anything books, sends, pays, or shares, Gosli shows what it will do. You tap Allow once — every time. Memory saves only when you say yes.",
+      "how.hook": "Health on your iPhone · Memory you control · Allow once, every time",
+      "how.link.features": "See what ships in v1 →",
+      "how.link.privacy": "How we protect your data →",
 
       /* Privacy */
       "priv.title": "Your health stays on your iPhone.",
@@ -405,7 +410,7 @@
       "home.card.privacy.title": "隐私",
       "home.card.privacy.body": "健康数据只留在手机上。记忆由你掌控。无需注册即可开始。",
       "home.card.how.title": "怎么用",
-      "home.card.how.body": "三步：下载、说出需求、确认后完成——每次都先征得同意。",
+      "home.card.how.body": "装上 Gosli，用日常话说需求，点一次允许——健康数据留在本机。",
       "home.card.canada.title": "加拿大出品",
       "home.card.canada.body": "一家与 AI for All 同向的加拿大公司——信任、机会、主权。",
       "home.card.faq.title": "常见问题",
@@ -416,7 +421,7 @@
       "features.metaTitle": "功能 — Go!Gosling",
       "features.metaDesc": "Go!Gosling 能做什么——聊天、健康、地图等，一次对话搞定。",
       "how.metaTitle": "怎么用 — Go!Gosling",
-      "how.metaDesc": "Go!Gosling 如何运作——三步把你说的话变成行动。",
+      "how.metaDesc": "从 App Store 到搞定，只需三步：告诉 Gosli 你的需求、查看方案、点一次允许。聊天与健康留在 iPhone 上。",
       "privPage.metaTitle": "隐私 — Go!Gosling",
       "privPage.metaDesc": "健康数据只留在你的 iPhone——Go!Gosling 的隐私承诺与端侧设计。",
       "canada.metaTitle": "加拿大出品 — Go!Gosling",
@@ -532,7 +537,7 @@
 
       "feat.title": "Go!Gosling 能帮你做什么",
       "feat.lead": "一次对话，路由到合适的能力——聊天、健康、地图等。能帮你办好，而不只是回复。",
-      "feat.live": "v1 已上线：聊天、健康与地图——还有日历、提醒事项与通讯录，以及 Siri 快捷指令，每次操作都需「允许一次」确认。",
+      "feat.live": "v1 首发包含：聊天、健康与地图——还有日历、提醒事项、通讯录与 Siri 快捷指令，每次操作都需「允许一次」确认。",
       "feat.health.note": "健康摘要仅供参考，并非医疗建议。Go!Gosling 不是医疗设备。",
 
       "cap.soon": "发布后推出",
@@ -549,13 +554,18 @@
       "cap.store.title": "生活服务",
       "cap.store.body": "规划中：服务与商业能力，每次操作前都会征求确认。首发版本不含。",
 
+      "how.eyebrow": "怎么用",
       "how.title": "三步，就够了。",
-      "how.s1.title": "下载 Go!Gosling",
-      "how.s1.body": "发布后，在 App Store 一键获取。",
-      "how.s2.title": "说出你想做的事",
-      "how.s2.body": "打字或语音都行——查路线、看健康、写消息，或者随便问问。",
-      "how.s3.title": "看一眼，点一下，搞定",
-      "how.s3.body": "Go!Gosling 找到最合适的处理方式，并把方案给你看。凡是要预订、发送、付款或分享的操作，每次都会先征得你的确认。",
+      "how.lead": "在 iPhone 上一次对话办成事——Gosli 会路由聊天、健康与地图，先展示方案，动手前一定问你。无需注册即可开始。",
+      "how.s1.title": "在 iPhone 上下载",
+      "how.s1.body": "正式上线后，App Store 一键安装。打开 Gosli 就能开口——聊天和健康无需登录。",
+      "how.s2.title": "告诉 Gosli 你想做什么",
+      "how.s2.body": "打字或说话都行，不必记指令。「我这周睡得怎么样？」走健康，在本机完成。「帮我给房东写条客气的回复」留在对话里，不上传。「找附近咖啡馆并打开地图」才会联网——健康数据绝不会。",
+      "how.s3.title": "先看方案，点一次允许",
+      "how.s3.body": "预订、发送、付款或分享之前，Gosli 会把计划展示给你。每次点一次「允许一次」。要记住的事，也只有你说好才会保存。",
+      "how.hook": "健康数据只留在手机上 · 记忆由你掌控 · 每次都先问",
+      "how.link.features": "查看 v1 功能 →",
+      "how.link.privacy": "了解隐私设计 →",
 
       "priv.title": "你的健康数据，只留在你的手机上。",
       "priv.tagline": "健康数据本地处理 · 记忆由你掌控 · 无需注册即可开始",
@@ -719,9 +729,6 @@
       const saved = localStorage.getItem(STORE_KEY);
       if (saved && SUPPORTED.includes(saved)) return saved;
     } catch (e) {}
-    const nav = (navigator.language || "en").toLowerCase();
-    if (nav.startsWith("zh")) return "zh";
-    if (nav.startsWith("fr")) return "fr";
     return "en";
   }
 
@@ -738,8 +745,12 @@
     return key;
   }
 
-  function applyLang(lang) {
+  let activeLang = "en";
+
+  function applyLang(lang, options) {
+    const opts = options || {};
     if (!SUPPORTED.includes(lang)) lang = "en";
+    activeLang = lang;
     document.documentElement.lang = htmlLang(lang);
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -763,19 +774,28 @@
       btn.setAttribute("aria-pressed", String(btn.getAttribute("data-lang-set") === lang));
     });
 
-    try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    if (opts.persist) {
+      try { localStorage.setItem(STORE_KEY, lang); } catch (e) {}
+    }
     document.dispatchEvent(new CustomEvent("gosling:langchange", { detail: { lang: lang } }));
   }
 
   // Expose minimal API
-  window.GoslingI18n = { apply: applyLang, t: t, current: detectLang };
+  window.GoslingI18n = {
+    apply: applyLang,
+    t: t,
+    current: function () { return activeLang; }
+  };
 
   function init() {
     applyLang(detectLang());
     document.querySelectorAll("[data-lang-set]").forEach(function (btn) {
       btn.addEventListener("click", function () {
-        applyLang(btn.getAttribute("data-lang-set"));
+        applyLang(btn.getAttribute("data-lang-set"), { persist: true });
       });
+    });
+    document.addEventListener("gosling:chrome-ready", function () {
+      applyLang(activeLang);
     });
   }
 

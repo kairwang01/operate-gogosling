@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title data-i18n="how.metaTitle">How Go!Gosling works — Go!Gosling</title>
-  <meta name="description" data-i18n-attr="content:how.metaDesc" content="How Go!Gosling works — three steps to turn what you say into action on iPhone." />
+  <meta name="description" data-i18n-attr="content:how.metaDesc" content="Three steps from App Store to done: tell Gosli what you need, review the plan, and tap Allow once. Chat and health stay on your iPhone." />
   <meta name="robots" content="index,follow" />
   <link rel="canonical" href="https://gogosling.ca/how.html" />
   <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
@@ -19,8 +19,8 @@
   <link rel="stylesheet" href="assets/css/tokens.css" />
   <link rel="stylesheet" href="assets/css/base.css" />
   <link rel="stylesheet" href="assets/css/components.css" />
-  <link rel="stylesheet" href="assets/css/site.css" />
-  <link rel="stylesheet" href="assets/css/mobile.css" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260606" />
+  <link rel="stylesheet" href="assets/css/mobile.css?v=20260606" />
 
 </head>
 <body>
@@ -32,36 +32,50 @@
     <section class="section subhero" id="how">
       <div class="container">
         <div class="sec-head center">
-          <h2 class="section-title" data-i18n="how.title">Three steps to get started.</h2>
+          <span class="eyebrow" data-i18n="how.eyebrow">How it works</span>
+          <h2 class="section-title" data-i18n="how.title">Three steps. That's it.</h2>
+          <p class="lead" data-i18n="how.lead">One conversation on your iPhone — Gosli routes chat, health, and maps, shows you the plan, and asks before it acts. No account needed to start.</p>
         </div>
         <div class="steps steps--plain">
           <div class="step">
-            <div class="step__num">1</div>
-            <h3 data-i18n="how.s1.title">Download Go!Gosling</h3>
-            <p data-i18n="how.s1.body">One tap from the App Store when it launches on iPhone.</p>
+            <div class="step__num" aria-hidden="true">1</div>
+            <div class="step__copy">
+              <h3 data-i18n="how.s1.title">Get it on iPhone</h3>
+              <p data-i18n="how.s1.body">One tap from the App Store at launch. Open Gosli and start talking — chat and health work without signing in.</p>
+            </div>
           </div>
           <div class="step">
-            <div class="step__num">2</div>
-            <h3 data-i18n="how.s2.title">Describe what you want</h3>
-            <p data-i18n="how.s2.body">Type or speak a natural instruction — find a route, check health, draft a message, or ask a question.</p>
+            <div class="step__num" aria-hidden="true">2</div>
+            <div class="step__copy">
+              <h3 data-i18n="how.s2.title">Tell Gosli what you want</h3>
+              <p data-i18n="how.s2.body">Speak or type in plain language. &ldquo;How did I sleep?&rdquo; routes to Health on your iPhone. &ldquo;Draft a kind reply&rdquo; stays in Chat on-device. &ldquo;Find a café and open Maps&rdquo; may use our server — never your health data.</p>
+            </div>
           </div>
           <div class="step">
-            <div class="step__num">3</div>
-            <h3 data-i18n="how.s3.title">Confirm, and it's done</h3>
-            <p data-i18n="how.s3.body">Go!Gosling routes to the right capability and shows you the plan. Anything that books, sends, pays, or shares asks for your confirmation first — every time.</p>
+            <div class="step__num" aria-hidden="true">3</div>
+            <div class="step__copy">
+              <h3 data-i18n="how.s3.title">See the plan, tap Allow once</h3>
+              <p data-i18n="how.s3.body">Before anything books, sends, pays, or shares, Gosli shows what it will do. You tap Allow once — every time. Memory saves only when you say yes.</p>
+            </div>
           </div>
         </div>
+        <p class="how-hook" data-i18n="how.hook">Health on your iPhone · Memory you control · Allow once, every time</p>
+        <nav class="how-links" aria-label="Related pages">
+          <a href="features.html" data-i18n="how.link.features">See what ships in v1 →</a>
+          <span class="how-links__sep" aria-hidden="true">·</span>
+          <a href="privacy.html" data-i18n="how.link.privacy">How we protect your data →</a>
+        </nav>
       </div>
     </section>
 
   </main>
 
   <div id="site-footer"></div>
-  <script src="assets/js/chrome.js"></script>
-  <script src="assets/js/i18n-fr.js"></script>
-  <script src="assets/js/i18n.js"></script>
-  <script src="assets/js/cookies.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/chrome.js?v=20260605"></script>
+  <script src="assets/js/i18n-fr.js?v=20260605"></script>
+  <script src="assets/js/i18n.js?v=20260605"></script>
+  <script src="assets/js/cookies.js?v=20260605"></script>
+  <script src="assets/js/main.js?v=20260605"></script>
 </body>
 </html>
 

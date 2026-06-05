@@ -157,4 +157,7 @@
   inject("site-header", HEADER);
   inject("site-footer", FOOTER);
   window.GOSLING_RENDER_COOKIE_BANNER(false);
+  requestAnimationFrame(function () {
+    document.dispatchEvent(new CustomEvent("gosling:chrome-ready"));
+  });
 })();
