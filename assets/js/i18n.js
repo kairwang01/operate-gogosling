@@ -313,6 +313,7 @@
       "cta.note": "We'll email you on launch day. No spam, ever.",
       "form.success": "You're on the list. We'll email you when Go!Gosling launches — nothing else.",
       "form.invalid": "Please enter a valid email address.",
+      "form.sending": "Submitting…",
       "form.sendError": "Could not join the list right now. Please try again in a moment.",
 
       /* Footer */
@@ -691,6 +692,7 @@
       "cta.note": "上线当天邮件通知，绝无垃圾邮件。",
       "form.success": "已加入名单。Go!Gosling 发布时第一时间通知你——没有其他打扰。",
       "form.invalid": "请输入有效的邮箱地址。",
+      "form.sending": "提交中……",
       "form.sendError": "暂时无法加入名单，请稍后再试。",
 
       "foot.tagline": "Go!Gosling——说一句就办好，健康数据只留在你手机上。",

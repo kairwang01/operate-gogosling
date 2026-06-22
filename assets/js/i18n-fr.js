@@ -308,6 +308,7 @@
     "cta.note": "Nous vous enverrons un courriel le jour du lancement. Jamais de pourriel.",
     "form.success": "Vous êtes sur la liste. Nous vous écrirons au lancement de Go!Gosling — rien d'autre.",
     "form.invalid": "Veuillez entrer une adresse courriel valide.",
+    "form.sending": "Envoi…",
 
     "foot.tagline": "Go!Gosling — dites-le et c'est réglé, avec votre santé conservée sur votre iPhone.",
     "foot.product": "Produit",

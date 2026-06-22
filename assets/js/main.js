@@ -61,6 +61,11 @@
         first.focus();
       }
     });
+    document.addEventListener("click", function (e) {
+      if (!mobileMenu.classList.contains("is-open")) return;
+      if (mobileMenu.contains(e.target) || menuBtn.contains(e.target)) return;
+      setOpen(false);
+    });
   }
 
   /* --- Pre-launch store badge → waitlist focus -------------------------- */
@@ -153,6 +158,8 @@
     form.hidden = true;
     if (success) {
       success.hidden = false;
+      success.setAttribute("aria-live", "polite");
+      success.setAttribute("aria-atomic", "true");
       const live = success.querySelector("[data-success-text]");
       if (live) live.textContent = t("form.success");
     }
@@ -179,10 +186,20 @@
       }
       input.removeAttribute("aria-invalid");
       const btn = form.querySelector('button[type="submit"]');
-      if (btn) btn.disabled = true;
+      let btnLabel = "";
+      if (btn) {
+        btnLabel = btn.innerHTML;
+        btn.disabled = true;
+        btn.setAttribute("aria-busy", "true");
+        btn.textContent = t("form.sending");
+      }
+      function restoreBtn() {
+        if (btn) { btn.disabled = false; btn.removeAttribute("aria-busy"); btn.innerHTML = btnLabel; }
+      }
 
       function done() {
-        if (btn) btn.disabled = false;
+        restoreBtn();
+        if (input) input.value = "";
         persistWaitlistLocal(email);
         showWaitlistSuccess(form);
       }
@@ -196,7 +213,7 @@
           if (!res.ok) throw new Error("waitlist failed");
           done();
         }).catch(function () {
-          if (btn) btn.disabled = false;
+          restoreBtn();
           showError(form, t("form.sendError"));
         });
         return;
@@ -212,8 +229,7 @@
       err = document.createElement("p");
       err.setAttribute("data-form-error", "");
       err.setAttribute("role", "alert");
-      err.className = "form-note";
-      err.style.color = "#c0564c";
+      err.className = "form-note form-note--error";
       form.parentNode.insertBefore(err, form.nextSibling);
     }
     err.textContent = text;

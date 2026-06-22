@@ -426,3 +426,6 @@
 @media (prefers-reduced-motion: reduce) {
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Error variant for inline form notes (token-driven, replaces inline JS color) */
+.form-note--error { color: var(--danger); }

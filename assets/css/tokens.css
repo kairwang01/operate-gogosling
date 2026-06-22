@@ -119,3 +119,6 @@
 @media (prefers-reduced-motion: reduce) {
   :root { --dur-standard: 0.12s; --dur-reveal: 0.12s; }
 }
+
+/* Semantic: form/error (tokenizes the previously-hardcoded error color) */
+:root { --danger: #c0564c; }
