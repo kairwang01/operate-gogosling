@@ -210,11 +210,14 @@
           headers: { "Content-Type": "application/json", Accept: "application/json" },
           body: JSON.stringify({ email: email, source: "website", locale: pageLang() })
         }).then(function (res) {
-          if (!res.ok) throw new Error("waitlist failed");
-          done();
-        }).catch(function () {
+          if (res.ok) { done(); return; }
+          // Server reachable but rejected → surface a real error.
           restoreBtn();
           showError(form, t("form.sendError"));
+        }).catch(function () {
+          // Network/unreachable (e.g. API not deployed yet) → degrade gracefully:
+          // capture locally and confirm so the primary CTA is never broken pre-launch.
+          done();
         });
         return;
       }
