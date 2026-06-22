@@ -10,7 +10,8 @@
     { page: "how",      href: "how.html",      key: "nav.how",      en: "How it works" },
     { page: "faq",      href: "faq.html",      key: "nav.faq",      en: "FAQ" },
     { page: "about",    href: "about.html",    key: "nav.about",    en: "About" },
-    { page: "careers",  href: "careers.html",  key: "nav.careers",  en: "Careers" }
+    { page: "careers",  href: "careers.html",  key: "nav.careers",  en: "Careers" },
+    { page: "web3",     href: "web3.html",     key: "nav.web3",     en: "Early access" }
   ];
 
   var active = window.GOSLING_PAGE || "";
@@ -98,6 +99,7 @@
               { href: "faq.html",            key: "foot.health",        en: "Health disclaimer" }
             ]) +
             footCol("foot.connect", "Connect", [
+              { href: "web3.html", key: "foot.web3", en: "Early access" },
               { href: "mailto:hello@gogosling.ca", key: "foot.email", en: "hello@gogosling.ca" }
             ]) +
           '</div>' +

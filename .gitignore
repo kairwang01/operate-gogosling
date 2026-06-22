@@ -1,2 +1,8 @@
 .claude/
 .DS_Store
+.cursor/
+AGENTS.md
+CLAUDE.md
+HANDOFF.md
+MERGED_CHAT_HISTORY.md
+scripts/bump-handoff.py

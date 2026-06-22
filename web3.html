@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="web3.metaTitle">Early access — Go!Gosling</title>
+  <meta name="description" data-i18n-attr="content:web3.metaDesc"
+        content="Reserve early access to Go!Gosling with your Ethereum wallet — a free signature, no transaction. We only ever see your public address." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://gogosling.ca/web3.html" />
+  <link rel="alternate" hreflang="en" href="https://gogosling.ca/web3.html" />
+  <link rel="alternate" hreflang="fr" href="https://gogosling.ca/web3.html" />
+  <link rel="alternate" hreflang="zh-Hans" href="https://gogosling.ca/web3.html" />
+  <link rel="alternate" hreflang="x-default" href="https://gogosling.ca/web3.html" />
+  <link rel="icon" href="assets/img/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="assets/img/favicon-16.png" sizes="16x16" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <meta name="color-scheme" content="light" />
+  <link rel="stylesheet" href="assets/css/tokens.css" />
+  <link rel="stylesheet" href="assets/css/base.css" />
+  <link rel="stylesheet" href="assets/css/components.css" />
+  <link rel="stylesheet" href="assets/css/site.css?v=20260606" />
+  <link rel="stylesheet" href="assets/css/mobile.css?v=20260606" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <script>window.GOSLING_PAGE = "web3";</script>
+  <div id="site-header"></div>
+
+  <main id="main">
+    <section class="section subhero subhero--canada">
+      <div class="container">
+        <div class="sec-head center">
+          <span class="eyebrow eyebrow--brand" data-i18n="web3.eyebrow">Early access</span>
+          <h1 class="section-title" style="margin-top:var(--space-4)" data-i18n="web3.title">Reserve your spot with your wallet.</h1>
+          <p class="lead mx-auto measure" style="margin-inline:auto" data-i18n="web3.lead">Connect an Ethereum wallet and sign a free message to join the Go!Gosling early-access list. No transaction, no gas — and we only ever see your public address.</p>
+        </div>
+
+        <div class="wallet" data-wallet data-state="init" aria-live="polite">
+          <div class="wallet__panel" data-w="init"><span class="wallet__spinner" aria-hidden="true"></span></div>
+
+          <div class="wallet__panel" data-w="unsupported">
+            <span class="wallet__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="3"/><path d="M16 12h3"/><path d="M2 9h14a2 2 0 012 2v2a2 2 0 01-2 2H2"/></svg>
+            </span>
+            <h2 class="wallet__title" data-i18n="web3.unsupported.title">You'll need an Ethereum wallet</h2>
+            <p class="wallet__body" data-i18n="web3.unsupported.body">Install a browser wallet like MetaMask, then come back to reserve your spot.</p>
+            <a class="btn btn--primary" href="https://ethereum.org/en/wallets/find-wallet/" target="_blank" rel="noopener noreferrer" data-i18n="web3.get">Get a wallet</a>
+          </div>
+
+          <div class="wallet__panel" data-w="idle">
+            <span class="wallet__ic" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="13" rx="3"/><path d="M16 12h3"/></svg>
+            </span>
+            <h2 class="wallet__title" data-i18n="web3.connect.title">Connect your wallet</h2>
+            <p class="wallet__body" data-i18n="web3.connect.body">One click to connect — we never request a transaction.</p>
+            <button type="button" class="btn btn--primary btn--lg" data-wallet-connect data-i18n="web3.connect">Connect wallet</button>
+          </div>
+
+          <div class="wallet__panel" data-w="connecting">
+            <span class="wallet__spinner" aria-hidden="true"></span>
+            <p class="wallet__body" data-i18n="web3.connecting">Connecting… confirm in your wallet.</p>
+          </div>
+
+          <div class="wallet__panel" data-w="connected">
+            <div class="wallet__id">
+              <span class="wallet__dot" aria-hidden="true"></span>
+              <span class="wallet__addr" data-wallet-address>0x…</span>
+              <span class="wallet__chain" data-wallet-chain></span>
+            </div>
+            <h2 class="wallet__title" data-i18n="web3.connected.title">Wallet connected</h2>
+            <p class="wallet__body" data-i18n="web3.connected.body">Sign a free message to lock in your early-access spot.</p>
+            <button type="button" class="btn btn--primary btn--lg" data-wallet-reserve data-i18n="web3.reserve">Reserve early access</button>
+            <p class="wallet__note" data-wallet-note hidden role="alert"></p>
+            <button type="button" class="wallet__link" data-wallet-disconnect data-i18n="web3.disconnect">Disconnect</button>
+          </div>
+
+          <div class="wallet__panel" data-w="signing">
+            <span class="wallet__spinner" aria-hidden="true"></span>
+            <p class="wallet__body" data-i18n="web3.signing">Confirm the signature in your wallet…</p>
+          </div>
+
+          <div class="wallet__panel" data-w="joined">
+            <span class="wallet__check" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+            </span>
+            <h2 class="wallet__title" data-i18n="web3.joined.title">You're on the early-access list</h2>
+            <p class="wallet__body"><span data-i18n="web3.joined.body">We'll reach this wallet first when early access opens.</span> <span class="wallet__addr" data-wallet-address>0x…</span></p>
+            <button type="button" class="wallet__link" data-wallet-disconnect data-i18n="web3.disconnect">Disconnect</button>
+          </div>
+
+          <div class="wallet__panel" data-w="error">
+            <span class="wallet__ic wallet__ic--err" aria-hidden="true">!</span>
+            <h2 class="wallet__title" data-i18n="web3.errTitle">Couldn't connect</h2>
+            <p class="wallet__body" data-wallet-error></p>
+            <button type="button" class="btn btn--primary" data-wallet-retry data-i18n="web3.retry">Try again</button>
+          </div>
+        </div>
+
+        <p class="wallet__privacy" data-i18n="web3.privacy">Privacy first: connecting is optional and reads only your public wallet address. Reserving is a free off-chain signature — never a transaction, and never access to your funds.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script>/* window.GOSLING_WEB3_API = "https://api.gogosling.ca"; // set when the backend is live */</script>
+  <script src="assets/js/chrome.js?v=20260605b"></script>
+  <script src="assets/js/i18n-fr.js?v=20260605b"></script>
+  <script src="assets/js/i18n.js?v=20260605b"></script>
+  <script src="assets/js/cookies.js?v=20260605b"></script>
+  <script src="assets/js/main.js?v=20260605b"></script>
+  <script src="assets/js/wallet.js?v=20260606"></script>
+</body>
+</html>
