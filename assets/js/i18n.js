@@ -347,6 +347,7 @@
       "legal.back": "Back to home",
       "legal.promiseLink": "Read our privacy promise",
       "pp.title": "Privacy Policy",
+      "pp.metaDesc": "Go!Gosling Privacy Policy — your Apple Health data is processed on-device and never leaves your phone; sign-in is optional.",
       "pp.intro": "Go!Gosling is a chat-first life assistant. This policy explains what we collect, what we do not collect, and the controls you have. The guiding principle: your personal health data never leaves your device, and we never act on your behalf without asking.",
       "pp.s1.t": "1. Your health data stays on your device",
       "pp.s1.b": "Go!Gosling reads Apple Health (HealthKit) data only on your device, to show you your own insights (heart rate, sleep, activity, recovery). Your HealthKit data, any summaries of it, and any prompts about your health are never transmitted off your device, never sent to our servers, never sent to any third-party or remote AI model, and never used for advertising. Health-related questions are answered fully on-device. Only general, non-health requests (e.g. \"find a cafe nearby\") may use our server.",
@@ -374,6 +375,7 @@
       "foot.cookies": "Cookie settings",
 
       "tos.title": "Terms of Service",
+      "tos.metaDesc": "Go!Gosling Terms of Service — how you may use the app, the AI-content disclaimer, and the note that it is not a medical device.",
       "tos.intro": "These Terms govern your use of the Go!Gosling app. By using Go!Gosling, you agree to them. Please read them together with our Privacy Policy.",
       "tos.s1.t": "1. The service",
       "tos.s1.b": "Go!Gosling turns what you say into action. You describe tasks in natural language, and Go!Gosling routes them to the right capability — chat, health, recipes, routes, search, media, and store. An optional account enables membership and server-backed local-life results, but is not required to use chat or health.",
@@ -724,6 +726,7 @@
       "legal.back": "返回首页",
       "legal.promiseLink": "阅读我们的隐私承诺",
       "pp.title": "隐私政策",
+      "pp.metaDesc": "Go!Gosling 隐私政策——你的 Apple 健康数据在设备本地处理，绝不离开手机；登录为可选项。",
       "pp.intro": "Go!Gosling 是一款以对话为核心的生活助手。这份政策说明我们收集什么、不收集什么，以及你拥有哪些控制权。核心原则：你的个人健康数据绝不离开你的设备，未经你同意我们绝不替你行动。",
       "pp.s1.t": "1. 你的健康数据留在你的设备上",
       "pp.s1.b": "Go!Gosling 只在你的设备上读取 Apple 健康（HealthKit）数据，用来给你看你自己的洞察（心率、睡眠、活动、恢复）。你的 HealthKit 数据、它的任何摘要、以及任何健康相关的提问，都绝不传出你的设备、绝不发给我们的服务器、绝不发给任何第三方或远程 AI 模型，也绝不用于广告。健康相关的问题完全在设备本地作答。只有一般的非健康请求（比如「查附近的咖啡馆」）才可能用到我们的服务器。",
@@ -751,6 +754,7 @@
       "foot.cookies": "Cookie 设置",
 
       "tos.title": "服务条款",
+      "tos.metaDesc": "Go!Gosling 服务条款——应用的使用方式、AI 内容免责声明，以及它并非医疗设备的说明。",
       "tos.intro": "本条款适用于你使用 Go!Gosling 应用。使用 Go!Gosling 即表示你同意。请和我们的隐私政策一起看。",
       "tos.s1.t": "1. 服务说明",
       "tos.s1.b": "Go!Gosling 把你说的话变成行动。你用日常语言说想做什么，它把任务路由到合适的能力——聊天、健康、菜谱、路线、搜索、影音、生活服务。可选账号用来开通会员、获取服务器支持的本地生活结果，但使用聊天或健康并不需要它。",
